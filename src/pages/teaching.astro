@@ -7,8 +7,50 @@ import { learningResourceJsonLd } from "@utils/seo";
 const title = "Teaching Resources";
 const description = "Teaching guidance for educators covering eugenics history, scientific racism, primary sources, and modern bioethics responsibly.";
 const path = "/teaching.html";
-const sources = [commonSources.ucl, commonSources.archive, commonSources.nhgri];
+const sources = [commonSources.ucl, commonSources.archive, commonSources.nhgri, commonSources.uclInquiry];
 const jsonLd = learningResourceJsonLd({ title, description, path });
+const coursePaths = [
+  {
+    title: "90-Minute Intro",
+    duration: "One class meeting",
+    steps: [
+      "Open with the anti-endorsement statement and content warning.",
+      "Define eugenics, scientific racism, forced sterilization, and genetic discrimination.",
+      "Use the timeline and one secondary-source excerpt before any primary material.",
+      "Close with a rights-based discussion: consent, dignity, disability rights, and state power."
+    ]
+  },
+  {
+    title: "Bioethics Seminar",
+    duration: "Two to three meetings",
+    steps: [
+      "Begin with eugenics vs. genetics and the modern eugenics debate.",
+      "Compare UNESCO, WHO, and Nuffield governance language on consent, justice, and human dignity.",
+      "Ask students to separate therapy, prevention, enhancement, social pressure, and discrimination.",
+      "Avoid asking students to design reproductive policy or rank traits."
+    ]
+  },
+  {
+    title: "Archive Source Analysis",
+    duration: "Workshop",
+    steps: [
+      "Use the archive template before showing any historical primary-source excerpt.",
+      "Identify creator, institution, audience, harmful claim, affected groups, and missing context.",
+      "Discuss why an archive item should not be republished without warnings and critique.",
+      "Require a reflection on power: who classified whom, and with what consequences?"
+    ]
+  },
+  {
+    title: "Modern Genetics Ethics",
+    duration: "Upper-level unit",
+    steps: [
+      "Start with voluntary clinical genetics and genetic discrimination safeguards.",
+      "Move to embryo selection, genome editing, disability-rights critiques, and access inequality.",
+      "Use source-backed policy statements rather than speculative technology hype.",
+      "End with governance questions about consent, accountability, and affected communities."
+    ]
+  }
+];
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd} alert="Teaching this history requires critical education, context, care, and explicit rejection of dehumanizing claims.">
@@ -33,6 +75,21 @@ const jsonLd = learningResourceJsonLd({ title, description, path });
         <h3><a href="archive.html">Archive Source Template</a></h3>
         <p>A model for teaching primary-source analysis with content warnings and editorial notes.</p>
       </article>
+    </section>
+
+    <section>
+      <h2>Course Paths</h2>
+      <div class="course-paths">
+        {coursePaths.map((pathway) => (
+          <article>
+            <p class="eyebrow">{pathway.duration}</p>
+            <h3>{pathway.title}</h3>
+            <ol>
+              {pathway.steps.map((step) => <li>{step}</li>)}
+            </ol>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section>

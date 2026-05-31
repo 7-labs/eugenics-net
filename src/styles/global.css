@@ -101,12 +101,17 @@ main {
   padding: clamp(1rem, 4vw, 3rem);
 }
 
+.home-main {
+  max-width: 1180px;
+}
+
 .hero {
   align-items: end;
   background:
-    linear-gradient(110deg, rgba(23, 50, 77, 0.97), rgba(35, 92, 127, 0.78)),
-    url("data:image/svg+xml,%3Csvg width='1200' height='720' viewBox='0 0 1200 720' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23f3efe4' stroke-opacity='.24'%3E%3Cpath d='M60 120h1080M60 240h1080M60 360h1080M60 480h1080M60 600h1080M180 60v600M360 60v600M540 60v600M720 60v600M900 60v600M1080 60v600'/%3E%3Ccircle cx='260' cy='240' r='84'/%3E%3Ccircle cx='860' cy='430' r='126'/%3E%3Cpath d='M150 540c150-120 300-120 450 0s300 120 450 0'/%3E%3C/g%3E%3C/svg%3E");
+    linear-gradient(110deg, rgba(20, 28, 35, 0.96), rgba(35, 92, 127, 0.72)),
+    url("assets/archive-reading-room.webp");
   background-size: cover;
+  background-position: center;
   border-radius: 8px;
   box-shadow: var(--shadow);
   color: #fff;
@@ -133,7 +138,8 @@ main {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   color: var(--navy);
   font-family: Georgia, "Times New Roman", serif;
   letter-spacing: 0;
@@ -210,7 +216,8 @@ section {
 .standards,
 .sources,
 .content-warning,
-.article-support {
+.article-support,
+.article-orientation {
   background: var(--panel);
   border: 1px solid var(--line);
   border-left: 5px solid var(--red);
@@ -225,7 +232,8 @@ section {
 }
 
 .link-grid,
-.collection-grid {
+.collection-grid,
+.course-paths {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -238,7 +246,8 @@ section {
 
 .link-grid article,
 .collection-grid article,
-.glossary-list article {
+.glossary-list article,
+.course-paths article {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -246,17 +255,38 @@ section {
 }
 
 .link-grid h3,
+.link-grid h4,
 .collection-grid h3,
-.glossary-list h3 {
+.glossary-list h3,
+.course-paths h3 {
   font-size: 1.25rem;
   margin: 0 0 0.5rem;
 }
 
 .link-grid p,
 .collection-grid p,
-.glossary-list p {
+.glossary-list p,
+.course-paths p {
   color: var(--muted);
   margin: 0;
+}
+
+.route-sections > h2 {
+  margin-bottom: 0.75rem;
+}
+
+.route-band {
+  border-top: 1px solid var(--line);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.route-band h3 {
+  margin: 0 0 0.9rem;
+}
+
+.compact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .topic-list {
@@ -291,6 +321,52 @@ section {
 
 .article-body {
   font-size: 1.04rem;
+}
+
+.breadcrumbs {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs ol {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  color: var(--line);
+  content: "/";
+  margin-left: 0.35rem;
+}
+
+.review-status {
+  color: var(--muted);
+  margin: 0.8rem 0 0;
+}
+
+.article-orientation {
+  border-left-color: var(--gold);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
+}
+
+.article-orientation h2 {
+  margin-top: 0;
+}
+
+.article-toc ol {
+  margin-bottom: 0;
+}
+
+.source-quality-note {
+  border-left-color: var(--blue);
 }
 
 .article-body h2 {
@@ -427,7 +503,10 @@ summary {
   }
 
   .link-grid,
-  .collection-grid {
+  .collection-grid,
+  .course-paths,
+  .compact-grid,
+  .article-orientation {
     grid-template-columns: 1fr;
   }
 

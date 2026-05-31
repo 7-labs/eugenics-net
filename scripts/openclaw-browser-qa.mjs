@@ -6,8 +6,14 @@ const baseUrl = process.env.OPENCLAW_QA_BASE_URL || process.env.OPENCLAW_PREVIEW
 const artifactDir = process.env.OPENCLAW_ARTIFACT_DIR || path.join(process.cwd(), ".codex-results", "browser-qa");
 const pages = [
   { name: "home", path: "/" },
+  { name: "what-is-eugenics", path: "/what-is-eugenics.html" },
+  { name: "scientific-racism", path: "/eugenics-and-scientific-racism.html" },
   { name: "forced-sterilization-laws", path: "/forced-sterilization-laws.html" },
-  { name: "article", path: "/what-is-eugenics.html" },
+  { name: "united-states", path: "/eugenics-in-the-united-states.html" },
+  { name: "genetics-boundary", path: "/eugenics-vs-genetics.html" },
+  { name: "new-race", path: "/eugenics-and-race.html" },
+  { name: "new-embryo-selection", path: "/genetic-testing-embryo-selection-ethical-boundaries.html" },
+  { name: "new-sweden", path: "/eugenics-in-sweden.html" },
   { name: "archive", path: "/archive.html" },
   { name: "teaching", path: "/teaching.html" },
   { name: "glossary", path: "/glossary.html" },

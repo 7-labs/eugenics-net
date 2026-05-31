@@ -9,6 +9,7 @@ interface Props {
   description?: string;
   path?: string;
   alert?: string;
+  image?: string;
   jsonLd?: unknown | unknown[];
 }
 
@@ -17,10 +18,12 @@ const {
   description = SITE.defaultDescription,
   path = "/",
   alert = SITE.globalAlert,
+  image = SITE.defaultImage,
   jsonLd = []
 } = Astro.props;
 const fullTitle = title === SITE.title ? title : `${title} | ${SITE.name}`;
 const blocks = Array.isArray(jsonLd) ? jsonLd.filter(Boolean) : [jsonLd].filter(Boolean);
+const imageUrl = image.startsWith("http") ? image : new URL(image, SITE.url).toString();
 ---
 
 <!DOCTYPE html>
@@ -35,7 +38,9 @@ const blocks = Array.isArray(jsonLd) ? jsonLd.filter(Boolean) : [jsonLd].filter(
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl(path)} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={imageUrl} />
     {blocks.map((block) => (
       <script type="application/ld+json" set:html={safeJsonLd(block)} />
     ))}

@@ -16,6 +16,11 @@ interface Faq {
   answer: string;
 }
 
+interface TocItem {
+  id: string;
+  label: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -29,6 +34,11 @@ interface Props {
   related?: { title: string; href: string }[];
   discussionQuestions?: string[];
   faqs?: Faq[];
+  keyTakeaways?: string[];
+  misconceptions?: string[];
+  reviewStatus?: string;
+  sourceNotes?: string;
+  tableOfContents?: TocItem[];
   path: string;
 }
 
@@ -45,21 +55,37 @@ const {
   related = [],
   discussionQuestions = [],
   faqs = [],
+  keyTakeaways = [],
+  misconceptions = [],
+  reviewStatus = "Pre-launch editorial review complete; subject-matter review pending.",
+  sourceNotes,
+  tableOfContents = [],
   path
 } = Astro.props;
 const jsonLd = [
   articleJsonLd({ title, description, path, author, lastUpdated, sources }),
   faqJsonLd(faqs)
 ].filter(Boolean);
+const defaultSourceNote = "This page is source-backed by academic, official, or institutional references listed below. It avoids uncontextualized propaganda and does not provide medical, reproductive, genetic, or legal advice.";
+const effectiveSourceNote = sourceNotes || defaultSourceNote;
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
   <main class="page article-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li aria-current="page">{title}</li>
+      </ol>
+    </nav>
+
     <header class="page-header">
       <p class="eyebrow">Foundational article</p>
       <h1>{title}</h1>
       <p class="lead">{summary}</p>
       <ArticleMeta author={author} lastUpdated={lastUpdated} topics={topics} />
+      <p class="review-status"><strong>Review status:</strong> {reviewStatus}</p>
     </header>
 
     {contentWarning && <ContentWarning text={contentWarning} />}
@@ -69,9 +95,41 @@ const jsonLd = [
       <p>{position}</p>
     </aside>
 
+    {(keyTakeaways.length > 0 || tableOfContents.length > 0) && (
+      <section class="article-orientation" aria-label="Article orientation">
+        {keyTakeaways.length > 0 && (
+          <div>
+            <h2>Key Takeaways</h2>
+            <ul>
+              {keyTakeaways.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        )}
+        {tableOfContents.length > 0 && (
+          <nav class="article-toc" aria-labelledby="toc-heading">
+            <h2 id="toc-heading">On This Page</h2>
+            <ol>
+              {tableOfContents.map((item) => (
+                <li><a href={`#${item.id}`}>{item.label}</a></li>
+              ))}
+            </ol>
+          </nav>
+        )}
+      </section>
+    )}
+
     <article class="article-body">
       <slot />
     </article>
+
+    {misconceptions.length > 0 && (
+      <section class="article-support" aria-labelledby="misconceptions-heading">
+        <h2 id="misconceptions-heading">Common Misconceptions</h2>
+        <ul>
+          {misconceptions.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    )}
 
     {faqs.length > 0 && (
       <section class="article-support" aria-labelledby="faq-heading">
@@ -104,6 +162,11 @@ const jsonLd = [
         </ul>
       </section>
     )}
+
+    <section class="article-support source-quality-note" aria-labelledby="source-quality-heading">
+      <h2 id="source-quality-heading">Source Quality Note</h2>
+      <p>{effectiveSourceNote}</p>
+    </section>
 
     <SourceList sources={sources} />
   </main>

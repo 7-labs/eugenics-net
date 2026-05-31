@@ -1,21 +1,69 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceList from "@components/SourceList.astro";
-import { commonSources, foundationalArticles, SITE } from "@data/site";
+import { commonSources, SITE } from "@data/site";
 import { webPageJsonLd } from "@utils/seo";
 
 const path = "/";
 const sources = [
   commonSources.nhgri,
+  commonSources.nhgriTimeline,
   commonSources.ushmm,
-  commonSources.unesco,
+  commonSources.unescoGenome,
   commonSources.ucl,
   commonSources.archive
+];
+const routeGroups = [
+  {
+    title: "Core Explanations",
+    items: [
+      ["what-is-eugenics.html", "What Is Eugenics?", "Definition, scope, harms, and responsible study."],
+      ["why-eugenics-is-scientifically-wrong.html", "Why Eugenics Is Scientifically Wrong", "Why complex traits cannot justify ranking people or coercive policy."],
+      ["is-eugenics-pseudoscience.html", "Is Eugenics Pseudoscience?", "How eugenics borrowed scientific language while failing scientific and ethical tests."],
+      ["eugenics-vs-genetics.html", "Eugenics vs. Genetics", "A practical boundary between heredity science and eugenic ideology."]
+    ]
+  },
+  {
+    title: "Laws & Institutions",
+    items: [
+      ["forced-sterilization-laws.html", "Forced Sterilization Laws", "How law, medicine, and institutions denied reproductive autonomy."],
+      ["buck-v-bell-forced-sterilization.html", "Buck v. Bell", "A court case that shows how constitutional language was used to legitimize coercion."],
+      ["eugenics-record-office.html", "Eugenics Record Office", "An institutional route into data collection, pedigree studies, and policy advocacy."],
+      ["charles-davenport-and-institutional-eugenics.html", "Charles Davenport", "A profile of institutional eugenics without a hero narrative."]
+    ]
+  },
+  {
+    title: "People & Countries",
+    items: [
+      ["francis-galton-and-the-origin-of-eugenics.html", "Francis Galton", "The origin of the term and the imperial context around heredity claims."],
+      ["eugenics-in-the-united-states.html", "United States", "State laws, public institutions, immigration restriction, and survivor legacy."],
+      ["eugenics-in-britain.html", "Britain", "Galton, UCL legacies, public debate, and institutional reckoning."],
+      ["eugenics-in-canada.html", "Canada", "Western Canadian sterilization laws and archive-centered accountability."],
+      ["eugenics-in-sweden.html", "Sweden", "A welfare-state case showing how coercion can be framed as social policy."]
+    ]
+  },
+  {
+    title: "Modern Bioethics",
+    items: [
+      ["modern-eugenics-debate.html", "Modern Eugenics Debate", "How the term appears in debates about reproductive technology and social pressure."],
+      ["genetic-testing-embryo-selection-ethical-boundaries.html", "Genetic Testing and Embryo Selection", "Consent, disability rights, genetic discrimination, and access."],
+      ["crispr-enhancement-new-eugenics.html", "CRISPR and Enhancement", "Why governance must distinguish therapy, enhancement, pressure, and rights."],
+      ["eugenics-and-race.html", "Eugenics and Race", "Why race is a social and political category, not a biological ranking."]
+    ]
+  },
+  {
+    title: "Teaching",
+    items: [
+      ["teaching.html", "Teaching Resources", "Course paths, classroom boundaries, and source-analysis guidance."],
+      ["teaching-eugenics-responsibly.html", "Teaching Eugenics Responsibly", "A foundation guide for warnings, framing, and classroom ethics."],
+      ["archive.html", "Critical Archive Model", "Archive publication gates and annotated-entry fields."]
+    ]
+  }
 ];
 ---
 
 <BaseLayout title={SITE.title} path={path} jsonLd={webPageJsonLd({ title: SITE.title, description: SITE.defaultDescription, path })}>
-  <main>
+  <main class="home-main">
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Critical archive and educational resource</p>
@@ -38,41 +86,21 @@ const sources = [
       </p>
     </section>
 
-    <section class="link-grid" aria-labelledby="start-title">
-      <h2 id="start-title">Start Here</h2>
-      <article>
-        <h3><a href="what-is-eugenics.html">What is eugenics?</a></h3>
-        <p>Define the term, its claims, and why the movement must be studied critically rather than normalized.</p>
-      </article>
-      <article>
-        <h3><a href="eugenics-and-scientific-racism.html">Scientific racism</a></h3>
-        <p>Understand how measurement, heredity language, and state policy were used to justify hierarchy and exclusion.</p>
-      </article>
-      <article>
-        <h3><a href="teaching-eugenics-responsibly.html">Teaching responsibly</a></h3>
-        <p>Plan lessons with context, warnings, survivor-centered framing, and explicit rejection of dehumanizing claims.</p>
-      </article>
-    </section>
-
-    <section aria-labelledby="themes-title">
-      <h2 id="themes-title">Core Themes</h2>
-      <div class="topic-list">
-        <a href="forced-sterilization-laws.html">Forced sterilization</a>
-        <a href="eugenics-in-nazi-germany.html">Nazi racial hygiene</a>
-        <a href="eugenics-and-disability-rights.html">Disability rights</a>
-        <a href="eugenics-and-immigration-policy.html">Immigration policy</a>
-        <a href="eugenics-vs-genetics.html">Genetics vs. eugenics</a>
-        <a href="modern-eugenics-debate.html">Modern bioethics</a>
-      </div>
-    </section>
-
-    <section class="article-index" aria-labelledby="foundation-title">
-      <h2 id="foundation-title">Foundation Articles</h2>
-      <ol class="index-list">
-        {foundationalArticles.map((article) => (
-          <li><a href={`${article.slug}.html`}>{article.title}</a></li>
-        ))}
-      </ol>
+    <section class="route-sections" aria-labelledby="routes-title">
+      <h2 id="routes-title">Research Routes</h2>
+      {routeGroups.map((group) => (
+        <section class="route-band" aria-labelledby={`${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}-title`}>
+          <h3 id={`${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}-title`}>{group.title}</h3>
+          <div class="link-grid compact-grid">
+            {group.items.map(([href, title, description]) => (
+              <article>
+                <h4><a href={href}>{title}</a></h4>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
     </section>
 
     <section class="standards" aria-labelledby="standards-title">

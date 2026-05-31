@@ -13,6 +13,11 @@ const faqSchema = z.object({
   answer: z.string()
 });
 
+const tocSchema = z.object({
+  id: z.string(),
+  label: z.string()
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
   schema: z.object({
@@ -27,7 +32,12 @@ const articles = defineCollection({
     sources: z.array(sourceSchema),
     related: z.array(z.string()).default([]),
     discussionQuestions: z.array(z.string()).default([]),
-    faqs: z.array(faqSchema).default([])
+    faqs: z.array(faqSchema).default([]),
+    keyTakeaways: z.array(z.string()).default([]),
+    misconceptions: z.array(z.string()).default([]),
+    reviewStatus: z.string().default("Pre-launch editorial review complete; subject-matter review pending."),
+    sourceNotes: z.string().optional(),
+    tableOfContents: z.array(tocSchema).default([])
   })
 });
 

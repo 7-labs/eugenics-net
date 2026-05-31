@@ -5,6 +5,7 @@ export const SITE = {
   owner: "Eugenics History & Bioethics Project",
   lastUpdated: "2026-05-31",
   correctionsEmail: "corrections@eugenics.net",
+  defaultImage: "/assets/archive-reading-room.webp",
   defaultDescription:
     "A critical education and archive project documenting the history, harms, and modern bioethics legacy of eugenics and scientific racism.",
   globalAlert:
@@ -50,7 +51,17 @@ export const foundationalArticles = [
   { slug: "eugenics-record-office", title: "What Was the Eugenics Record Office?" },
   { slug: "eugenics-in-schools-and-public-health", title: "How Eugenics Entered Schools and Public Health" },
   { slug: "modern-eugenics-debate", title: "Is There Such a Thing as Modern Eugenics?" },
-  { slug: "teaching-eugenics-responsibly", title: "Teaching Eugenics Responsibly" }
+  { slug: "teaching-eugenics-responsibly", title: "Teaching Eugenics Responsibly" },
+  { slug: "eugenics-and-race", title: "Eugenics and Race" },
+  { slug: "is-eugenics-pseudoscience", title: "Is Eugenics Pseudoscience?" },
+  { slug: "genetic-testing-embryo-selection-ethical-boundaries", title: "Genetic Testing, Embryo Selection, and Ethical Boundaries" },
+  { slug: "crispr-enhancement-new-eugenics", title: "CRISPR, Enhancement, and New Eugenics Claims" },
+  { slug: "buck-v-bell-forced-sterilization", title: "Buck v. Bell and Forced Sterilization" },
+  { slug: "francis-galton-and-the-origin-of-eugenics", title: "Francis Galton and the Origin of Eugenics" },
+  { slug: "charles-davenport-and-institutional-eugenics", title: "Charles Davenport and Institutional Eugenics" },
+  { slug: "eugenics-in-britain", title: "Eugenics in Britain" },
+  { slug: "eugenics-in-canada", title: "Eugenics in Canada" },
+  { slug: "eugenics-in-sweden", title: "Eugenics in Sweden" }
 ];
 
 export const commonSources = {
@@ -73,6 +84,58 @@ export const commonSources = {
   archive: {
     label: "Eugenics Archives",
     url: "https://www.eugenicsarchive.ca/"
+  },
+  nhgriTimeline: {
+    label: "NHGRI: Eugenics Timeline",
+    url: "https://www.genome.gov/about-genomics/educational-resources/timelines/eugenics"
+  },
+  nhgriDiscrimination: {
+    label: "NHGRI: Genetic Discrimination",
+    url: "https://www.genome.gov/about-genomics/policy-issues/genetic-discrimination"
+  },
+  unescoGenome: {
+    label: "UNESCO: Universal Declaration on the Human Genome and Human Rights",
+    url: "https://www.unesco.org/en/legal-affairs/universal-declaration-human-genome-and-human-rights"
+  },
+  unescoData: {
+    label: "UNESCO: International Declaration on Human Genetic Data",
+    url: "https://www.unesco.org/en/ethics-science-technology/human-genetic-data"
+  },
+  whoGenomeEditing: {
+    label: "WHO: Human Genome Editing Recommendations",
+    url: "https://www.who.int/publications/i/item/9789240030381"
+  },
+  nuffieldGenomeEditing: {
+    label: "Nuffield Council on Bioethics: Genome Editing and Human Reproduction",
+    url: "https://www.nuffieldbioethics.org/publication/genome-editing-and-human-reproduction-social-and-ethical-issues/"
+  },
+  oyezBuck: {
+    label: "Oyez: Buck v. Bell",
+    url: "https://www.oyez.org/cases/1900-1940/274us200"
+  },
+  cshlEro: {
+    label: "Cold Spring Harbor Laboratory: Eugenics Record Office",
+    url: "https://www.cshl.edu/archives/institutional-collections/eugenics-record-office/"
+  },
+  embryoProjectEro: {
+    label: "Embryo Project Encyclopedia: Eugenics Record Office",
+    url: "https://embryo.asu.edu/pages/eugenics-record-office-cold-spring-harbor-laboratory-1910-1939"
+  },
+  uclCollections: {
+    label: "UCL: Prejudice in Power Eugenics Collections",
+    url: "https://www.ucl.ac.uk/prejudice-in-power/resources/ucls-collections-relation-eugenics"
+  },
+  uclInquiry: {
+    label: "UCL: Inquiry into the History of Eugenics at UCL",
+    url: "https://www.ucl.ac.uk/about/leadership/organisation/president-provost/inquiry-history-eugenics-ucl"
+  },
+  albertaSterilization: {
+    label: "University of Alberta: Sterilization and Eugenics in Alberta",
+    url: "https://journals.library.ualberta.ca/pi/index.php/pi/article/view/18879"
+  },
+  lundSweden: {
+    label: "Lund University: Sweden and Sterilization History",
+    url: "https://www.lunduniversity.lu.se/lup/publication/4905161"
   },
   googleSpam: {
     label: "Google Search Central: Spam Policies",
