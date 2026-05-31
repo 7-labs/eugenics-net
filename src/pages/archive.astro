@@ -1,8 +1,10 @@
 ---
 import ArchiveEntryTemplate from "@components/ArchiveEntryTemplate.astro";
 import SourceList from "@components/SourceList.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { archiveCategories } from "@data/archive";
+import { getEntry } from "astro:content";
+import { annotatedSampleEntries, archiveCategories } from "@data/archive";
 import { commonSources } from "@data/site";
 import { webPageJsonLd } from "@utils/seo";
 
@@ -10,6 +12,7 @@ const title = "Critical Archive Model";
 const description = "Archive policy for contextualizing primary sources about eugenics, scientific racism, forced sterilization, and related harms.";
 const path = "/archive.html";
 const sources = [commonSources.archive, commonSources.ushmm, commonSources.uclCollections, commonSources.cshlEro];
+const sourcePacket = (await getEntry("sourcePackets", "archive"))?.data;
 const plannedCollections = [
   "Sterilization laws and court records with survivor-centered context notes.",
   "Institutional organizations, including research offices and public-health boards.",
@@ -63,6 +66,40 @@ const plannedCollections = [
       </ul>
       <p>No collection should expose downloadable primary-source scans, propaganda images, or historical extremist material until the item has passed the annotated-entry gate above.</p>
     </section>
+
+    <section aria-labelledby="sample-entries-heading">
+      <h2 id="sample-entries-heading">Annotated Non-Download Sample Entries</h2>
+      <p>These are publication models, not raw primary-source downloads. They show the fields a sensitive item must pass before any future archive expansion.</p>
+      <div class="annotated-samples">
+        {annotatedSampleEntries.map((entry) => (
+          <article>
+            <h3>{entry.title}</h3>
+            <dl class="definition-list archive-template">
+              <dt>Year / Country</dt>
+              <dd>{entry.year}; {entry.country}</dd>
+              <dt>Author / Institution</dt>
+              <dd>{entry.authorInstitution}</dd>
+              <dt>Historical Context</dt>
+              <dd>{entry.historicalContext}</dd>
+              <dt>Harmful Claims Contained</dt>
+              <dd>{entry.harmfulClaims}</dd>
+              <dt>Affected Groups</dt>
+              <dd>{entry.affectedGroups}</dd>
+              <dt>Why This Matters Today</dt>
+              <dd>{entry.whyItMatters}</dd>
+              <dt>Source Citation</dt>
+              <dd>{entry.sourceCitation}</dd>
+              <dt>Editorial Note</dt>
+              <dd>{entry.editorialNote}</dd>
+              <dt>Content Warning</dt>
+              <dd>{entry.contentWarning}</dd>
+            </dl>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
 
     <SourceList sources={sources} title="Reference Models" />
   </main>

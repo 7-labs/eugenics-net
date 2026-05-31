@@ -1,0 +1,237 @@
+{
+  "route": "/history.html",
+  "title": "History of Eugenics",
+  "contentTier": "static",
+  "pageType": "hub",
+  "audience": [
+    "educators",
+    "research users",
+    "students",
+    "editors"
+  ],
+  "answerSummary": "History of Eugenics explains historical route hub for chronology, law, race, disability, country cases, and institutions through source-backed critique. It rejects eugenic endorsement, inherited-worth claims, coercive policy, and medical or reproductive advice while naming affected communities and limits.",
+  "reviewStatus": "V3 pre-launch source-packet review complete; external subject-matter and affected-community review pending.",
+  "claimReviewStatus": "Claims are mapped to the source packet below; URL-only citation is not treated as sufficient support.",
+  "lastReviewedBy": "Eugenics History & Bioethics Project editorial desk",
+  "learningObjectives": [
+    "Define the main claim in History of Eugenics without adopting eugenic categories as neutral vocabulary.",
+    "Identify how historical route hub for chronology, law, race, disability, country cases, and institutions moved through institutions, source records, policy, or public authority.",
+    "Distinguish evidence about heredity from claims about human worth, rights, or social value."
+  ],
+  "affectedCommunities": [
+    "disabled people",
+    "institutionalized people",
+    "racialized communities",
+    "survivors and families affected by coercive policy"
+  ],
+  "claimMap": [
+    {
+      "claim": "Eugenics is a rights-violating ideology, not a neutral branch of genetics.",
+      "evidence": "NHGRI: Eugenics Timeline supports the core distinction: evidence about heredity cannot be turned into a ranking of human worth. For History of Eugenics, that means claims about historical route hub for chronology, law, race, disability, country cases, and institutions must be examined for the policy action they invite, not only for the scientific words they use.",
+      "sourceLabels": [
+        "NHGRI: Eugenics Timeline",
+        "NHGRI: Eugenics and Scientific Racism",
+        "United States Holocaust Memorial Museum: Nazi Racial Hygiene"
+      ]
+    },
+    {
+      "claim": "Historical context is required before harmful claims or primary materials are shown.",
+      "evidence": "NHGRI: Eugenics and Scientific Racism and United States Holocaust Memorial Museum: Nazi Racial Hygiene show that eugenics moved through dates, institutions, records, and policies. The page therefore rejects raw display and uses warnings, source roles, and caveats before any sensitive material is discussed.",
+      "sourceLabels": [
+        "NHGRI: Eugenics and Scientific Racism",
+        "United States Holocaust Memorial Museum: Nazi Racial Hygiene",
+        "Eugenics Archives"
+      ]
+    },
+    {
+      "claim": "Affected communities must be named in the analysis.",
+      "evidence": "The source packet identifies who was classified, excluded, sterilized, institutionalized, surveilled, or otherwise harmed. That is essential for historical route hub for chronology, law, race, disability, country cases, and institutions because a policy history centered only on officials or researchers can make coercion look abstract.",
+      "sourceLabels": [
+        "NHGRI: Eugenics Timeline",
+        "Eugenics Archives"
+      ]
+    },
+    {
+      "claim": "Bioethics safeguards are part of the historical lesson.",
+      "evidence": "NHGRI: Eugenics Timeline connects genetic science to dignity, consent, privacy, and non-discrimination. The page uses those principles as boundaries and does not offer medical, reproductive, genetic, or legal advice.",
+      "sourceLabels": []
+    },
+    {
+      "claim": "Teaching should analyze power, not replay classification.",
+      "evidence": "UCL: Teaching UCL's Eugenics Legacies Now and in the Future supports a classroom model built around source criticism, careful warnings, and anti-endorsement. Students should study how eugenic claims worked, not practice the ranking logic that made them harmful.",
+      "sourceLabels": [
+        "Eugenics Archives",
+        "UCL: Inquiry into the History of Eugenics at UCL",
+        "UCL: Teaching UCL's Eugenics Legacies Now and in the Future"
+      ]
+    }
+  ],
+  "deepDiveSections": [
+    {
+      "heading": "Start With the Claim Being Reviewed",
+      "body": "This page treats historical route hub for chronology, law, race, disability, country cases, and institutions as a set of claims that must be checked against evidence, institutions, and harm. The first question is not whether eugenic language sounds modern or efficient. The first question is what the claim does: whether it reduces complex human lives to heredity, ranks people or groups, and then invites law, medicine, education, or administration to act on that ranking. Sources such as NHGRI: Eugenics Timeline and NHGRI: Eugenics and Scientific Racism are used to hold that distinction steady. They help readers see that evidence about heredity is not evidence of human worth, and that a historical claim can be important to document while still being false, coercive, or dehumanizing."
+    },
+    {
+      "heading": "Institutions Made the Idea Powerful",
+      "body": "Eugenics did not become harmful only because individuals held prejudiced beliefs. It became powerful when institutions gave those beliefs records, tests, offices, case files, court orders, lesson plans, public-health language, or archive systems. For History of Eugenics, the institutional layer is central because it shows how a claim could move from a private assumption into an administrative decision. A source packet therefore has to ask who collected the data, what categories were used, which people could refuse, and what consequences followed. That approach prevents the page from treating eugenics as a disembodied idea. It shows how authority, paperwork, and professional language could make a rights violation appear orderly."
+    },
+    {
+      "heading": "Affected Communities Are Not an Afterthought",
+      "body": "A V3 page must identify affected communities as part of the argument, not as a closing moral note. People targeted by eugenic systems included disabled people, institutionalized people, racialized and Indigenous communities, immigrants, poor families, women and girls under institutional control, Jewish communities under Nazi racial policy, and people whose family histories were turned into evidence against them. For historical route hub for chronology, law, race, disability, country cases, and institutions, naming affected communities changes the reading. It stops the page from centering only reformers, courts, researchers, or administrators. It asks how the policy was experienced by people subject to classification, surveillance, segregation, sterilization, exclusion, or public devaluation."
+    },
+    {
+      "heading": "Science and Values Must Be Separated",
+      "body": "The page separates scientific description from value claims. Genetics can describe inheritance, disease risk, variation, or biological mechanisms. Eugenic reasoning takes a different step: it treats selected traits or social outcomes as measures of social worth and then converts that judgment into policy. That leap is the problem. The source packet uses United States Holocaust Memorial Museum: Nazi Racial Hygiene and Eugenics Archives to show why human-rights language, consent, privacy, and non-discrimination belong in any discussion of heredity. The goal is not to reject genetic science. The goal is to reject claims that use scientific vocabulary to authorize hierarchy or coercion."
+    },
+    {
+      "heading": "Teaching Requires an Anti-Endorsement Frame",
+      "body": "Teaching History of Eugenics requires a visible boundary before students encounter disturbing material. The page should not ask learners to rank people, simulate reproductive policy, or debate whether targeted communities deserved rights. Those exercises reproduce the logic being studied. A stronger teaching design asks students to identify the claim, source creator, institution, affected community, missing context, and present-day lesson. This is why the page uses source notes and discussion prompts instead of raw propaganda or unframed primary downloads. Critical education has to show how eugenic claims worked while making clear that the project rejects the claims themselves."
+    }
+  ],
+  "sourceCoverage": [
+    {
+      "label": "NHGRI: Eugenics Timeline",
+      "url": "https://www.genome.gov/about-genomics/educational-resources/timelines/eugenics",
+      "role": "Official timeline connecting terms, institutions, laws, Nazi racial hygiene, postwar human-rights responses, and modern bioethics concerns.",
+      "supportedClaims": [
+        "Eugenics developed across institutions and countries",
+        "The history moved through laws, archives, research, and public policy"
+      ],
+      "limits": "A timeline compresses events and cannot substitute for country-specific or survivor-centered interpretation.",
+      "sensitiveLanguageNotes": "Treat dated institutional language as historical evidence that requires framing before classroom use.",
+      "affectedCommunities": [
+        "students",
+        "survivors of coercive policy",
+        "families affected by sterilization"
+      ]
+    },
+    {
+      "label": "NHGRI: Eugenics and Scientific Racism",
+      "url": "https://www.genome.gov/about-genomics/fact-sheets/Eugenics-and-Scientific-Racism",
+      "role": "Official genomics source explaining eugenics as a scientifically inaccurate theory and showing how scientific racism used measurement language to support hierarchy.",
+      "supportedClaims": [
+        "Eugenics misused heredity and statistics",
+        "Scientific racism converted prejudice into claims of biological hierarchy"
+      ],
+      "limits": "The source is a high-level fact sheet, so it should be paired with legal, archive, country, and affected-community sources for policy detail.",
+      "sensitiveLanguageNotes": "Use the source to critique racist and ableist claims, not to repeat classification terms as neutral categories.",
+      "affectedCommunities": [
+        "racialized communities",
+        "disabled people",
+        "institutionalized people"
+      ]
+    },
+    {
+      "label": "United States Holocaust Memorial Museum: Nazi Racial Hygiene",
+      "url": "https://encyclopedia.ushmm.org/content/en/article/the-biological-state-nazi-racial-hygiene-1933-1939",
+      "role": "Institutional Holocaust education source explaining Nazi racial hygiene, compulsory sterilization, and the escalation of biological-state ideology.",
+      "supportedClaims": [
+        "Nazi racial hygiene fused eugenics, antisemitism, racism, and state violence",
+        "Sterilization and classification were part of a wider system of persecution"
+      ],
+      "limits": "The source is focused on Nazi Germany and should not be used to imply eugenics existed only under Nazism.",
+      "sensitiveLanguageNotes": "Use with direct rejection of antisemitic, racist, and ableist ideology and with warning before discussion of state violence.",
+      "affectedCommunities": [
+        "Jewish communities",
+        "Roma and Sinti communities",
+        "disabled people"
+      ]
+    },
+    {
+      "label": "Eugenics Archives",
+      "url": "https://www.eugenicsarchive.ca/",
+      "role": "Archive and public-history source that includes contextual material, primary-source interpretation, and survivor or affected-community perspectives on eugenics history.",
+      "supportedClaims": [
+        "Survivor and affected-community context changes how sources should be read",
+        "Archives need warnings and interpretation"
+      ],
+      "limits": "Archive entries vary by item; use the site as contextual evidence rather than a substitute for item-level review.",
+      "sensitiveLanguageNotes": "Do not copy raw primary sources or testimony out of context; summarize respectfully and link to context.",
+      "affectedCommunities": [
+        "survivors",
+        "families",
+        "disabled people",
+        "Indigenous and racialized communities"
+      ]
+    },
+    {
+      "label": "UCL: Inquiry into the History of Eugenics at UCL",
+      "url": "https://www.ucl.ac.uk/about/leadership/organisation/president-provost/inquiry-history-eugenics-ucl",
+      "role": "Institutional accountability source documenting university inquiry into historical eugenics links and the need for public review.",
+      "supportedClaims": [
+        "Institutions need transparent review of eugenics legacies",
+        "Prestige and academic authority helped normalize harmful ideas"
+      ],
+      "limits": "The inquiry addresses one university and should be paired with wider country and topic sources.",
+      "sensitiveLanguageNotes": "Avoid reducing institutional reckoning to reputational management; keep affected communities central.",
+      "affectedCommunities": [
+        "students",
+        "staff",
+        "communities harmed by scientific racism"
+      ]
+    },
+    {
+      "label": "UCL: Teaching UCL's Eugenics Legacies Now and in the Future",
+      "url": "https://www.ucl.ac.uk/teaching-learning/publications/2025/may/elep-toolkit-3-teaching-ucls-eugenics-legacies-now-and-future",
+      "role": "Institutional teaching resource for discussing eugenics legacies with explicit pedagogy, warnings, and critical classroom framing.",
+      "supportedClaims": [
+        "Teaching difficult eugenics history requires planning",
+        "Source use should not platform harmful claims"
+      ],
+      "limits": "The toolkit is institution-specific and should be adapted to local classroom needs.",
+      "sensitiveLanguageNotes": "Do not ask students to reenact classification, ranking, or reproductive policy decisions.",
+      "affectedCommunities": [
+        "students",
+        "educators",
+        "affected communities"
+      ]
+    }
+  ],
+  "teachingUse": {
+    "objectives": [
+      "Define the main claim in History of Eugenics without adopting eugenic categories as neutral vocabulary.",
+      "Identify how historical route hub for chronology, law, race, disability, country cases, and institutions moved through institutions, source records, policy, or public authority.",
+      "Distinguish evidence about heredity from claims about human worth, rights, or social value."
+    ],
+    "discussionPrompts": [
+      "What claim does this page ask readers to reject, and what historical evidence explains why it mattered?",
+      "Which institution gave historical route hub for chronology, law, race, disability, country cases, and institutions authority, and which people had the least power to refuse its consequences?",
+      "Where does the page separate historical description from project position?"
+    ],
+    "classroomWarnings": [
+      "Begin with the anti-endorsement statement and content warning before students read historical claims.",
+      "Do not assign simulations that rank people, families, races, disabilities, or reproductive value.",
+      "Do not ask students to debate whether targeted communities deserved rights, dignity, or bodily autonomy.",
+      "Use primary-source excerpts only with provenance, harmful-claim summary, and affected-community context."
+    ]
+  },
+  "doesNotDo": [
+    "History of Eugenics does not endorse eugenics, racial hierarchy, antisemitism, ableism, forced sterilization, genetic discrimination, or reproductive coercion.",
+    "It does not provide medical, reproductive, genetic counseling, fertility, or legal advice.",
+    "It does not publish raw propaganda, extremist material, or primary-source downloads without context and review.",
+    "It does not treat survivor testimony, affected-community history, or disability-rights critique as optional decoration.",
+    "It does not use SEO value as a reason to flatten complex history into thin pages or sensational summaries."
+  ],
+  "relatedTopicPath": [
+    {
+      "label": "Definition",
+      "href": "what-is-eugenics.html"
+    },
+    {
+      "label": "Science critique",
+      "href": "why-eugenics-is-scientifically-wrong.html"
+    },
+    {
+      "label": "Scientific racism",
+      "href": "eugenics-and-scientific-racism.html"
+    },
+    {
+      "label": "Forced sterilization law",
+      "href": "forced-sterilization-laws.html"
+    },
+    {
+      "label": "Modern bioethics",
+      "href": "bioethics.html"
+    }
+  ]
+}

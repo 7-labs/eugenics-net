@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { SITE } from "@data/site";
 import { webPageJsonLd } from "@utils/seo";
 
 const title = "Corrections and Contact";
 const description = "How to report factual, citation, context, or accessibility issues for the Eugenics History and Bioethics Archive.";
 const path = "/corrections.html";
+const sourcePacket = (await getEntry("sourcePackets", "corrections"))?.data;
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Corrections help protect accuracy, context, critical education, and responsible use of sensitive historical material.">
@@ -34,5 +37,7 @@ const path = "/corrections.html";
       <h2>Boundaries</h2>
       <p>This address is not a medical, reproductive, genetic counseling, legal, or crisis-support service. It is also not a route for advocacy of eugenics, racial hierarchy, disability devaluation, antisemitism, forced sterilization, or genetic discrimination.</p>
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
   </main>
 </BaseLayout>

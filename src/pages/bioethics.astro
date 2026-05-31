@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceList from "@components/SourceList.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { commonSources } from "@data/site";
 import { webPageJsonLd } from "@utils/seo";
 
@@ -8,9 +10,10 @@ const title = "Modern Bioethics & Genetics";
 const description = "Modern bioethics notes on genetics, human rights, embryo screening, polygenic risk, AI classification, and the legacy of eugenics.";
 const path = "/bioethics.html";
 const sources = [commonSources.unescoGenome, commonSources.unescoData, commonSources.whoGenomeEditing, commonSources.nuffieldGenomeEditing, commonSources.nhgri];
+const sourcePacket = (await getEntry("sourcePackets", "bioethics"))?.data;
 ---
 
-<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Modern genetics must be interpreted through human dignity, consent, equity, and rights.">
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Critical education only: this page does not endorse eugenics, and modern genetics must be interpreted through human dignity, consent, equity, and rights.">
   <main class="page">
     <header class="page-header">
       <p class="eyebrow">Modern genetics and public ethics</p>
@@ -58,6 +61,8 @@ const sources = [commonSources.unescoGenome, commonSources.unescoData, commonSou
         <li>CRISPR, enhancement, and the fear of new eugenics.</li>
       </ul>
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
 
     <SourceList sources={sources} />
   </main>

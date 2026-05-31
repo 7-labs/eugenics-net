@@ -3,9 +3,22 @@ title: "Eugenics and Disability Rights"
 description: "Why disability history and disability rights are central to understanding and critiquing eugenics."
 summary: "Eugenic policy often treated disability as a defect to prevent or eliminate. Disability-rights framing challenges that devaluation and centers dignity, access, and autonomy."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses ableism, institutionalization, forced sterilization, and Nazi disability murder."
 position: "This article rejects the eugenic idea that disability reduces human worth."
+sourcePacket: "eugenics-and-disability-rights"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["disability rights", "ableism", "bioethics"]
 sources:
   - label: "United States Holocaust Memorial Museum: Nazi Racial Hygiene"
@@ -17,6 +30,7 @@ discussionQuestions:
   - "How did eugenics define disability as a social burden?"
   - "Why should disability-rights perspectives shape modern bioethics?"
   - "What is lost when teaching focuses only on policy makers and not affected people?"
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Disability as a Target

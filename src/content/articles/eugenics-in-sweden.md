@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses forced and coercive sterilization, disability discrimination, gendered control, welfare policy, and reproductive rights."
 position: "This article documents Swedish sterilization history as a warning about coercion inside administrative and welfare systems."
+sourcePacket: "eugenics-in-sweden"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["Sweden", "sterilization", "welfare state", "bioethics"]
 sources:
   - label: "Lund University: Sweden and Sterilization History"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: welfare systems cannot be coercive. Correction: systems designed for care can still pressure or control people when rights safeguards fail."
   - "Misconception: sterilization history is only about explicit force. Correction: administrative pressure and dependency can undermine consent."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses academic and official sources. It summarizes Swedish history cautiously and does not provide medical or legal advice."
 tableOfContents:
   - id: "why-sweden-matters"

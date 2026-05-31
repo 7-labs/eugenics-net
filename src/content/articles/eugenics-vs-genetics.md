@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses genetic discrimination, reproductive control, disability devaluation, historical pseudoscience, and rights violations."
 position: "This article supports accurate genetics education while rejecting eugenic ideology, coercive policy, and the use of genetic information to rank human worth."
+sourcePacket: "eugenics-vs-genetics"
+contentTier: "flagship"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["genetics", "bioethics", "education", "human rights"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -48,7 +61,7 @@ misconceptions:
   - "Misconception: rejecting eugenics means rejecting science. Correction: rejecting eugenics protects science from heredity determinism, bias, and coercive policy."
   - "Misconception: any genetic test is eugenics. Correction: voluntary, consent-based clinical genetics differs from eugenic population control."
   - "Misconception: heritability proves destiny. Correction: heritability is a population statistic and does not determine individual worth or justify policy coercion."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses official genomics and bioethics sources. It does not provide genetic counseling, fertility guidance, embryo-selection advice, or medical recommendations."
 tableOfContents:
   - id: "genetics-is-a-science"

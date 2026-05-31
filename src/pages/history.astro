@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceList from "@components/SourceList.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { commonSources } from "@data/site";
 import { webPageJsonLd } from "@utils/seo";
 
@@ -8,6 +10,7 @@ const title = "History of Eugenics";
 const description = "A critical route into eugenics history, scientific racism, Nazi racial hygiene, U.S. sterilization laws, disability rights, and immigration policy.";
 const path = "/history.html";
 const sources = [commonSources.nhgri, commonSources.nhgriTimeline, commonSources.ushmm, commonSources.archive, commonSources.uclInquiry];
+const sourcePacket = (await getEntry("sourcePackets", "history"))?.data;
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })}>
@@ -64,6 +67,8 @@ const sources = [commonSources.nhgri, commonSources.nhgriTimeline, commonSources
       <h2>Editorial Boundary</h2>
       <p>Historical claims are described so readers can understand and critique them. This site does not treat racial hierarchy, forced sterilization, or genetic discrimination as neutral positions.</p>
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
 
     <SourceList sources={sources} />
   </main>

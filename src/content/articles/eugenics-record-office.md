@@ -3,9 +3,22 @@ title: "What Was the Eugenics Record Office?"
 description: "A critical overview of the Eugenics Record Office as an institution that collected family data and promoted eugenic policy."
 summary: "The Eugenics Record Office shows how archives, pedigrees, fieldwork, and institutional authority could transform prejudice into policy advice."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses family surveillance, heredity claims, disability discrimination, racism, and institutional classification."
 position: "This article documents the Eugenics Record Office as part of a harmful institutional history, not as a model for research."
+sourcePacket: "eugenics-record-office"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["institutions", "archives", "pedigrees"]
 sources:
   - label: "Eugenics Archives"
@@ -17,6 +30,7 @@ discussionQuestions:
   - "How can data collection become a tool of social control?"
   - "Why should archives document institutions without reproducing their authority?"
   - "What metadata should accompany a harmful historical record?"
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Institution and Authority

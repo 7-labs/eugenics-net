@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import ArticleLayout from "@layouts/ArticleLayout.astro";
 import { foundationalArticles } from "@data/site";
 
@@ -20,6 +20,8 @@ const allArticles = foundationalArticles.map((article) => ({
 const related = entry.data.related
   .map((slug) => allArticles.find((article) => article.slug === slug))
   .filter(Boolean);
+const sourcePacketEntry = await getEntry("sourcePackets", entry.data.sourcePacket || entry.id);
+const sourcePacket = sourcePacketEntry?.data;
 ---
 
 <ArticleLayout
@@ -40,6 +42,12 @@ const related = entry.data.related
   reviewStatus={entry.data.reviewStatus}
   sourceNotes={entry.data.sourceNotes}
   tableOfContents={entry.data.tableOfContents}
+  sourcePacket={sourcePacket}
+  contentTier={entry.data.contentTier}
+  audience={entry.data.audience}
+  claimReviewStatus={entry.data.claimReviewStatus}
+  learningObjectives={entry.data.learningObjectives}
+  lastReviewedBy={entry.data.lastReviewedBy}
   path={`/${entry.id}.html`}
 >
   <Content />

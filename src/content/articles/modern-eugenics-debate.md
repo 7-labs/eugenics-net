@@ -3,9 +3,22 @@ title: "Is There Such a Thing as Modern Eugenics?"
 description: "A careful guide to the modern eugenics debate around genetic testing, embryo screening, enhancement, disability rights, and social pressure."
 summary: "The phrase modern eugenics is contested. It is most useful when it asks who has power, who defines desirable traits, and whether technology creates pressure to devalue some lives."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses reproductive technology, disability, genetic risk, and social pressure around trait selection."
 position: "This article does not provide reproductive or medical advice. It frames the debate through rights, consent, equity, and disability justice."
+sourcePacket: "modern-eugenics-debate"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["bioethics", "genetic testing", "embryo screening", "disability rights"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -20,6 +33,7 @@ discussionQuestions:
 faqs:
   - question: "Does this article give medical advice?"
     answer: "No. It offers historical and ethical framing only. Medical decisions require qualified clinical guidance and informed consent."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Why the Term Is Contested

@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses involuntary sterilization, racism, ableism, institutionalization, immigration exclusion, and state policy."
 position: "This article documents U.S. eugenics as a harmful policy history and rejects the categories used to rank people as fit or unfit."
+sourcePacket: "eugenics-in-the-united-states"
+contentTier: "flagship"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["United States", "sterilization", "immigration", "public health", "institutions"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -48,7 +61,7 @@ misconceptions:
   - "Misconception: U.S. eugenics was just a set of private beliefs. Correction: it was institutionalized through laws, offices, courts, schools, and public policy."
   - "Misconception: U.S. eugenics ended as soon as it was discredited after World War II. Correction: laws, practices, and institutional harms continued in different forms and timelines."
   - "Misconception: archival records are neutral. Correction: many records were created by institutions that classified people under unequal power."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page relies on official, academic, and institutional sources. It treats U.S. eugenics as a rights-violating policy history and does not republish propaganda or raw case materials."
 tableOfContents:
   - id: "more-than-a-fringe-movement"

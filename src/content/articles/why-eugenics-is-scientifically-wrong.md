@@ -3,9 +3,22 @@ title: "Why Eugenics Is Scientifically Wrong"
 description: "Why eugenics misread heredity, oversimplified complex traits, and turned prejudice into policy."
 summary: "Eugenics failed scientifically because it treated complex human traits as simple hereditary defects and ignored environment, inequality, measurement bias, and human rights."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses historical claims about heredity, disability, intelligence, poverty, and social worth."
 position: "This article explains why eugenics was scientifically flawed and ethically harmful. It does not stage eugenics as a legitimate side in a debate."
+sourcePacket: "why-eugenics-is-scientifically-wrong"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["genetics", "pseudoscience", "complex traits"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -20,6 +33,7 @@ discussionQuestions:
 faqs:
   - question: "Was eugenics wrong only because it was used badly?"
     answer: "No. Eugenics was ethically harmful and scientifically flawed because it misrepresented heredity, ignored social context, and treated people as means to population goals."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Complex Traits Are Not Simple Defects

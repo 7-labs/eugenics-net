@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses coercive reproduction policy, racism, ableism, antisemitism, dehumanizing historical claims, and forced sterilization."
 position: "This article defines eugenics to critique it. It does not present eugenic claims as legitimate science, reproductive advice, medical advice, or a neutral political option."
+sourcePacket: "what-is-eugenics"
+contentTier: "flagship"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["definition", "scientific racism", "bioethics", "history"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -48,7 +61,7 @@ misconceptions:
   - "Misconception: eugenics was just an old version of genetics. Correction: genetics studies inheritance; eugenics used heredity language to rank people and justify coercion."
   - "Misconception: eugenics was only a Nazi policy. Correction: eugenic movements and laws existed in several countries before, during, and after the Nazi period."
   - "Misconception: positive eugenics was harmless. Correction: both positive and negative eugenics depended on ranking people as more or less worthy of reproduction."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page relies on academic, official, and institutional sources. It uses primary-source institutions only as evidence about the movement, not as endorsement, and avoids reproducing eugenic propaganda."
 tableOfContents:
   - id: "definition"

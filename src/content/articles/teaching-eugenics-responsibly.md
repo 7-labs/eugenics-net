@@ -3,9 +3,22 @@ title: "Teaching Eugenics Responsibly"
 description: "A guide for educators teaching eugenics history without normalizing pseudoscience, reproducing harm, or centering propaganda."
 summary: "Responsible teaching starts with a clear anti-endorsement frame, source context, content warnings, affected-community perspectives, and discussion of modern safeguards."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, ableism, forced sterilization, Nazi racial hygiene, and historical propaganda."
 position: "This article is a teaching guide, not a debate prompt about whether eugenics should be revived."
+sourcePacket: "teaching-eugenics-responsibly"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["teaching", "lesson planning", "source literacy"]
 sources:
   - label: "UCL: Teaching UCL's Eugenics Legacies Now and in the Future"
@@ -19,6 +32,7 @@ discussionQuestions:
   - "What should students understand before seeing a harmful primary source?"
   - "How can teachers center affected communities and survivor perspectives?"
   - "Which classroom activities should be avoided because they reproduce eugenic logic?"
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Begin With Position

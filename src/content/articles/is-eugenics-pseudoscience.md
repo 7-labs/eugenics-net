@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses scientific racism, ableism, forced sterilization, heredity determinism, and dehumanizing policy."
 position: "This article rejects eugenics as pseudoscience and does not treat the ranking of human worth as a scientific controversy."
+sourcePacket: "is-eugenics-pseudoscience"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["pseudoscience", "genetics", "scientific racism", "bioethics"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: pseudoscience means no data at all. Correction: eugenics often used data, but the categories, assumptions, and interpretations were deeply flawed."
   - "Misconception: newer genetic technology can make eugenics scientific. Correction: better tools do not validate the ranking of human worth or coercive policy."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses official genomics and institutional archive sources. It does not cite eugenic primary claims as authorities."
 tableOfContents:
   - id: "science-like-forms"

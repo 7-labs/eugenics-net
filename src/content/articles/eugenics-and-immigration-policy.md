@@ -3,9 +3,22 @@ title: "Eugenics and Immigration Policy"
 description: "How eugenic ideas shaped immigration restriction, national identity, and racialized ideas about belonging."
 summary: "Eugenic immigration arguments treated national belonging as a biological problem and used heredity language to justify exclusion."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, xenophobia, antisemitism, national hierarchy, and exclusionary policy."
 position: "This article documents eugenic immigration arguments to critique them, not to treat exclusion as a neutral policy tool."
+sourcePacket: "eugenics-and-immigration-policy"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["immigration", "nationalism", "scientific racism"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -17,6 +30,7 @@ discussionQuestions:
   - "How did eugenicists convert immigration into a heredity issue?"
   - "Why is national identity not a genetic category?"
   - "How can educators discuss historical immigration restrictions without repeating xenophobic claims?"
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Immigration as a Biological Story

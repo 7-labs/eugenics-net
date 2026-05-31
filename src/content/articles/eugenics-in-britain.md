@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses race science, class hierarchy, disability discrimination, heredity determinism, and institutional eugenics."
 position: "This article documents British eugenics to critique it and does not treat heredity-based social ranking as legitimate science."
+sourcePacket: "eugenics-in-britain"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["Britain", "Francis Galton", "UCL", "class", "empire"]
 sources:
   - label: "UCL: Inquiry into the History of Eugenics at UCL"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: British eugenics was only an academic idea. Correction: it shaped public debate, policy proposals, education, and institutional collections."
   - "Misconception: institutional inquiry is symbolic only. Correction: inquiry can change teaching, description, access, and public accountability."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page relies on UCL institutional materials and official genomics context. It avoids raw propaganda and uses institutional legacy material critically."
 tableOfContents:
   - id: "a-respectable-reform-language"

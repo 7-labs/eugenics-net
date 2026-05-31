@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses human genome editing, enhancement claims, disability devaluation, reproductive pressure, and eugenics comparisons."
 position: "This article is educational and does not provide medical, reproductive, fertility, genetic, or legal advice."
+sourcePacket: "crispr-enhancement-new-eugenics"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["CRISPR", "genome editing", "bioethics", "enhancement"]
 sources:
   - label: "WHO: Human Genome Editing Recommendations"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: CRISPR makes eugenics scientifically valid. Correction: a powerful tool does not justify ranking lives or coercing reproduction."
   - "Misconception: therapy and enhancement are always easy to separate. Correction: social context, disability stigma, and markets can blur the line."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page relies on official and bioethics governance sources and avoids speculative technology hype or clinical recommendations."
 tableOfContents:
   - id: "why-crispr-enters-the-eugenics-debate"

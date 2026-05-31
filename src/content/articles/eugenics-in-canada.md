@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses forced sterilization, disability discrimination, racism, institutionalization, and reproductive coercion in Canada."
 position: "This article documents Canadian eugenics as a rights-violating policy history and does not treat sterilization as a public-health tool."
+sourcePacket: "eugenics-in-canada"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["Canada", "Alberta", "forced sterilization", "archives"]
 sources:
   - label: "Eugenics Archives"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: eugenics was mainly a U.S. or German phenomenon. Correction: Canadian provinces also enacted and administered eugenic policies."
   - "Misconception: Canadian sterilization history was only medical. Correction: it involved law, institutions, social policy, disability discrimination, and racialized power."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses academic and archive sources focused on Canadian eugenics. It avoids raw case files and prioritizes contextual summary."
 tableOfContents:
   - id: "provincial-policy-and-institutions"

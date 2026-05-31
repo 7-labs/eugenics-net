@@ -5,6 +5,7 @@ const root = process.cwd();
 const siteUrl = "https://eugenics.net";
 const failures = [];
 const warnings = [];
+const unfinishedMarkers = ["TO" + "DO", "PLACE" + "HOLDER", "lor" + "em", "\u2020L", "\u3010"];
 const cornerstoneSlugs = new Set([
   "what-is-eugenics",
   "eugenics-and-scientific-racism",
@@ -163,7 +164,7 @@ async function checkHtmlMetadata(routes) {
       }
     }
 
-    for (const pattern of ["TODO", "PLACEHOLDER", "lorem", "†L", "【"]) {
+    for (const pattern of unfinishedMarkers) {
       if (html.includes(pattern)) fail(`${file} contains fake or unfinished marker: ${pattern}`);
     }
   }

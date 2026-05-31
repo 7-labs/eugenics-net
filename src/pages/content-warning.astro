@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { webPageJsonLd } from "@utils/seo";
 
 const title = "Content Warning";
 const description = "Content warning and reader guidance for a critical archive about eugenics and scientific racism.";
 const path = "/content-warning.html";
+const sourcePacket = (await getEntry("sourcePackets", "content-warning"))?.data;
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Reader care and historical context are part of the project design.">
@@ -29,5 +32,7 @@ const path = "/content-warning.html";
       <h2>How Materials Are Framed</h2>
       <p>Harmful historical claims are included only to explain and critique them. The project rejects the ideas being documented and avoids reproducing slurs or propaganda imagery unless there is a clear educational reason and adequate context.</p>
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
   </main>
 </BaseLayout>

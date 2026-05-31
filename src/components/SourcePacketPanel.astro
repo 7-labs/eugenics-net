@@ -1,0 +1,178 @@
+---
+interface PacketSource {
+  label: string;
+  url: string;
+  role: string;
+  supportedClaims: string[];
+  limits: string;
+  sensitiveLanguageNotes: string;
+  affectedCommunities: string[];
+}
+
+interface ClaimMapItem {
+  claim: string;
+  evidence: string;
+  sourceLabels: string[];
+}
+
+interface DeepDiveSection {
+  heading: string;
+  body: string;
+}
+
+interface RelatedTopic {
+  label: string;
+  href: string;
+}
+
+interface SourcePacket {
+  title: string;
+  contentTier: string;
+  audience: string[];
+  answerSummary: string;
+  reviewStatus: string;
+  claimReviewStatus: string;
+  lastReviewedBy: string;
+  learningObjectives: string[];
+  affectedCommunities: string[];
+  claimMap: ClaimMapItem[];
+  deepDiveSections: DeepDiveSection[];
+  sourceCoverage: PacketSource[];
+  teachingUse: {
+    objectives: string[];
+    discussionPrompts: string[];
+    classroomWarnings: string[];
+  };
+  doesNotDo: string[];
+  relatedTopicPath: RelatedTopic[];
+}
+
+interface Props {
+  packet: SourcePacket;
+  mode?: "article" | "hub";
+}
+
+const { packet, mode = "article" } = Astro.props;
+const tierLabel = packet.contentTier.replace(/^\w/, (letter) => letter.toUpperCase());
+---
+
+<section class={`source-packet source-packet-${mode}`} aria-labelledby="source-packet-heading">
+  <div class="packet-header">
+    <p class="eyebrow">{tierLabel} source packet</p>
+    <h2 id="source-packet-heading">Evidence Snapshot</h2>
+    <p class="packet-summary">{packet.answerSummary}</p>
+    <dl class="packet-meta">
+      <div>
+        <dt>Review status</dt>
+        <dd>{packet.reviewStatus}</dd>
+      </div>
+      <div>
+        <dt>Claim review</dt>
+        <dd>{packet.claimReviewStatus}</dd>
+      </div>
+      <div>
+        <dt>Audience</dt>
+        <dd>{packet.audience.join(", ")}</dd>
+      </div>
+      <div>
+        <dt>Affected communities named</dt>
+        <dd>{packet.affectedCommunities.join(", ")}</dd>
+      </div>
+    </dl>
+  </div>
+
+  {packet.deepDiveSections.length > 0 && (
+    <div class="packet-section packet-deep-dive" aria-labelledby="deep-dive-heading">
+      <h3 id="deep-dive-heading">Research Brief</h3>
+      {packet.deepDiveSections.map((section) => (
+        <article>
+          <h4>{section.heading}</h4>
+          <p>{section.body}</p>
+        </article>
+      ))}
+    </div>
+  )}
+
+  {packet.claimMap.length > 0 && (
+    <div class="packet-section" aria-labelledby="claim-map-heading">
+      <h3 id="claim-map-heading">Claim Map</h3>
+      <div class="claim-map">
+        {packet.claimMap.map((item) => (
+          <article>
+            <h4>{item.claim}</h4>
+            <p>{item.evidence}</p>
+            <p class="claim-sources"><strong>Supported by:</strong> {item.sourceLabels.join("; ")}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {packet.sourceCoverage.length > 0 && (
+    <div class="packet-section" aria-labelledby="coverage-heading">
+      <h3 id="coverage-heading">Source Coverage</h3>
+      <div class="source-coverage">
+        {packet.sourceCoverage.map((source) => (
+          <article>
+            <h4><a href={source.url}>{source.label}</a></h4>
+            <p><strong>Role:</strong> {source.role}</p>
+            <p><strong>Supported claims:</strong> {source.supportedClaims.join("; ")}</p>
+            <p><strong>Limits and caveats:</strong> {source.limits}</p>
+            <p><strong>Sensitive-language note:</strong> {source.sensitiveLanguageNotes}</p>
+            <p><strong>Affected communities:</strong> {source.affectedCommunities.join(", ")}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <div class="packet-grid">
+    <section aria-labelledby="teaching-use-heading">
+      <h3 id="teaching-use-heading">Teaching Use</h3>
+      {packet.teachingUse.objectives.length > 0 && (
+        <>
+          <h4>Learning objectives</h4>
+          <ul>
+            {packet.teachingUse.objectives.map((objective) => <li>{objective}</li>)}
+          </ul>
+        </>
+      )}
+      {packet.teachingUse.discussionPrompts.length > 0 && (
+        <>
+          <h4>Discussion prompts</h4>
+          <ol>
+            {packet.teachingUse.discussionPrompts.map((prompt) => <li>{prompt}</li>)}
+          </ol>
+        </>
+      )}
+      {packet.teachingUse.classroomWarnings.length > 0 && (
+        <>
+          <h4>Classroom warnings</h4>
+          <ul>
+            {packet.teachingUse.classroomWarnings.map((warning) => <li>{warning}</li>)}
+          </ul>
+        </>
+      )}
+    </section>
+
+    <section aria-labelledby="does-not-do-heading">
+      <h3 id="does-not-do-heading">What This Page Does Not Do</h3>
+      <ul>
+        {packet.doesNotDo.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  </div>
+
+  {packet.relatedTopicPath.length > 0 && (
+    <nav class="packet-section related-topic-path" aria-labelledby="topic-path-heading">
+      <h3 id="topic-path-heading">Related Topic Path</h3>
+      <ol>
+        {packet.relatedTopicPath.map((topic) => (
+          <li><a href={topic.href}>{topic.label}</a></li>
+        ))}
+      </ol>
+    </nav>
+  )}
+
+  <p class="packet-review-note">Last reviewed by {packet.lastReviewedBy}. Source packets are pre-launch editorial tools and remain subject to specialist or affected-community review before public launch.</p>
+</section>

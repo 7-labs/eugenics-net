@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { glossaryTerms } from "@data/glossary";
 import { definedTermSetJsonLd } from "@utils/seo";
 
@@ -7,6 +9,7 @@ const title = "Glossary";
 const description = "Definitions for core terms used in critical eugenics history, scientific racism, genetics, and bioethics education.";
 const path = "/glossary.html";
 const jsonLd = definedTermSetJsonLd({ title, description, path, terms: glossaryTerms });
+const sourcePacket = (await getEntry("sourcePackets", "glossary"))?.data;
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
@@ -26,5 +29,7 @@ const jsonLd = definedTermSetJsonLd({ title, description, path, terms: glossaryT
         </article>
       ))}
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
   </main>
 </BaseLayout>

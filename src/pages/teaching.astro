@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceList from "@components/SourceList.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { commonSources } from "@data/site";
 import { learningResourceJsonLd } from "@utils/seo";
 
@@ -9,6 +11,7 @@ const description = "Teaching guidance for educators covering eugenics history, 
 const path = "/teaching.html";
 const sources = [commonSources.ucl, commonSources.archive, commonSources.nhgri, commonSources.uclInquiry];
 const jsonLd = learningResourceJsonLd({ title, description, path });
+const sourcePacket = (await getEntry("sourcePackets", "teaching"))?.data;
 const coursePaths = [
   {
     title: "90-Minute Intro",
@@ -21,13 +24,13 @@ const coursePaths = [
     ]
   },
   {
-    title: "Bioethics Seminar",
-    duration: "Two to three meetings",
+    title: "Two-Week Seminar",
+    duration: "Four to six class meetings",
     steps: [
-      "Begin with eugenics vs. genetics and the modern eugenics debate.",
-      "Compare UNESCO, WHO, and Nuffield governance language on consent, justice, and human dignity.",
-      "Ask students to separate therapy, prevention, enhancement, social pressure, and discrimination.",
-      "Avoid asking students to design reproductive policy or rank traits."
+      "Begin with definition, scientific racism, and why heredity cannot be used to rank human worth.",
+      "Move through forced sterilization law, the Eugenics Record Office, country cases, and survivor-centered archive questions.",
+      "Compare UNESCO, WHO, and Nuffield governance language on consent, justice, dignity, and disability impact.",
+      "End with a source packet exercise in which students identify claim, evidence, caveat, affected community, and teaching risk."
     ]
   },
   {
@@ -50,6 +53,21 @@ const coursePaths = [
       "End with governance questions about consent, accountability, and affected communities."
     ]
   }
+];
+const sourceUseRules = [
+  "Do not show propaganda images, case files, or dehumanizing primary language at the start of a lesson.",
+  "Give students a source packet first: creator, institution, audience, harmful claim, affected community, source role, and caveat.",
+  "Use secondary and institutional sources to establish context before any excerpt from a harmful historical source.",
+  "Avoid mock classification exercises, ranking exercises, heredity games, or debates over whether targeted groups deserved rights.",
+  "When survivor or affected-community material is used, summarize respectfully and avoid extracting trauma as a dramatic classroom device.",
+  "Close lessons with safeguards: consent, bodily autonomy, privacy, disability rights, human dignity, and anti-discrimination."
+];
+const printablePrompts = [
+  "What institution made the claim credible, and what power did that institution have over affected people?",
+  "Which word or category in the source looks technical but carries a moral or political judgment?",
+  "What does the source say, what does it omit, and who could not answer back inside the record?",
+  "How would the meaning change if the page centered a survivor, family, disability-rights, or civil-rights perspective first?",
+  "What modern safeguard would directly answer the harm visible in the source?"
 ];
 ---
 
@@ -103,10 +121,28 @@ const coursePaths = [
       </ul>
     </section>
 
+    <section class="notice-panel" aria-labelledby="source-rules-heading">
+      <h2 id="source-rules-heading">Printable Source-Use Rules</h2>
+      <p>These rules are designed for handouts, lesson plans, and archive workshops. They keep the class focused on critique and evidence rather than spectacle or reenactment.</p>
+      <ol>
+        {sourceUseRules.map((rule) => <li>{rule}</li>)}
+      </ol>
+    </section>
+
+    <section aria-labelledby="discussion-prompts-heading">
+      <h2 id="discussion-prompts-heading">Discussion Prompts</h2>
+      <p>Use these prompts after students have read the content warning, project position, and source packet. They are intended to analyze power and evidence, not to debate the humanity or rights of targeted communities.</p>
+      <ul>
+        {printablePrompts.map((prompt) => <li>{prompt}</li>)}
+      </ul>
+    </section>
+
     <section>
       <h2>Downloadable Pack Roadmap</h2>
       <p>The next release should package slides, discussion prompts, a timeline handout, source-analysis worksheets, and a short guide to teaching difficult histories.</p>
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
 
     <SourceList sources={sources} />
   </main>

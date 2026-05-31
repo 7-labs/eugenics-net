@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
 import { SITE } from "@data/site";
 import { webPageJsonLd } from "@utils/seo";
 
 const title = "About the Project";
 const description = "Mission, scope, and project boundaries for the Eugenics History and Bioethics Archive.";
 const path = "/about.html";
+const sourcePacket = (await getEntry("sourcePackets", "about"))?.data;
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="This project is anti-eugenics, anti-racist, anti-ableist, and grounded in human rights.">
@@ -45,5 +48,7 @@ const path = "/about.html";
       <h2>Current Status</h2>
       <p>This is a first foundation release in pre-launch hardening. The public corrections route is <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a>, and the project still needs source review, old-URL audit decisions, and expert or community review before publishing sensitive archive materials.</p>
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
   </main>
 </BaseLayout>

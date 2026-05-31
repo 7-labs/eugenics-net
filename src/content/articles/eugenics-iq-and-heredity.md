@@ -3,9 +3,22 @@ title: "Eugenics, IQ, and the Misuse of Heredity"
 description: "How eugenicists misused intelligence testing, heredity, and statistics to rank people and justify harmful policy."
 summary: "Eugenicists treated test scores and heredity claims as proof of social worth. A critical approach separates measurement from hierarchy and asks how bias shaped both data and policy."
 author: "Eugenics History & Bioethics Project"
-lastUpdated: 2026-05-30
+lastUpdated: 2026-05-31
 contentWarning: "Discusses intelligence testing, racism, ableism, class prejudice, and human ranking."
 position: "This article rejects the use of IQ, heredity, or statistics to rank human worth or justify coercive policy."
+sourcePacket: "eugenics-iq-and-heredity"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["IQ", "heritability", "statistics", "education"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -17,6 +30,7 @@ discussionQuestions:
   - "What is the difference between measuring a task and ranking a person's worth?"
   - "How can tests reflect the conditions under which people live?"
   - "Why should heritability not be used as a policy shortcut?"
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 ---
 
 ## Measurement Is Not Worth

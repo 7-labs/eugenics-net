@@ -1,6 +1,7 @@
 ---
 import ArticleMeta from "@components/ArticleMeta.astro";
 import ContentWarning from "@components/ContentWarning.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
 import SourceList from "@components/SourceList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, faqJsonLd } from "@utils/seo";
@@ -21,6 +22,46 @@ interface TocItem {
   label: string;
 }
 
+interface SourcePacket {
+  title: string;
+  contentTier: string;
+  audience: string[];
+  answerSummary: string;
+  reviewStatus: string;
+  claimReviewStatus: string;
+  lastReviewedBy: string;
+  learningObjectives: string[];
+  affectedCommunities: string[];
+  claimMap: {
+    claim: string;
+    evidence: string;
+    sourceLabels: string[];
+  }[];
+  deepDiveSections: {
+    heading: string;
+    body: string;
+  }[];
+  sourceCoverage: {
+    label: string;
+    url: string;
+    role: string;
+    supportedClaims: string[];
+    limits: string;
+    sensitiveLanguageNotes: string;
+    affectedCommunities: string[];
+  }[];
+  teachingUse: {
+    objectives: string[];
+    discussionPrompts: string[];
+    classroomWarnings: string[];
+  };
+  doesNotDo: string[];
+  relatedTopicPath: {
+    label: string;
+    href: string;
+  }[];
+}
+
 interface Props {
   title: string;
   description: string;
@@ -39,6 +80,12 @@ interface Props {
   reviewStatus?: string;
   sourceNotes?: string;
   tableOfContents?: TocItem[];
+  sourcePacket?: SourcePacket;
+  contentTier?: "flagship" | "standard";
+  audience?: string[];
+  claimReviewStatus?: string;
+  learningObjectives?: string[];
+  lastReviewedBy?: string;
   path: string;
 }
 
@@ -60,10 +107,26 @@ const {
   reviewStatus = "Pre-launch editorial review complete; subject-matter review pending.",
   sourceNotes,
   tableOfContents = [],
+  sourcePacket,
+  contentTier = "standard",
+  audience = [],
+  claimReviewStatus = "Claims checked against the linked source packet for pre-launch review.",
+  learningObjectives = [],
+  lastReviewedBy = "Eugenics History & Bioethics Project editorial desk",
   path
 } = Astro.props;
+const packetSources = (sourcePacket?.sourceCoverage || []).map((source) => ({
+  label: source.label,
+  url: source.url,
+  note: source.role
+}));
+const sourceMap = new Map<string, Source>();
+for (const source of [...sources, ...packetSources]) {
+  if (!sourceMap.has(source.url)) sourceMap.set(source.url, source);
+}
+const mergedSources = Array.from(sourceMap.values());
 const jsonLd = [
-  articleJsonLd({ title, description, path, author, lastUpdated, sources }),
+  articleJsonLd({ title, description, path, author, lastUpdated, sources: mergedSources }),
   faqJsonLd(faqs)
 ].filter(Boolean);
 const defaultSourceNote = "This page is source-backed by academic, official, or institutional references listed below. It avoids uncontextualized propaganda and does not provide medical, reproductive, genetic, or legal advice.";
@@ -86,6 +149,9 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
       <p class="lead">{summary}</p>
       <ArticleMeta author={author} lastUpdated={lastUpdated} topics={topics} />
       <p class="review-status"><strong>Review status:</strong> {reviewStatus}</p>
+      <p class="review-status"><strong>Content tier:</strong> {contentTier} article. <strong>Claim review:</strong> {claimReviewStatus}</p>
+      {audience.length > 0 && <p class="review-status"><strong>Audience:</strong> {audience.join(", ")}</p>}
+      <p class="review-status"><strong>Last reviewed by:</strong> {lastReviewedBy}</p>
     </header>
 
     {contentWarning && <ContentWarning text={contentWarning} />}
@@ -94,6 +160,11 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
       <h2 id="position-note">Project Position</h2>
       <p>{position}</p>
     </aside>
+
+    <section class="answer-first" aria-labelledby="answer-first-heading">
+      <h2 id="answer-first-heading">Answer First</h2>
+      <p>{sourcePacket?.answerSummary || summary}</p>
+    </section>
 
     {(keyTakeaways.length > 0 || tableOfContents.length > 0) && (
       <section class="article-orientation" aria-label="Article orientation">
@@ -118,9 +189,20 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
       </section>
     )}
 
+    {learningObjectives.length > 0 && (
+      <section class="article-support learning-objectives" aria-labelledby="learning-objectives-heading">
+        <h2 id="learning-objectives-heading">Learning Objectives</h2>
+        <ul>
+          {learningObjectives.map((objective) => <li>{objective}</li>)}
+        </ul>
+      </section>
+    )}
+
     <article class="article-body">
       <slot />
     </article>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="article" />}
 
     {misconceptions.length > 0 && (
       <section class="article-support" aria-labelledby="misconceptions-heading">
@@ -168,6 +250,6 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
       <p>{effectiveSourceNote}</p>
     </section>
 
-    <SourceList sources={sources} />
+    <SourceList sources={mergedSources} />
   </main>
 </BaseLayout>

@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses coercive sterilization, reproductive violence, disability discrimination, racism, institutional control, and state policy."
 position: "This article treats forced sterilization as a human-rights violation, not as a public-health tool, medical recommendation, reproductive recommendation, or neutral historical policy."
+sourcePacket: "forced-sterilization-laws"
+contentTier: "flagship"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["forced sterilization", "law", "reproductive rights", "institutions"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -48,7 +61,7 @@ misconceptions:
   - "Misconception: sterilization laws were mainly about medical necessity. Correction: eugenic laws often treated social prejudice and institutional convenience as if they were medical facts."
   - "Misconception: a court approval made sterilization ethical. Correction: legality and ethics diverged sharply when courts authorized rights violations."
   - "Misconception: coercion requires physical force only. Correction: coercion can also involve dependency, guardianship, misinformation, institutional confinement, or threats to services."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses legal, academic, official, and archive sources. It avoids procedural detail that could normalize coercive policy and frames forced sterilization as a rights violation."
 tableOfContents:
   - id: "what-forced-sterilization-means"

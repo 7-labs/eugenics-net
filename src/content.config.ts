@@ -18,6 +18,32 @@ const tocSchema = z.object({
   label: z.string()
 });
 
+const packetSourceSchema = z.object({
+  label: z.string(),
+  url: z.string().url(),
+  role: z.string(),
+  supportedClaims: z.array(z.string()).default([]),
+  limits: z.string(),
+  sensitiveLanguageNotes: z.string(),
+  affectedCommunities: z.array(z.string()).default([])
+});
+
+const claimMapSchema = z.object({
+  claim: z.string(),
+  evidence: z.string(),
+  sourceLabels: z.array(z.string()).default([])
+});
+
+const deepDiveSchema = z.object({
+  heading: z.string(),
+  body: z.string()
+});
+
+const relatedTopicSchema = z.object({
+  label: z.string(),
+  href: z.string()
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
   schema: z.object({
@@ -37,8 +63,41 @@ const articles = defineCollection({
     misconceptions: z.array(z.string()).default([]),
     reviewStatus: z.string().default("Pre-launch editorial review complete; subject-matter review pending."),
     sourceNotes: z.string().optional(),
-    tableOfContents: z.array(tocSchema).default([])
+    tableOfContents: z.array(tocSchema).default([]),
+    sourcePacket: z.string().optional(),
+    contentTier: z.enum(["flagship", "standard"]).default("standard"),
+    audience: z.array(z.string()).default(["students", "educators", "general readers"]),
+    claimReviewStatus: z.string().default("Claims checked against the linked source packet for pre-launch review."),
+    learningObjectives: z.array(z.string()).default([]),
+    lastReviewedBy: z.string().default("Eugenics History & Bioethics Project editorial desk")
   })
 });
 
-export const collections = { articles };
+const sourcePackets = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/source-packets" }),
+  schema: z.object({
+    route: z.string(),
+    title: z.string(),
+    contentTier: z.enum(["flagship", "standard", "static", "teaching", "archive", "glossary"]),
+    pageType: z.enum(["article", "hub"]),
+    audience: z.array(z.string()).default([]),
+    answerSummary: z.string(),
+    reviewStatus: z.string(),
+    claimReviewStatus: z.string(),
+    lastReviewedBy: z.string(),
+    learningObjectives: z.array(z.string()).default([]),
+    affectedCommunities: z.array(z.string()).default([]),
+    claimMap: z.array(claimMapSchema).default([]),
+    deepDiveSections: z.array(deepDiveSchema).default([]),
+    sourceCoverage: z.array(packetSourceSchema).default([]),
+    teachingUse: z.object({
+      objectives: z.array(z.string()).default([]),
+      discussionPrompts: z.array(z.string()).default([]),
+      classroomWarnings: z.array(z.string()).default([])
+    }),
+    doesNotDo: z.array(z.string()).default([]),
+    relatedTopicPath: z.array(relatedTopicSchema).default([])
+  })
+});
+
+export const collections = { articles, sourcePackets };

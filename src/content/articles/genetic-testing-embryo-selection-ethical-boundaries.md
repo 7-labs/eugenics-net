@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses reproductive technology, disability devaluation, genetic discrimination, embryo selection, and eugenics comparisons."
 position: "This article is educational. It does not provide medical, reproductive, fertility, genetic counseling, or legal advice."
+sourcePacket: "genetic-testing-embryo-selection-ethical-boundaries"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["genetic testing", "embryo selection", "bioethics", "disability rights"]
 sources:
   - label: "Nuffield Council on Bioethics: Genome Editing and Human Reproduction"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: every embryo test is eugenics. Correction: context matters, including consent, purpose, pressure, access, and rights."
   - "Misconception: private choice is always free from social pressure. Correction: choices occur inside systems shaped by cost, stigma, insurance, family expectations, and law."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page relies on official and bioethics sources. It is not a clinical guide and intentionally avoids procedural advice."
 tableOfContents:
   - id: "the-boundary-question"

@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses race science, class hierarchy, heredity determinism, and the origin of eugenic ideology."
 position: "This article is a critical profile, not a celebration. It documents Galton's role in the origin of eugenics while rejecting the hierarchy behind the term."
+sourcePacket: "francis-galton-and-the-origin-of-eugenics"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["Francis Galton", "Britain", "origins", "statistics"]
 sources:
   - label: "UCL: Inquiry into the History of Eugenics at UCL"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: because Galton contributed to statistics, eugenics should be treated as a neutral scientific origin story. Correction: technical contributions do not validate hierarchy."
   - "Misconception: the origin of a term is only linguistic. Correction: eugenics emerged from social and imperial assumptions about human value."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses institutional and official sources and avoids celebratory biography. It focuses on the origin of a harmful concept."
 tableOfContents:
   - id: "coining-the-term"

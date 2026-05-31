@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses forced sterilization, disability discrimination, reproductive coercion, class prejudice, and legal harm."
 position: "This article treats Buck v. Bell as a warning about rights violations, not as a defensible precedent or policy model."
+sourcePacket: "buck-v-bell-forced-sterilization"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["Buck v. Bell", "forced sterilization", "law", "United States"]
 sources:
   - label: "Oyez: Buck v. Bell"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: the existence of hearings meant consent. Correction: legal process did not remove coercion or unequal power."
   - "Misconception: Buck v. Bell is only a legal doctrine issue. Correction: it is also a history of bodily autonomy and institutional harm."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses legal, official, and human-rights sources. It avoids quoting dehumanizing case language beyond what is necessary for critical education."
 tableOfContents:
   - id: "what-the-case-did"

@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses heredity determinism, scientific racism, disability discrimination, family surveillance, and forced sterilization advocacy."
 position: "This article is a critical institutional profile. It does not treat Davenport or the Eugenics Record Office as neutral scientific authorities."
+sourcePacket: "charles-davenport-and-institutional-eugenics"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["Charles Davenport", "Eugenics Record Office", "United States", "institutions"]
 sources:
   - label: "Cold Spring Harbor Laboratory: Eugenics Record Office"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: family records collected by eugenicists were simply data. Correction: the records were shaped by biased categories and institutional goals."
   - "Misconception: institutional research is automatically objective. Correction: institutions can amplify pseudoscience when their assumptions are flawed."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page relies on institutional archive descriptions and academic encyclopedia material, using them as evidence about institutional eugenics rather than as endorsements."
 tableOfContents:
   - id: "institutionalizing-eugenics"

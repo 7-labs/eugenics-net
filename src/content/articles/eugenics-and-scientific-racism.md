@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, antisemitism, racial hierarchy, discriminatory policy, forced sterilization, and Nazi racial hygiene."
 position: "This article treats racial hierarchy as a harmful historical claim, not as a legitimate scientific proposition or a neutral debate topic."
+sourcePacket: "eugenics-and-scientific-racism"
+contentTier: "flagship"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["scientific racism", "race", "policy", "human rights"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -48,7 +61,7 @@ misconceptions:
   - "Misconception: scientific racism was simply bad data. Correction: it was also a system of power that selected categories, measurements, and interpretations to support hierarchy."
   - "Misconception: eugenics only targeted disability. Correction: eugenic policy also targeted racialized groups, immigrants, poor people, Indigenous people, Jewish people, and other communities depending on context."
   - "Misconception: naming racist claims gives them legitimacy. Correction: naming them with context and critique helps readers identify and reject the pattern."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses academic, official, and institutional sources to document how race science and eugenics reinforced one another. It does not repeat racist classifications as valid categories."
 tableOfContents:
   - id: "a-shared-language-of-hierarchy"

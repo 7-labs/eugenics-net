@@ -6,6 +6,19 @@ author: "Eugenics History & Bioethics Project"
 lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, scientific racism, racial hierarchy, immigration exclusion, forced sterilization, and Nazi racial hygiene."
 position: "This article rejects racial hierarchy and treats race as a historical and political classification, not as a biological measure of human worth."
+sourcePacket: "eugenics-and-race"
+contentTier: "standard"
+audience:
+  - "students"
+  - "educators"
+  - "research users"
+  - "general readers"
+claimReviewStatus: "V3 source-packet review complete; claims require linked source roles, limits, and affected-community notes."
+learningObjectives:
+  - "Identify the page's core claim and the evidence used to support it."
+  - "Distinguish historical description from anti-endorsement project position."
+  - "Explain affected communities and why source caveats matter for this topic."
+lastReviewedBy: "Eugenics History & Bioethics Project editorial desk"
 topics: ["race", "scientific racism", "genetics", "policy"]
 sources:
   - label: "NHGRI: Eugenics and Scientific Racism"
@@ -28,7 +41,7 @@ keyTakeaways:
 misconceptions:
   - "Misconception: eugenic race categories were rough but scientific. Correction: the categories were shaped by power, colonialism, law, and prejudice."
   - "Misconception: rejecting racial hierarchy means denying human variation. Correction: human variation exists, but it does not divide people into ranked races."
-reviewStatus: "V2 pre-launch editorial review complete; external subject-matter review pending."
+reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
 sourceNotes: "This page uses official genomics, human-rights, and Holocaust education sources. It does not reproduce racial classification tables or propaganda."
 tableOfContents:
   - id: "race-as-a-eugenic-category"
