@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourceList from "@components/SourceList.astro";
+import { SITE, commonSources } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "Editorial Policy";
+const description = "Editorial policy for publishing critical eugenics history and bioethics content.";
+const path = "/editorial-policy.html";
+const sources = [commonSources.googleSpam, commonSources.ucl];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Editorial review is required before public launch of sensitive archive materials.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Publication rules</p>
+      <h1>{title}</h1>
+      <p class="lead">The project can only work if every page makes its ethical position and sourcing standards explicit.</p>
+    </header>
+
+    <section>
+      <h2>Required for Every Long-Form Page</h2>
+      <ul>
+        <li>Clear title, scope, author or editorial owner, and last updated date.</li>
+        <li>Source list with stable links or archival citations.</li>
+        <li>Content warning when discussing dehumanizing language, violence, coercion, or propaganda.</li>
+        <li>Explicit distinction between historical description and project position.</li>
+        <li>Corrections route through <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a> and a change log for substantive updates.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Archive Publication Gate</h2>
+      <p>Primary sources that contain racist, antisemitic, ableist, or otherwise dehumanizing claims must not be published as standalone files. They require context notes, source metadata, harm warnings, affected-group notes, and an editorial explanation of why inclusion serves education or research.</p>
+    </section>
+
+    <section>
+      <h2>SEO and Monetization Boundaries</h2>
+      <p>The project should not rely on expired-domain authority, ads, DNA-testing affiliate links, fertility lead generation, or low-value AI article scaling. The trust model is institutional citation, education value, and source quality.</p>
+    </section>
+
+    <section>
+      <h2>Corrections Route</h2>
+      <p>Corrections and source-quality concerns should be sent to <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a>. This pre-launch release uses that monitored address as the public trust path while the project prepares source review, old-URL audit decisions, and expert or community review for sensitive archive materials.</p>
+      <p>Corrections should name the page, explain the factual or sourcing issue, and include a stable source when possible. The project will not use this route for medical, reproductive, genetic counseling, advocacy, or debate requests.</p>
+    </section>
+
+    <SourceList sources={sources} title="Policy References" />
+  </main>
+</BaseLayout>

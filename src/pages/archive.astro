@@ -1,0 +1,53 @@
+---
+import ArchiveEntryTemplate from "@components/ArchiveEntryTemplate.astro";
+import SourceList from "@components/SourceList.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { archiveCategories } from "@data/archive";
+import { commonSources } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "Critical Archive Model";
+const description = "Archive policy for contextualizing primary sources about eugenics, scientific racism, forced sterilization, and related harms.";
+const path = "/archive.html";
+const sources = [commonSources.archive, commonSources.ushmm];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Primary materials must never appear here without context, warnings, and critique.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Archive design</p>
+      <h1>{title}</h1>
+      <p class="lead">The archive exists to preserve evidence of harm, not to reproduce propaganda without interpretation.</p>
+    </header>
+
+    <section id="archive-policy">
+      <h2>Archive Policy</h2>
+      <p>Every archival item must include a content warning, provenance note, historical context, affected communities, harmful claims contained in the item, and an editorial explanation of why the item matters today. Items that cannot be contextualized responsibly should remain offline until reviewed.</p>
+    </section>
+
+    <section>
+      <h2>Initial Collections</h2>
+      <div class="collection-grid">
+        {archiveCategories.map((category) => (
+          <article>
+            <h3>{category.title}</h3>
+            <p>{category.description}</p>
+            <p class="future-path">{category.path}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Annotated Entry Template</h2>
+      <ArchiveEntryTemplate />
+    </section>
+
+    <section class="notice-panel">
+      <h2>Publication Gate</h2>
+      <p>No raw propaganda, old primary source, or image collection should be published as a standalone download in this release. Archive expansion requires review, context notes, content warnings, and source rights checks.</p>
+    </section>
+
+    <SourceList sources={sources} title="Reference Models" />
+  </main>
+</BaseLayout>

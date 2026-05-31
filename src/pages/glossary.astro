@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { glossaryTerms } from "@data/glossary";
+import { definedTermSetJsonLd } from "@utils/seo";
+
+const title = "Glossary";
+const description = "Definitions for core terms used in critical eugenics history, scientific racism, genetics, and bioethics education.";
+const path = "/glossary.html";
+const jsonLd = definedTermSetJsonLd({ title, description, path, terms: glossaryTerms });
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Defined terms</p>
+      <h1>{title}</h1>
+      <p class="lead">These definitions are written for education and critique, not for biological ranking or policy prescription.</p>
+    </header>
+
+    <section class="glossary-list" aria-labelledby="terms-heading">
+      <h2 id="terms-heading">Terms</h2>
+      {glossaryTerms.map((term) => (
+        <article id={term.slug}>
+          <h3>{term.term}</h3>
+          <p>{term.definition}</p>
+        </article>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

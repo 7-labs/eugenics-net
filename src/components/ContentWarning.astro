@@ -1,0 +1,12 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<aside class="content-warning" aria-label="Content warning">
+  <strong>Content warning:</strong>
+  <span>{text}</span>
+</aside>

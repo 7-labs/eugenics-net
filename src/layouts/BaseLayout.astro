@@ -1,0 +1,50 @@
+---
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import { SITE } from "@data/site";
+import { canonicalUrl, safeJsonLd } from "@utils/seo";
+
+interface Props {
+  title: string;
+  description?: string;
+  path?: string;
+  alert?: string;
+  jsonLd?: unknown | unknown[];
+}
+
+const {
+  title,
+  description = SITE.defaultDescription,
+  path = "/",
+  alert = SITE.globalAlert,
+  jsonLd = []
+} = Astro.props;
+const fullTitle = title === SITE.title ? title : `${title} | ${SITE.name}`;
+const blocks = Array.isArray(jsonLd) ? jsonLd.filter(Boolean) : [jsonLd].filter(Boolean);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+    <link rel="canonical" href={canonicalUrl(path)} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl(path)} />
+    <meta name="twitter:card" content="summary" />
+    {blocks.map((block) => (
+      <script type="application/ld+json" set:html={safeJsonLd(block)} />
+    ))}
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="site-alert">{alert}</div>
+    <SiteHeader activePath={path} />
+    <slot />
+    <SiteFooter />
+  </body>
+</html>

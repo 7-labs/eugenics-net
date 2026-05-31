@@ -1,0 +1,110 @@
+---
+import ArticleMeta from "@components/ArticleMeta.astro";
+import ContentWarning from "@components/ContentWarning.astro";
+import SourceList from "@components/SourceList.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, faqJsonLd } from "@utils/seo";
+
+interface Source {
+  label: string;
+  url: string;
+  note?: string;
+}
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  summary: string;
+  author: string;
+  lastUpdated: Date;
+  contentWarning?: string;
+  position: string;
+  topics?: string[];
+  sources: Source[];
+  related?: { title: string; href: string }[];
+  discussionQuestions?: string[];
+  faqs?: Faq[];
+  path: string;
+}
+
+const {
+  title,
+  description,
+  summary,
+  author,
+  lastUpdated,
+  contentWarning,
+  position,
+  topics = [],
+  sources,
+  related = [],
+  discussionQuestions = [],
+  faqs = [],
+  path
+} = Astro.props;
+const jsonLd = [
+  articleJsonLd({ title, description, path, author, lastUpdated, sources }),
+  faqJsonLd(faqs)
+].filter(Boolean);
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <main class="page article-page">
+    <header class="page-header">
+      <p class="eyebrow">Foundational article</p>
+      <h1>{title}</h1>
+      <p class="lead">{summary}</p>
+      <ArticleMeta author={author} lastUpdated={lastUpdated} topics={topics} />
+    </header>
+
+    {contentWarning && <ContentWarning text={contentWarning} />}
+
+    <aside class="notice-panel" aria-labelledby="position-note">
+      <h2 id="position-note">Project Position</h2>
+      <p>{position}</p>
+    </aside>
+
+    <article class="article-body">
+      <slot />
+    </article>
+
+    {faqs.length > 0 && (
+      <section class="article-support" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">FAQ</h2>
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </section>
+    )}
+
+    {discussionQuestions.length > 0 && (
+      <section class="article-support" aria-labelledby="discussion-heading">
+        <h2 id="discussion-heading">Teaching and Discussion Questions</h2>
+        <ol>
+          {discussionQuestions.map((question) => <li>{question}</li>)}
+        </ol>
+      </section>
+    )}
+
+    {related.length > 0 && (
+      <section class="article-support" aria-labelledby="related-heading">
+        <h2 id="related-heading">Related Reading</h2>
+        <ul class="related-list">
+          {related.map((item) => (
+            <li><a href={item.href}>{item.title}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <SourceList sources={sources} />
+  </main>
+</BaseLayout>

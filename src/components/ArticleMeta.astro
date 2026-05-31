@@ -1,0 +1,21 @@
+---
+interface Props {
+  author: string;
+  lastUpdated: Date;
+  topics?: string[];
+}
+
+const { author, lastUpdated, topics = [] } = Astro.props;
+const isoDate = lastUpdated.toISOString().slice(0, 10);
+const displayDate = lastUpdated.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+---
+
+<div class="article-meta" aria-label="Article metadata">
+  <span>Editorial owner: {author}</span>
+  <span>Last updated: <time datetime={isoDate}>{displayDate}</time></span>
+  {topics.length > 0 && <span>Topics: {topics.join(", ")}</span>}
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "eugenics-net",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "export:root": "node scripts/export-root.mjs",
+    "check:site": "node scripts/site-integrity.mjs",
+    "qa:openclaw": "node scripts/openclaw-browser-qa.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.13.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.0"
+  }
+}

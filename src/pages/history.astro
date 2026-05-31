@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourceList from "@components/SourceList.astro";
+import { commonSources } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "History of Eugenics";
+const description = "A critical route into eugenics history, scientific racism, Nazi racial hygiene, U.S. sterilization laws, disability rights, and immigration policy.";
+const path = "/history.html";
+const sources = [commonSources.nhgri, commonSources.ushmm, commonSources.archive];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })}>
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Historical overview</p>
+      <h1>{title}</h1>
+      <p class="lead">Eugenics claimed scientific authority while reducing human worth to heredity, hierarchy, and state control.</p>
+    </header>
+
+    <section class="link-grid" aria-labelledby="history-routes">
+      <h2 id="history-routes">History Routes</h2>
+      <article>
+        <h3><a href="eugenics-timeline-1883-present.html">Timeline, 1883-Present</a></h3>
+        <p>A compact sequence of terms, institutions, laws, war crimes, repeal movements, and modern bioethics concerns.</p>
+      </article>
+      <article>
+        <h3><a href="eugenics-in-the-united-states.html">United States</a></h3>
+        <p>State sterilization laws, public-health institutions, immigration restriction, and the long aftermath.</p>
+      </article>
+      <article>
+        <h3><a href="eugenics-in-nazi-germany.html">Nazi Germany</a></h3>
+        <p>Racial hygiene, compulsory sterilization, the T4 murders, and the escalation from hierarchy to state killing.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Core Questions</h2>
+      <ul>
+        <li><a href="what-is-eugenics.html">What is eugenics?</a></li>
+        <li><a href="why-eugenics-is-scientifically-wrong.html">Why is eugenics scientifically wrong?</a></li>
+        <li><a href="eugenics-and-scientific-racism.html">How did eugenics support scientific racism?</a></li>
+        <li><a href="forced-sterilization-laws.html">How did forced sterilization laws work?</a></li>
+        <li><a href="eugenics-and-disability-rights.html">Why is disability history central to this topic?</a></li>
+      </ul>
+    </section>
+
+    <section class="notice-panel">
+      <h2>Editorial Boundary</h2>
+      <p>Historical claims are described so readers can understand and critique them. This site does not treat racial hierarchy, forced sterilization, or genetic discrimination as neutral positions.</p>
+    </section>
+
+    <SourceList sources={sources} />
+  </main>
+</BaseLayout>

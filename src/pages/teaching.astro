@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourceList from "@components/SourceList.astro";
+import { commonSources } from "@data/site";
+import { learningResourceJsonLd } from "@utils/seo";
+
+const title = "Teaching Resources";
+const description = "Teaching guidance for educators covering eugenics history, scientific racism, primary sources, and modern bioethics responsibly.";
+const path = "/teaching.html";
+const sources = [commonSources.ucl, commonSources.archive, commonSources.nhgri];
+const jsonLd = learningResourceJsonLd({ title, description, path });
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd} alert="Teaching this history requires critical education, context, care, and explicit rejection of dehumanizing claims.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Educator route</p>
+      <h1>{title}</h1>
+      <p class="lead">A responsible critical education lesson helps students understand harm, power, pseudoscience, and resistance without giving eugenic claims a neutral platform.</p>
+    </header>
+
+    <section class="link-grid" aria-labelledby="teaching-routes">
+      <h2 id="teaching-routes">Teaching Modules</h2>
+      <article>
+        <h3><a href="teaching-eugenics-responsibly.html">Teaching Eugenics Responsibly</a></h3>
+        <p>A foundation guide for lesson framing, source use, classroom discussion, and boundaries.</p>
+      </article>
+      <article>
+        <h3><a href="eugenics-timeline-1883-present.html">Timeline Handout</a></h3>
+        <p>A chronology that can anchor a short unit without centering propaganda materials.</p>
+      </article>
+      <article>
+        <h3><a href="archive.html">Archive Source Template</a></h3>
+        <p>A model for teaching primary-source analysis with content warnings and editorial notes.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Guidelines for Educators</h2>
+      <ul>
+        <li>Begin with a clear anti-endorsement statement and a content warning.</li>
+        <li>Define eugenics, scientific racism, forced sterilization, and genetic discrimination before showing primary materials.</li>
+        <li>Use archival sources only with context notes that name harmful claims and affected communities.</li>
+        <li>Center survivor, disability-rights, civil-rights, and human-rights perspectives.</li>
+        <li>Avoid simulations that rank people, assign reproductive value, or casually repeat dehumanizing language.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Downloadable Pack Roadmap</h2>
+      <p>The next release should package slides, discussion prompts, a timeline handout, source-analysis worksheets, and a short guide to teaching difficult histories.</p>
+    </section>
+
+    <SourceList sources={sources} />
+  </main>
+</BaseLayout>

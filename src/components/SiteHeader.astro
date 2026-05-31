@@ -1,0 +1,25 @@
+---
+import { navItems, SITE } from "@data/site";
+
+interface Props {
+  activePath?: string;
+}
+
+const { activePath = "/" } = Astro.props;
+const normalize = (href: string) => (href === "/" ? "/" : href.replace(/\/$/, ""));
+---
+
+<header class="site-header">
+  <a class="brand" href="index.html">{SITE.name}</a>
+  <nav aria-label="Main navigation">
+    <ul>
+      {navItems.map((item) => (
+        <li>
+          <a href={item.href} aria-current={normalize(item.path) === normalize(activePath) ? "page" : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

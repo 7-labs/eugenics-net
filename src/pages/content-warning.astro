@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "Content Warning";
+const description = "Content warning and reader guidance for a critical archive about eugenics and scientific racism.";
+const path = "/content-warning.html";
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Reader care and historical context are part of the project design.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Reader guidance</p>
+      <h1>{title}</h1>
+      <p class="lead">This site discusses historical racism, antisemitism, ableism, coercive sterilization, institutionalization, and state violence.</p>
+    </header>
+
+    <section>
+      <h2>What Readers May Encounter</h2>
+      <ul>
+        <li>Descriptions of forced sterilization and coercive reproductive policy.</li>
+        <li>Discussion of Nazi racial hygiene and the murder of disabled people.</li>
+        <li>Historical terms and claims that are racist, ableist, antisemitic, or dehumanizing.</li>
+        <li>Primary-source material that may be upsetting when the archive is expanded.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How Materials Are Framed</h2>
+      <p>Harmful historical claims are included only to explain and critique them. The project rejects the ideas being documented and avoids reproducing slurs or propaganda imagery unless there is a clear educational reason and adequate context.</p>
+    </section>
+  </main>
+</BaseLayout>

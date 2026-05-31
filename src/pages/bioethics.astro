@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourceList from "@components/SourceList.astro";
+import { commonSources } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "Modern Bioethics & Genetics";
+const description = "Modern bioethics notes on genetics, human rights, embryo screening, polygenic risk, AI classification, and the legacy of eugenics.";
+const path = "/bioethics.html";
+const sources = [commonSources.unesco, commonSources.nhgri];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Modern genetics must be interpreted through human dignity, consent, equity, and rights.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Modern genetics and public ethics</p>
+      <h1>{title}</h1>
+      <p class="lead">The lesson of eugenics is not that genetics is illegitimate. It is that genetic knowledge can be misused when separated from dignity, consent, justice, and social context.</p>
+    </header>
+
+    <section class="link-grid" aria-labelledby="bioethics-routes">
+      <h2 id="bioethics-routes">Bioethics Routes</h2>
+      <article>
+        <h3><a href="eugenics-vs-genetics.html">Eugenics vs. Genetics</a></h3>
+        <p>How to distinguish scientific genetics from ideology that ranks people by supposed inherited worth.</p>
+      </article>
+      <article>
+        <h3><a href="modern-eugenics-debate.html">Modern Eugenics Debate</a></h3>
+        <p>Genetic screening, enhancement, embryo selection, consent, disability rights, and social pressure.</p>
+      </article>
+      <article>
+        <h3><a href="eugenics-iq-and-heredity.html">IQ and Heredity Misuse</a></h3>
+        <p>Why complex traits and test scores cannot be turned into simple policies of human ranking.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Human Rights Frame</h2>
+      <p>UNESCO's human genome declaration places genetic science inside a human-rights framework. This site follows that boundary: scientific claims must not become tools for coercion, discrimination, or dehumanization.</p>
+    </section>
+
+    <section>
+      <h2>Modern Topics to Expand</h2>
+      <ul>
+        <li>Genetic testing and genetic discrimination.</li>
+        <li>Embryo screening and disability rights.</li>
+        <li>Polygenic risk scores and complex-trait overreach.</li>
+        <li>AI, biological data, and population classification risks.</li>
+        <li>CRISPR, enhancement, and the fear of new eugenics.</li>
+      </ul>
+    </section>
+
+    <SourceList sources={sources} />
+  </main>
+</BaseLayout>

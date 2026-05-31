@@ -1,0 +1,24 @@
+---
+import { sampleArchiveEntry } from "@data/archive";
+---
+
+<dl class="definition-list archive-template">
+  <dt>Title / Year / Country</dt>
+  <dd>{sampleArchiveEntry.title}; {sampleArchiveEntry.year}; {sampleArchiveEntry.country}</dd>
+  <dt>Author / Institution</dt>
+  <dd>{sampleArchiveEntry.authorInstitution}</dd>
+  <dt>Historical Context</dt>
+  <dd>{sampleArchiveEntry.historicalContext}</dd>
+  <dt>Harmful Claims Contained</dt>
+  <dd>{sampleArchiveEntry.harmfulClaims}</dd>
+  <dt>Affected Groups</dt>
+  <dd>{sampleArchiveEntry.affectedGroups}</dd>
+  <dt>Why This Matters Today</dt>
+  <dd>{sampleArchiveEntry.whyItMatters}</dd>
+  <dt>Source Citation</dt>
+  <dd>{sampleArchiveEntry.sourceCitation}</dd>
+  <dt>Editorial Note</dt>
+  <dd>{sampleArchiveEntry.editorialNote}</dd>
+  <dt>Content Warning</dt>
+  <dd>{sampleArchiveEntry.contentWarning}</dd>
+</dl>

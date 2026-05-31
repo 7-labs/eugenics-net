@@ -1,0 +1,90 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourceList from "@components/SourceList.astro";
+import { commonSources, foundationalArticles, SITE } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const path = "/";
+const sources = [
+  commonSources.nhgri,
+  commonSources.ushmm,
+  commonSources.unesco,
+  commonSources.ucl,
+  commonSources.archive
+];
+---
+
+<BaseLayout title={SITE.title} path={path} jsonLd={webPageJsonLd({ title: SITE.title, description: SITE.defaultDescription, path })}>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Critical archive and educational resource</p>
+        <h1>{SITE.title}</h1>
+        <p class="lead">
+          Documenting the history, harms, and modern legacy of eugenics, scientific racism, forced sterilization, and genetic discrimination.
+        </p>
+        <div class="hero-actions" aria-label="Primary routes">
+          <a class="button" href="history.html">Start with the history</a>
+          <a class="button secondary" href="archive.html">Explore the archive</a>
+          <a class="button secondary" href="teaching.html">Teach this topic responsibly</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice-panel" aria-labelledby="position-title">
+      <h2 id="position-title">Project Position</h2>
+      <p>
+        This site does not endorse eugenics. It documents and critiques its history, harms, and modern legacy. Historical materials are presented only for education, documentation, and critical study.
+      </p>
+    </section>
+
+    <section class="link-grid" aria-labelledby="start-title">
+      <h2 id="start-title">Start Here</h2>
+      <article>
+        <h3><a href="what-is-eugenics.html">What is eugenics?</a></h3>
+        <p>Define the term, its claims, and why the movement must be studied critically rather than normalized.</p>
+      </article>
+      <article>
+        <h3><a href="eugenics-and-scientific-racism.html">Scientific racism</a></h3>
+        <p>Understand how measurement, heredity language, and state policy were used to justify hierarchy and exclusion.</p>
+      </article>
+      <article>
+        <h3><a href="teaching-eugenics-responsibly.html">Teaching responsibly</a></h3>
+        <p>Plan lessons with context, warnings, survivor-centered framing, and explicit rejection of dehumanizing claims.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="themes-title">
+      <h2 id="themes-title">Core Themes</h2>
+      <div class="topic-list">
+        <a href="forced-sterilization-laws.html">Forced sterilization</a>
+        <a href="eugenics-in-nazi-germany.html">Nazi racial hygiene</a>
+        <a href="eugenics-and-disability-rights.html">Disability rights</a>
+        <a href="eugenics-and-immigration-policy.html">Immigration policy</a>
+        <a href="eugenics-vs-genetics.html">Genetics vs. eugenics</a>
+        <a href="modern-eugenics-debate.html">Modern bioethics</a>
+      </div>
+    </section>
+
+    <section class="article-index" aria-labelledby="foundation-title">
+      <h2 id="foundation-title">Foundation Articles</h2>
+      <ol class="index-list">
+        {foundationalArticles.map((article) => (
+          <li><a href={`${article.slug}.html`}>{article.title}</a></li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="standards" aria-labelledby="standards-title">
+      <h2 id="standards-title">Editorial Standards</h2>
+      <ul>
+        <li>We reject hate advocacy, racial hierarchy, antisemitism, ableism, and genetic discrimination.</li>
+        <li>We do not publish uncontextualized propaganda or primary sources as spectacle.</li>
+        <li>Every sensitive page needs sources, content warnings where relevant, and a corrections route.</li>
+        <li>We avoid expired-domain SEO abuse, affiliate bait, and low-value content built only for rankings.</li>
+      </ul>
+    </section>
+
+    <SourceList sources={sources} title="Foundational Sources" />
+  </main>
+</BaseLayout>

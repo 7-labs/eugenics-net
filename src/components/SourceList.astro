@@ -1,0 +1,26 @@
+---
+interface Source {
+  label: string;
+  url: string;
+  note?: string;
+}
+
+interface Props {
+  sources: Source[];
+  title?: string;
+}
+
+const { sources, title = "Sources" } = Astro.props;
+---
+
+<section class="sources" aria-labelledby={`${title.toLowerCase().replaceAll(" ", "-")}-heading`}>
+  <h2 id={`${title.toLowerCase().replaceAll(" ", "-")}-heading`}>{title}</h2>
+  <ul class="source-list">
+    {sources.map((source) => (
+      <li>
+        <a href={source.url} rel="noopener">{source.label}</a>
+        {source.note && <span>{source.note}</span>}
+      </li>
+    ))}
+  </ul>
+</section>

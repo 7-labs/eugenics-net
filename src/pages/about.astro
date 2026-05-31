@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { SITE } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "About the Project";
+const description = "Mission, scope, and project boundaries for the Eugenics History and Bioethics Archive.";
+const path = "/about.html";
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="This project is anti-eugenics, anti-racist, anti-ableist, and grounded in human rights.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Mission and scope</p>
+      <h1>{title}</h1>
+      <p class="lead">The site is designed as a serious educational and archival resource, not a keyword traffic project.</p>
+    </header>
+
+    <section>
+      <h2>Mission</h2>
+      <p>The Eugenics History &amp; Bioethics Archive documents, contextualizes, and critiques the history of eugenics, scientific racism, forced sterilization, genetic discrimination, and their modern legacies.</p>
+    </section>
+
+    <section>
+      <h2>What This Project Does</h2>
+      <ul>
+        <li>Explains eugenics as pseudoscience and policy history.</li>
+        <li>Connects historical harms to modern bioethics and genomics debates.</li>
+        <li>Provides teaching guidance for responsible classroom use.</li>
+        <li>Builds an archive model where primary sources are contextualized before publication.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What This Project Does Not Do</h2>
+      <ul>
+        <li>It does not advocate eugenics or genetic hierarchy.</li>
+        <li>It does not provide reproductive, medical, or genetic counseling advice.</li>
+        <li>It does not publish unreviewed user submissions or open forums.</li>
+        <li>It does not use the domain for affiliate content, ads, or sensational traffic capture.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Current Status</h2>
+      <p>This is a first foundation release in pre-launch hardening. The public corrections route is <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a>, and the project still needs source review, old-URL audit decisions, and expert or community review before publishing sensitive archive materials.</p>
+    </section>
+  </main>
+</BaseLayout>

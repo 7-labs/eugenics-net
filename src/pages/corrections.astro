@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { SITE } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "Corrections and Contact";
+const description = "How to report factual, citation, context, or accessibility issues for the Eugenics History and Bioethics Archive.";
+const path = "/corrections.html";
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Corrections help protect accuracy, context, critical education, and responsible use of sensitive historical material.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Public trust route</p>
+      <h1>{title}</h1>
+      <p class="lead">The project welcomes corrections about factual accuracy, source quality, historical context, accessibility, and wording that could unintentionally reproduce harm.</p>
+    </header>
+
+    <section>
+      <h2>Send a Correction</h2>
+      <p>Email <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a> with the page URL, the issue, and any stable source that supports the correction. For source concerns, include the citation or archive reference when available.</p>
+    </section>
+
+    <section>
+      <h2>What We Review</h2>
+      <ul>
+        <li>Factual errors, outdated wording, broken citations, and missing context.</li>
+        <li>Content warnings, accessibility issues, and language that needs clearer anti-endorsement framing.</li>
+        <li>Archive-source concerns, provenance issues, or requests to add affected-community context.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Boundaries</h2>
+      <p>This address is not a medical, reproductive, genetic counseling, legal, or crisis-support service. It is also not a route for advocacy of eugenics, racial hierarchy, disability devaluation, antisemitism, forced sterilization, or genetic discrimination.</p>
+    </section>
+  </main>
+</BaseLayout>
