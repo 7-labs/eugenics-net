@@ -44,6 +44,17 @@ const checks = [
     includes: ["https://eugenics.net/updates.html", "https://eugenics.net/what-is-eugenics.html"]
   },
   {
+    path: "/rss.xml",
+    type: "xml",
+    contentType: "application/rss+xml",
+    includes: ["<rss", "<channel>", "What Is Eugenics?"]
+  },
+  {
+    path: "/llms.txt",
+    type: "text",
+    includes: ["Editorial stance:", "does not endorse eugenics", "Flagship articles:"]
+  },
+  {
     path: "/style.css",
     type: "css",
     includes: [":root", ".site-header"]

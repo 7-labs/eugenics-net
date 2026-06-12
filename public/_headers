@@ -29,6 +29,12 @@
 /site.webmanifest
   Cache-Control: public, max-age=86400, must-revalidate
 
+/rss.xml
+  Cache-Control: public, max-age=300, must-revalidate
+
+/llms.txt
+  Cache-Control: public, max-age=300, must-revalidate
+
 /sitemap.xml
   Cache-Control: public, max-age=300, must-revalidate
 

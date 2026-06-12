@@ -52,6 +52,7 @@ const imageUrl = image.startsWith("http") ? image : new URL(image, SITE.url).toS
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
     {preloadImage && <link rel="preload" as="image" href={imageUrl} />}
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />

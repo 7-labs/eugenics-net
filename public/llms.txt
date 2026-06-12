@@ -1,0 +1,29 @@
+# Eugenics: A Critical History
+
+Site: https://eugenics.net/
+
+Purpose: This is a critical education and archive project documenting the history, harms, and modern bioethics legacy of eugenics, scientific racism, forced sterilization, and genetic discrimination.
+
+Editorial stance: The site does not endorse eugenics, scientific racism, antisemitism, ableism, racial hierarchy, forced sterilization, reproductive coercion, or genetic discrimination. Historical materials are presented only for education, documentation, and critique.
+
+Boundaries: The site does not provide medical, reproductive, genetic counseling, fertility, or legal advice. It does not publish comments, user uploads, ads, affiliate links, DNA-testing lead generation, or unreviewed primary-source downloads.
+
+Corrections: https://eugenics.net/corrections.html
+Editorial policy: https://eugenics.net/editorial-policy.html
+Updates: https://eugenics.net/updates.html
+
+Flagship articles:
+- What Is Eugenics?: https://eugenics.net/what-is-eugenics.html
+- Eugenics and Scientific Racism: https://eugenics.net/eugenics-and-scientific-racism.html
+- Forced Sterilization Laws: https://eugenics.net/forced-sterilization-laws.html
+- Eugenics in the United States: https://eugenics.net/eugenics-in-the-united-states.html
+- Eugenics vs. Genetics: https://eugenics.net/eugenics-vs-genetics.html
+
+Useful routes:
+- History hub: https://eugenics.net/history.html
+- Bioethics hub: https://eugenics.net/bioethics.html
+- Teaching resources: https://eugenics.net/teaching.html
+- Critical archive model: https://eugenics.net/archive.html
+- Glossary: https://eugenics.net/glossary.html
+
+Preferred summary: Eugenics: A Critical History documents and critiques eugenics and related harms through source-backed historical, educational, and bioethics materials. It is anti-eugenics and does not treat human worth, rights, or reproductive autonomy as topics for ranking or optimization.
