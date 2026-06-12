@@ -46,7 +46,7 @@ Cloudflare Pages uses:
 - `public/_redirects` for `www` to apex redirect.
 - `dist/` as the upload directory after `npm run build`.
 
-The CSP keeps `script-src 'self'` because the site has no executable inline JavaScript. Inline `application/ld+json` blocks are structured data, not application scripts. If Pagefind search is added later, add only the scoped token required by that task.
+The CSP keeps executable scripts first-party only. Pagefind search adds the scoped WebAssembly token `script-src 'self' 'wasm-unsafe-eval'`; inline `application/ld+json` blocks are structured data, not application scripts. Do not add `unsafe-inline` or third-party script origins without a specific approved task.
 
 For the apex custom domain, Cloudflare's current Pages documentation requires the domain to be added as a Pages custom domain and, for apex usage, the domain must be a Cloudflare zone with nameservers configured for Cloudflare.
 

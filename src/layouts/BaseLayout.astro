@@ -19,6 +19,7 @@ interface Props {
   preloadImage?: boolean;
   preloadImageHref?: string;
   robots?: string;
+  pagefindIndex?: boolean;
 }
 
 const {
@@ -35,7 +36,8 @@ const {
   activePath = path,
   preloadImage = false,
   preloadImageHref,
-  robots
+  robots,
+  pagefindIndex = true
 } = Astro.props;
 const fullTitle = title === SITE.title ? title : `${title} | ${SITE.name}`;
 const blocks = Array.isArray(jsonLd) ? jsonLd.filter(Boolean) : [jsonLd].filter(Boolean);
@@ -86,12 +88,19 @@ const preloadUrl = preloadImageHref
       <script type="application/ld+json" set:html={safeJsonLd(block)} />
     ))}
     <link rel="stylesheet" href="/style.css" />
+    <slot name="head" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="site-alert">{alert}</div>
     <SiteHeader activePath={activePath} />
-    <div id="main-content" class="main-anchor" tabindex="-1">
+    <div
+      id="main-content"
+      class="main-anchor"
+      tabindex="-1"
+      data-pagefind-body={pagefindIndex ? "" : undefined}
+      data-pagefind-meta={pagefindIndex ? `title:${fullTitle}` : undefined}
+    >
       <slot />
     </div>
     <SiteFooter />

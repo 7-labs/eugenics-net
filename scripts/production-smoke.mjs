@@ -55,6 +55,29 @@ const checks = [
     includes: ["Editorial stance:", "does not endorse eugenics", "Flagship articles:"]
   },
   {
+    path: "/search.html",
+    type: "html",
+    includes: ["Search the Archive", 'id="search"', "/pagefind/pagefind-ui.js", "/search.js"]
+  },
+  {
+    path: "/search.js",
+    type: "text",
+    contentType: "javascript",
+    includes: ["PagefindUI"]
+  },
+  {
+    path: "/pagefind/pagefind-ui.js",
+    type: "text",
+    contentType: "javascript",
+    includes: ["PagefindUI"]
+  },
+  {
+    path: "/pagefind/pagefind-ui.css",
+    type: "text",
+    contentType: "text/css",
+    includes: [".pagefind-ui"]
+  },
+  {
     path: "/style.css",
     type: "css",
     includes: [":root", ".site-header"]

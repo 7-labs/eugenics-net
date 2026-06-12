@@ -718,6 +718,85 @@ li + li {
   margin: 0.2rem 0 0;
 }
 
+.search-page {
+  max-width: 900px;
+}
+
+.search-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.search-widget {
+  --pagefind-ui-primary: var(--navy);
+  --pagefind-ui-text: var(--ink);
+  --pagefind-ui-background: var(--panel);
+  --pagefind-ui-border: var(--line);
+  --pagefind-ui-tag: #eef4f7;
+  --pagefind-ui-border-radius: 6px;
+  --pagefind-ui-font: var(--font-sans);
+}
+
+.search-widget .pagefind-ui__form {
+  margin: 0;
+}
+
+.search-widget .pagefind-ui__search-input {
+  background: #fdfcf8;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+  min-height: 52px;
+  padding: 0.8rem 1rem;
+}
+
+.search-widget .pagefind-ui__search-input:focus {
+  border-color: var(--blue);
+  outline: 3px solid rgba(183, 121, 31, 0.28);
+  outline-offset: 2px;
+}
+
+.search-widget .pagefind-ui__result {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+.search-widget .pagefind-ui__result-title {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  line-height: 1.18;
+}
+
+.search-widget .pagefind-ui__result-link {
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration-thickness: 1px;
+}
+
+.search-widget .pagefind-ui__result-excerpt,
+.search-widget .pagefind-ui__message,
+.search-widget .pagefind-ui__result-nested {
+  color: var(--muted);
+}
+
+.search-widget .pagefind-ui__button,
+.search-widget .pagefind-ui__search-clear {
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.search-noscript {
+  margin-top: 1rem;
+}
+
+.fallback-list {
+  columns: 2;
+}
+
 .annotated-samples {
   display: grid;
   gap: 1rem;
@@ -806,6 +885,10 @@ summary {
   .index-list {
     columns: 1;
   }
+
+  .fallback-list {
+    columns: 1;
+  }
 }
 
 @media (max-width: 520px) {
@@ -834,6 +917,10 @@ summary {
 
   .content-warning {
     display: block;
+  }
+
+  .search-panel {
+    padding: 1rem;
   }
 }
 
@@ -970,5 +1057,10 @@ summary {
     content: " (" attr(href) ")";
     font-size: 9pt;
     overflow-wrap: anywhere;
+  }
+
+  .search-panel,
+  .search-noscript {
+    box-shadow: none;
   }
 }

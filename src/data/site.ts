@@ -38,6 +38,7 @@ export const navItems = [
   { label: "Teaching", href: "teaching.html", path: "/teaching.html" },
   { label: "Archive", href: "archive.html", path: "/archive.html" },
   { label: "Glossary", href: "glossary.html", path: "/glossary.html" },
+  { label: "Search", href: "search.html", path: "/search.html" },
   { label: "Policy", href: "editorial-policy.html", path: "/editorial-policy.html" },
   { label: "About", href: "about.html", path: "/about.html" }
 ];
@@ -72,6 +73,7 @@ export const staticPageLastmod: Record<string, string> = {
 
 const defaultOgRoutes = new Set([
   "/",
+  "/search.html",
   "/404.html",
   "/about.html",
   "/archive.html",

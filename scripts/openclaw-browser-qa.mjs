@@ -15,6 +15,17 @@ function pageName(route) {
   return route.replace(/^\//, "").replace(/\.html$/, "").replace(/[^a-z0-9-]+/gi, "-");
 }
 
+function attachConsoleGuards(page, label) {
+  const problems = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") problems.push(`${label} console error: ${message.text()}`);
+  });
+  page.on("pageerror", (error) => {
+    problems.push(`${label} page error: ${error.message}`);
+  });
+  return problems;
+}
+
 async function pagesFromSitemap() {
   const sitemap = await fs.readFile(path.join(process.cwd(), "sitemap.xml"), "utf8");
   const routes = Array.from(sitemap.matchAll(/<loc>https:\/\/eugenics\.net([^<]*)<\/loc>/g), (match) => match[1] || "/");
@@ -34,13 +45,42 @@ if (pages.length < 1) {
 }
 const browser = await chromium.launch(chromiumExecutablePath ? { executablePath: chromiumExecutablePath } : {});
 const results = [];
+let searchResult = null;
+
+async function checkSearch(browser) {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+  const page = await context.newPage();
+  const consoleProblems = attachConsoleGuards(page, "search desktop");
+  try {
+    const response = await page.goto(new URL("/search.html", baseUrl).toString(), { waitUntil: "networkidle" });
+    if (!response || !response.ok()) throw new Error(`search page failed: HTTP ${response?.status()}`);
+    const input = page.locator("#search .pagefind-ui__search-input");
+    await input.waitFor({ timeout: 15000 });
+    await input.fill("Buck v. Bell");
+    const result = page.getByRole("link", { name: /Buck v\. Bell/i }).first();
+    await result.waitFor({ timeout: 15000 });
+    const href = await result.getAttribute("href");
+    if (!href || !href.includes("buck-v-bell-forced-sterilization.html")) {
+      throw new Error(`search result linked to unexpected href: ${href}`);
+    }
+    const horizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    if (horizontalOverflow) throw new Error("search desktop has horizontal overflow");
+    if (consoleProblems.length) throw new Error(consoleProblems.join("\n"));
+    const screenshot = path.join(artifactDir, "search-desktop.png");
+    await page.screenshot({ path: screenshot, fullPage: true });
+    return { query: "Buck v. Bell", href, screenshot };
+  } finally {
+    await context.close();
+  }
+}
 
 try {
   for (const viewport of viewports) {
     const context = await browser.newContext({ viewport });
-    const page = await context.newPage();
 
     for (const target of pages) {
+      const page = await context.newPage();
+      const consoleProblems = attachConsoleGuards(page, `${target.name} ${viewport.label}`);
       const url = new URL(target.path, baseUrl).toString();
       const response = await page.goto(url, { waitUntil: "networkidle" });
       if (!response || !response.ok()) {
@@ -59,6 +99,7 @@ try {
         throw new Error("home first viewport is missing anti-endorsement language");
       }
       if (horizontalOverflow) throw new Error(`${target.name} ${viewport.label} has horizontal overflow`);
+      if (consoleProblems.length) throw new Error(consoleProblems.join("\n"));
       for (const marker of ["Evidence Snapshot", "Source Coverage", "What This Page Does Not Do"]) {
         if (!bodyText.includes(marker)) throw new Error(`${target.name} ${viewport.label} missing V3 marker: ${marker}`);
       }
@@ -74,10 +115,12 @@ try {
         firstViewportHasCriticalPositioning:
           /does not endorse|critical archive|education|critique|publication-state|corrections|accountable/i.test(firstViewportText)
       });
+      await page.close();
     }
 
     await context.close();
   }
+  searchResult = await checkSearch(browser);
 } finally {
   await browser.close();
 }
@@ -87,8 +130,9 @@ if (failedPositioning.length) {
   throw new Error(`missing critical positioning in first viewport: ${failedPositioning.map((r) => `${r.page}/${r.viewport}`).join(", ")}`);
 }
 
-await fs.writeFile(path.join(artifactDir, "summary.json"), JSON.stringify({ baseUrl, results }, null, 2));
+await fs.writeFile(path.join(artifactDir, "summary.json"), JSON.stringify({ baseUrl, results, search: searchResult }, null, 2));
 console.log(`browser QA passed for ${results.length} screenshots`);
+console.log(`search QA passed: ${searchResult.query} -> ${searchResult.href}`);
 const expectedScreenshots = pages.length * viewports.length;
 if (results.length !== expectedScreenshots) {
   throw new Error(`expected ${expectedScreenshots} screenshots, got ${results.length}`);

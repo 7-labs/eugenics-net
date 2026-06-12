@@ -26,7 +26,7 @@ const expectedStaticPacketIds = new Map([
   ["/content-warning.html", "content-warning"],
   ["/about.html", "about"]
 ]);
-const allowedExtraHtmlFiles = new Set(["404.html"]);
+const allowedExtraHtmlFiles = new Set(["404.html", "search.html"]);
 
 function fail(message) {
   failures.push(message);

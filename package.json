@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist",
     "preview": "astro preview --host 127.0.0.1",
     "export:root": "node scripts/export-root.mjs",
     "check:content": "node scripts/content-quality-audit.mjs",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.54.0",
+    "pagefind": "^1.5.2",
     "wrangler": "^4.97.0"
   }
 }

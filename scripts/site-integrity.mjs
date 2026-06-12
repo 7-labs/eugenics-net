@@ -25,7 +25,7 @@ const v2NewSlugs = new Set([
   "eugenics-in-canada",
   "eugenics-in-sweden"
 ]);
-const allowedExtraHtmlFiles = new Set(["404.html"]);
+const allowedExtraHtmlFiles = new Set(["404.html", "search.html"]);
 
 function fail(message) {
   failures.push(message);
@@ -323,14 +323,18 @@ async function checkArticleContentQuality() {
 }
 
 async function checkInternalLinks(routes) {
-  const files = new Set(routes.map(routeToFile));
+  const htmlFiles = new Set([...routes.map(routeToFile), ...allowedExtraHtmlFiles]);
+  const files = new Set(htmlFiles);
   files.add("style.css");
   files.add("robots.txt");
   files.add("sitemap.xml");
+  files.add("rss.xml");
+  files.add("llms.txt");
+  files.add("search.js");
   const externalUrls = new Set();
 
-  for (const route of routes) {
-    const file = routeToFile(route);
+  for (const file of htmlFiles) {
+    if (!(await exists(file))) continue;
     const html = await readText(file);
     const refs = [...parseAttributes(html, "href"), ...parseAttributes(html, "src")];
 
@@ -357,6 +361,22 @@ async function checkInternalLinks(routes) {
   }
 
   return externalUrls;
+}
+
+async function checkSearchArtifacts() {
+  if (!(await exists("search.html"))) return;
+  const html = await readText("search.html");
+  for (const marker of ["Search the Archive", 'id="search"', "/pagefind/pagefind-ui.js", "/search.js"]) {
+    if (!html.includes(marker)) fail(`search.html missing marker: ${marker}`);
+  }
+  for (const file of ["search.js", "pagefind/pagefind-ui.js", "pagefind/pagefind-ui.css"]) {
+    if (!(await exists(file))) fail(`search asset missing: ${file}`);
+  }
+  const headers = await readText("public/_headers");
+  if (!headers.includes("script-src 'self' 'wasm-unsafe-eval'")) {
+    fail("public/_headers must allow only self scripts plus wasm-unsafe-eval for Pagefind");
+  }
+  if (headers.includes("'unsafe-inline'")) fail("public/_headers must not include unsafe-inline");
 }
 
 async function checkSitemap(routes) {
@@ -428,6 +448,7 @@ await checkGeneratedRoutes(routes);
 await checkHtmlMetadata(routes);
 await checkArticleContentQuality();
 const externalUrls = await checkInternalLinks(routes);
+await checkSearchArtifacts();
 await checkSitemap(routes);
 await checkExternalUrls(externalUrls);
 

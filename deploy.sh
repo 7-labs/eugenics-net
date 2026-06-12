@@ -92,7 +92,7 @@ run_openclaw_browser_qa() {
 
 validate_openclaw() {
   sync_openclaw
-  run_openclaw_exec 'npm ci'
+  run_openclaw_exec 'npm ci --no-audit --no-fund'
   run_openclaw_exec 'npm run check:all'
   run_openclaw_browser_qa
 }
@@ -100,7 +100,7 @@ validate_openclaw() {
 deploy_cloudflare() {
   sync_openclaw
   python3 "$SAFETY_CHECK" --cmd "npm run deploy:cloudflare" --cwd "$OPENCLAW_WORKSPACE" --target openclaw --json
-  run_openclaw_exec 'npm ci'
+  run_openclaw_exec 'npm ci --no-audit --no-fund'
   ssh "$OPENCLAW_SSH_HOST" "cd '$OPENCLAW_WORKSPACE' && npm run check:cloudflare-readiness -- --require-auth"
   run_openclaw_exec 'npm run check:security'
   ssh "$OPENCLAW_SSH_HOST" "cd '$OPENCLAW_WORKSPACE' && CF_PAGES_PROJECT='$CF_PROJECT' npm run deploy:cloudflare"
