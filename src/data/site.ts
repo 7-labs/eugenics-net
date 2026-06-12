@@ -1,3 +1,22 @@
+export const ogImages = {
+  default: {
+    path: "/assets/og-default.png",
+    alt: "Eugenics: A Critical History archive title card"
+  },
+  history: {
+    path: "/assets/og-history.png",
+    alt: "History title card for Eugenics: A Critical History"
+  },
+  bioethics: {
+    path: "/assets/og-bioethics.png",
+    alt: "Bioethics title card for Eugenics: A Critical History"
+  },
+  teaching: {
+    path: "/assets/og-teaching.png",
+    alt: "Teaching resources title card for Eugenics: A Critical History"
+  }
+} as const;
+
 export const SITE = {
   name: "Eugenics: A Critical History",
   title: "Eugenics: A Critical History & Bioethics Archive",
@@ -5,7 +24,7 @@ export const SITE = {
   owner: "Eugenics History & Bioethics Project",
   lastUpdated: "2026-06-03",
   correctionsEmail: "corrections@eugenics.net",
-  defaultImage: "/assets/archive-reading-room.webp",
+  defaultImage: ogImages.default.path,
   defaultDescription:
     "A critical education and archive project documenting the history, harms, and modern bioethics legacy of eugenics and scientific racism.",
   globalAlert:
@@ -50,6 +69,51 @@ export const staticPageLastmod: Record<string, string> = {
   "/content-warning.html": SITE.lastUpdated,
   "/about.html": SITE.lastUpdated
 };
+
+const defaultOgRoutes = new Set([
+  "/",
+  "/404.html",
+  "/about.html",
+  "/archive.html",
+  "/content-warning.html",
+  "/corrections.html",
+  "/editorial-policy.html",
+  "/glossary.html",
+  "/updates.html"
+]);
+
+const bioethicsOgRoutes = new Set([
+  "/bioethics.html",
+  "/crispr-enhancement-new-eugenics.html",
+  "/eugenics-vs-genetics.html",
+  "/genetic-testing-embryo-selection-ethical-boundaries.html",
+  "/modern-eugenics-debate.html"
+]);
+
+const teachingOgRoutes = new Set([
+  "/teaching.html",
+  "/teaching-eugenics-responsibly.html"
+]);
+
+function normalizeRoute(inputPath = "/") {
+  if (inputPath.startsWith("http")) {
+    try {
+      return new URL(inputPath).pathname || "/";
+    } catch {
+      return "/";
+    }
+  }
+  const pathname = inputPath.split("#")[0].split("?")[0] || "/";
+  return pathname.startsWith("/") ? pathname : `/${pathname}`;
+}
+
+export function ogImageForPath(inputPath = "/") {
+  const route = normalizeRoute(inputPath);
+  if (bioethicsOgRoutes.has(route)) return ogImages.bioethics;
+  if (teachingOgRoutes.has(route)) return ogImages.teaching;
+  if (defaultOgRoutes.has(route)) return ogImages.default;
+  return ogImages.history;
+}
 
 export const foundationalArticles = [
   { slug: "what-is-eugenics", title: "What Is Eugenics?" },

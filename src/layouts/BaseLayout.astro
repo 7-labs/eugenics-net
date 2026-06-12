@@ -1,7 +1,7 @@
 ---
 import SiteFooter from "@components/SiteFooter.astro";
 import SiteHeader from "@components/SiteHeader.astro";
-import { SITE } from "@data/site";
+import { SITE, ogImageForPath } from "@data/site";
 import { canonicalUrl, safeJsonLd } from "@utils/seo";
 
 interface Props {
@@ -10,12 +10,14 @@ interface Props {
   path?: string;
   alert?: string;
   image?: string;
+  imageAlt?: string;
   jsonLd?: unknown | unknown[];
   ogType?: "website" | "article";
   publishedTime?: Date | string;
   modifiedTime?: Date | string;
   activePath?: string;
   preloadImage?: boolean;
+  preloadImageHref?: string;
   robots?: string;
 }
 
@@ -24,18 +26,28 @@ const {
   description = SITE.defaultDescription,
   path = "/",
   alert = SITE.globalAlert,
-  image = SITE.defaultImage,
+  image,
+  imageAlt,
   jsonLd = [],
   ogType = "website",
   publishedTime,
   modifiedTime,
   activePath = path,
   preloadImage = false,
+  preloadImageHref,
   robots
 } = Astro.props;
 const fullTitle = title === SITE.title ? title : `${title} | ${SITE.name}`;
 const blocks = Array.isArray(jsonLd) ? jsonLd.filter(Boolean) : [jsonLd].filter(Boolean);
-const imageUrl = image.startsWith("http") ? image : new URL(image, SITE.url).toString();
+const fallbackImage = ogImageForPath(path);
+const socialImage = image || fallbackImage.path;
+const socialImageAlt = imageAlt || fallbackImage.alt;
+const imageUrl = socialImage.startsWith("http") ? socialImage : new URL(socialImage, SITE.url).toString();
+const preloadUrl = preloadImageHref
+  ? preloadImageHref.startsWith("http")
+    ? preloadImageHref
+    : new URL(preloadImageHref, SITE.url).toString()
+  : imageUrl;
 ---
 
 <!DOCTYPE html>
@@ -53,19 +65,23 @@ const imageUrl = image.startsWith("http") ? image : new URL(image, SITE.url).toS
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
-    {preloadImage && <link rel="preload" as="image" href={imageUrl} />}
+    {preloadImage && <link rel="preload" as="image" href={preloadUrl} />}
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl(path)} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
     {ogType === "article" && modifiedTime && <meta property="article:modified_time" content={new Date(modifiedTime).toISOString()} />}
     {ogType === "article" && publishedTime && <meta property="article:published_time" content={new Date(publishedTime).toISOString()} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     {blocks.map((block) => (
       <script type="application/ld+json" set:html={safeJsonLd(block)} />
     ))}

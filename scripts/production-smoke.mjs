@@ -68,6 +68,26 @@ const checks = [
     path: "/favicon.ico",
     type: "image",
     contentType: "image/"
+  },
+  {
+    path: "/assets/og-default.png",
+    type: "image",
+    contentType: "image/"
+  },
+  {
+    path: "/assets/og-history.png",
+    type: "image",
+    contentType: "image/"
+  },
+  {
+    path: "/assets/og-bioethics.png",
+    type: "image",
+    contentType: "image/"
+  },
+  {
+    path: "/assets/og-teaching.png",
+    type: "image",
+    contentType: "image/"
   }
 ];
 

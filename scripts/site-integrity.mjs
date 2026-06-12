@@ -48,6 +48,42 @@ async function exists(file) {
   }
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function metaContent(html, attrName, attrValue) {
+  const attr = escapeRegExp(attrName);
+  const value = escapeRegExp(attrValue);
+  const beforeContent = new RegExp(`<meta\\b(?=[^>]*\\b${attr}=["']${value}["'])[^>]*\\bcontent=["']([^"']+)["'][^>]*>`, "i");
+  const afterContent = new RegExp(`<meta\\b(?=[^>]*\\bcontent=["'][^"']+["'])[^>]*\\b${attr}=["']${value}["'][^>]*>`, "i");
+  const direct = html.match(beforeContent);
+  if (direct) return direct[1];
+  const fallback = html.match(afterContent)?.[0]?.match(/\bcontent=["']([^"']+)["']/i);
+  return fallback?.[1] || "";
+}
+
+function localPathForSameOriginUrl(value) {
+  try {
+    const parsed = new URL(value);
+    if (parsed.origin !== siteUrl) return "";
+    const pathname = decodeURIComponent(parsed.pathname);
+    return pathname.replace(/^\//, "") || "index.html";
+  } catch {
+    return "";
+  }
+}
+
+async function pngDimensions(file) {
+  const buffer = await fs.readFile(path.join(root, file));
+  const signature = buffer.subarray(0, 8).toString("hex");
+  if (signature !== "89504e470d0a1a0a" || buffer.length < 24) return null;
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20)
+  };
+}
+
 function routeToFile(route) {
   if (route === "/") return "index.html";
   return route.replace(/^\//, "");
@@ -191,6 +227,38 @@ async function checkHtmlMetadata(routes) {
     if (!html.includes(`<link rel="canonical" href="${expectedCanonical}"`)) {
       fail(`${file} missing expected canonical ${expectedCanonical}`);
     }
+    const ogImage = metaContent(html, "property", "og:image");
+    const ogImageWidth = metaContent(html, "property", "og:image:width");
+    const ogImageHeight = metaContent(html, "property", "og:image:height");
+    const ogImageAlt = metaContent(html, "property", "og:image:alt");
+    const twitterImage = metaContent(html, "name", "twitter:image");
+    const twitterImageAlt = metaContent(html, "name", "twitter:image:alt");
+
+    if (!ogImage) {
+      fail(`${file} missing og:image`);
+    } else {
+      if (!/^https:\/\/eugenics\.net\/assets\/og-(default|history|bioethics|teaching)\.png$/.test(ogImage)) {
+        fail(`${file} og:image must use a static per-tier PNG asset: ${ogImage}`);
+      }
+      const imagePath = localPathForSameOriginUrl(ogImage);
+      if (!imagePath) {
+        fail(`${file} og:image is not same-origin: ${ogImage}`);
+      } else if (!(await exists(imagePath))) {
+        fail(`${file} og:image target missing: ${imagePath}`);
+      } else {
+        const dimensions = await pngDimensions(imagePath);
+        if (!dimensions) {
+          fail(`${file} og:image target is not a valid PNG: ${imagePath}`);
+        } else if (dimensions.width !== 1200 || dimensions.height !== 630) {
+          fail(`${file} og:image dimensions must be 1200x630, got ${dimensions.width}x${dimensions.height}: ${imagePath}`);
+        }
+      }
+    }
+    if (ogImageWidth !== "1200") fail(`${file} og:image:width must be 1200`);
+    if (ogImageHeight !== "630") fail(`${file} og:image:height must be 630`);
+    if (!ogImageAlt.trim()) fail(`${file} missing og:image:alt`);
+    if (twitterImage !== ogImage) fail(`${file} twitter:image must match og:image`);
+    if (twitterImageAlt !== ogImageAlt) fail(`${file} twitter:image:alt must match og:image:alt`);
     if (!/<script type="application\/ld\+json">/.test(html)) fail(`${file} missing JSON-LD`);
     if (!/<h1>/.test(html)) fail(`${file} missing h1`);
 

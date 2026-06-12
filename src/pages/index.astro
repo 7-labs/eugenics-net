@@ -65,7 +65,13 @@ const routeGroups = [
 const sourcePacket = (await getEntry("sourcePackets", "index"))?.data;
 ---
 
-<BaseLayout title={SITE.title} path={path} jsonLd={[webSiteJsonLd(), webPageJsonLd({ title: SITE.title, description: SITE.defaultDescription, path })]} preloadImage={true}>
+<BaseLayout
+  title={SITE.title}
+  path={path}
+  jsonLd={[webSiteJsonLd(), webPageJsonLd({ title: SITE.title, description: SITE.defaultDescription, path })]}
+  preloadImage={true}
+  preloadImageHref="/assets/archive-reading-room.webp"
+>
   <main class="home-main">
     <section class="hero">
       <div class="hero-copy">

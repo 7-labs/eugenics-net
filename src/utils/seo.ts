@@ -1,4 +1,4 @@
-import { SITE } from "@data/site";
+import { SITE, ogImageForPath } from "@data/site";
 
 type Source = {
   label: string;
@@ -32,7 +32,7 @@ export function articleJsonLd(input: {
   image?: string;
   topics?: string[];
 }) {
-  const image = input.image || SITE.defaultImage;
+  const image = input.image || ogImageForPath(input.path).path;
   const imageUrl = image.startsWith("http") ? image : new URL(image, SITE.url).toString();
   return {
     "@context": "https://schema.org",
