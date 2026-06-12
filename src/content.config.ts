@@ -31,7 +31,7 @@ const packetSourceSchema = z.object({
 const claimMapSchema = z.object({
   claim: z.string(),
   evidence: z.string(),
-  sourceLabels: z.array(z.string()).default([])
+  sourceLabels: z.array(z.string()).min(1)
 });
 
 const deepDiveSchema = z.object({

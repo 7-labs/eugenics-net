@@ -4,7 +4,7 @@ import SourceList from "@components/SourceList.astro";
 import SourcePacketPanel from "@components/SourcePacketPanel.astro";
 import { getEntry } from "astro:content";
 import { commonSources, SITE } from "@data/site";
-import { webPageJsonLd } from "@utils/seo";
+import { webPageJsonLd, webSiteJsonLd } from "@utils/seo";
 
 const path = "/";
 const sources = [
@@ -65,7 +65,7 @@ const routeGroups = [
 const sourcePacket = (await getEntry("sourcePackets", "index"))?.data;
 ---
 
-<BaseLayout title={SITE.title} path={path} jsonLd={webPageJsonLd({ title: SITE.title, description: SITE.defaultDescription, path })}>
+<BaseLayout title={SITE.title} path={path} jsonLd={[webSiteJsonLd(), webPageJsonLd({ title: SITE.title, description: SITE.defaultDescription, path })]} preloadImage={true}>
   <main class="home-main">
     <section class="hero">
       <div class="hero-copy">
@@ -75,9 +75,10 @@ const sourcePacket = (await getEntry("sourcePackets", "index"))?.data;
           Documenting the history, harms, and modern legacy of eugenics, scientific racism, forced sterilization, and genetic discrimination.
         </p>
         <div class="hero-actions" aria-label="Primary routes">
-          <a class="button" href="history.html">Start with the history</a>
-          <a class="button secondary" href="archive.html">Explore the archive</a>
-          <a class="button secondary" href="teaching.html">Teach this topic responsibly</a>
+          <a class="button" href="what-is-eugenics.html">Read the definition</a>
+          <a class="button secondary" href="teaching.html">Use teaching resources</a>
+          <a class="button secondary" href="bioethics.html">Review bioethics boundaries</a>
+          <a class="button secondary" href="archive.html">Review the archive model</a>
         </div>
       </div>
     </section>
@@ -88,8 +89,6 @@ const sourcePacket = (await getEntry("sourcePackets", "index"))?.data;
         This site does not endorse eugenics. It documents and critiques its history, harms, and modern legacy. Historical materials are presented only for education, documentation, and critical study.
       </p>
     </section>
-
-    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
 
     <section class="route-sections" aria-labelledby="routes-title">
       <h2 id="routes-title">Research Routes</h2>
@@ -107,6 +106,8 @@ const sourcePacket = (await getEntry("sourcePackets", "index"))?.data;
         </section>
       ))}
     </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
 
     <section class="standards" aria-labelledby="standards-title">
       <h2 id="standards-title">Editorial Standards</h2>

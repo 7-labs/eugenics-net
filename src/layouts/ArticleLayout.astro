@@ -4,7 +4,7 @@ import ContentWarning from "@components/ContentWarning.astro";
 import SourcePacketPanel from "@components/SourcePacketPanel.astro";
 import SourceList from "@components/SourceList.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { articleJsonLd, faqJsonLd } from "@utils/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
 
 interface Source {
   label: string;
@@ -20,6 +20,12 @@ interface Faq {
 interface TocItem {
   id: string;
   label: string;
+}
+
+interface BreadcrumbParent {
+  label: string;
+  href: string;
+  path: string;
 }
 
 interface SourcePacket {
@@ -86,6 +92,7 @@ interface Props {
   claimReviewStatus?: string;
   learningObjectives?: string[];
   lastReviewedBy?: string;
+  breadcrumbParent?: BreadcrumbParent;
   path: string;
 }
 
@@ -113,6 +120,7 @@ const {
   claimReviewStatus = "Claims checked against the linked source packet for pre-launch review.",
   learningObjectives = [],
   lastReviewedBy = "Eugenics History & Bioethics Project editorial desk",
+  breadcrumbParent = { label: "History", href: "history.html", path: "/history.html" },
   path
 } = Astro.props;
 const packetSources = (sourcePacket?.sourceCoverage || []).map((source) => ({
@@ -126,19 +134,33 @@ for (const source of [...sources, ...packetSources]) {
 }
 const mergedSources = Array.from(sourceMap.values());
 const jsonLd = [
-  articleJsonLd({ title, description, path, author, lastUpdated, sources: mergedSources }),
+  articleJsonLd({ title, description, path, author, lastUpdated, sources: mergedSources, topics }),
+  breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: breadcrumbParent.label, path: breadcrumbParent.path },
+    { name: title, path }
+  ]),
   faqJsonLd(faqs)
 ].filter(Boolean);
 const defaultSourceNote = "This page is source-backed by academic, official, or institutional references listed below. It avoids uncontextualized propaganda and does not provide medical, reproductive, genetic, or legal advice.";
 const effectiveSourceNote = sourceNotes || defaultSourceNote;
 ---
 
-<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  jsonLd={jsonLd}
+  ogType="article"
+  publishedTime={lastUpdated}
+  modifiedTime={lastUpdated}
+  activePath={breadcrumbParent.path}
+>
   <main class="page article-page">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <ol>
         <li><a href="index.html">Home</a></li>
-        <li><a href="history.html">History</a></li>
+        <li><a href={breadcrumbParent.href}>{breadcrumbParent.label}</a></li>
         <li aria-current="page">{title}</li>
       </ol>
     </nav>

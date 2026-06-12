@@ -1,0 +1,229 @@
+{
+  "route": "/updates.html",
+  "title": "Updates and Corrections Log",
+  "contentTier": "static",
+  "pageType": "hub",
+  "audience": [
+    "educators",
+    "research users",
+    "students",
+    "editors"
+  ],
+  "answerSummary": "Updates and Corrections Log documents publication-state changes, substantive corrections, review boundaries, and production blockers so sensitive historical material remains accountable.",
+  "reviewStatus": "V3 pre-launch source-packet review complete; external subject-matter and affected-community review pending.",
+  "claimReviewStatus": "Claims are mapped to the source packet below; URL-only citation is not treated as sufficient support.",
+  "lastReviewedBy": "Eugenics History & Bioethics Project editorial desk",
+  "learningObjectives": [
+    "Explain why sensitive history sites need visible corrections and update records.",
+    "Distinguish internal editorial review from external subject-matter or affected-community review.",
+    "Identify production blockers before treating a public URL as launched."
+  ],
+  "affectedCommunities": [
+    "disabled people",
+    "institutionalized people",
+    "racialized communities",
+    "survivors and families affected by coercive policy"
+  ],
+  "claimMap": [
+    {
+      "claim": "Corrections and update records are part of the trust surface.",
+      "evidence": "Google Search Central: Spam Policies is used only for publication-quality boundaries: a sensitive site should not rely on misleading summaries, expired-domain abuse, citation theater, or scaled low-value pages. A public update log helps readers evaluate whether the project corrects errors and tracks publication state.",
+      "sourceLabels": [
+        "Google Search Central: Spam Policies"
+      ]
+    },
+    {
+      "claim": "Historical and bioethics claims require sources that actually address history, genetics, rights, or teaching context.",
+      "evidence": "NHGRI: Eugenics and Scientific Racism and UNESCO: Universal Declaration on the Human Genome and Human Rights support the distinction between genetic evidence, human dignity, and harmful claims about inherited worth. The update log records when source mapping or claim framing changes.",
+      "sourceLabels": [
+        "NHGRI: Eugenics and Scientific Racism",
+        "UNESCO: Universal Declaration on the Human Genome and Human Rights"
+      ]
+    },
+    {
+      "claim": "Teaching difficult eugenics history requires explicit anti-endorsement and source-use boundaries.",
+      "evidence": "UCL: Teaching UCL's Eugenics Legacies Now and in the Future supports careful classroom framing, warnings, and source criticism. Updates to teaching guidance should be visible because unsafe classroom activities can reproduce the logic being studied.",
+      "sourceLabels": [
+        "UCL: Teaching UCL's Eugenics Legacies Now and in the Future"
+      ]
+    },
+    {
+      "claim": "Archive corrections must consider provenance, rights, context, and affected communities.",
+      "evidence": "Eugenics Archives supports archive-centered interpretation and survivor or affected-community context. Changes to archive publication state, raw-source policy, or item-level warnings should be logged rather than hidden in silent edits.",
+      "sourceLabels": [
+        "Eugenics Archives"
+      ]
+    },
+    {
+      "claim": "Production readiness is separate from editorial readiness.",
+      "evidence": "Cloudflare Pages custom-domain documentation shows that a Pages deployment and an apex custom domain require explicit Cloudflare zone and custom-domain setup. Until the domain serves the built site, production smoke and security-header checks cannot be considered closed.",
+      "sourceLabels": [
+        "Cloudflare Pages: Custom domains"
+      ]
+    }
+  ],
+  "deepDiveSections": [
+    {
+      "heading": "Correction Records Prevent Silent Authority Claims",
+      "body": "A site about eugenics history should not sound more certain than its review process justifies. This page records when internal editorial review is complete, when external review is pending, and when a page changes because a source, claim, warning, or accessibility issue was corrected. That makes the trust model visible instead of relying on institutional tone alone."
+    },
+    {
+      "heading": "Publication State Is Evidence",
+      "body": "A canonical URL in the source code is not the same as a live production site. Public smoke tests, domain routing, headers, robots, sitemap, and deployment records all matter. The log therefore records production blockers such as a parked domain or missing Cloudflare binding separately from editorial content status."
+    },
+    {
+      "heading": "Source Mapping Needs the Right Source Type",
+      "body": "A search-quality policy can support an editorial anti-spam rule, but it cannot support a historical claim about heredity, human dignity, or affected communities. This log gives the project a place to record source-mapping corrections so claim evidence remains aligned with source role and limits."
+    },
+    {
+      "heading": "Sensitive History Needs Affected-Community Visibility",
+      "body": "Corrections can involve more than factual dates or broken links. They can involve wording that centers institutions while minimizing people harmed by classification, segregation, sterilization, exclusion, or dehumanization. The log keeps those correction categories visible as part of responsible publication."
+    },
+    {
+      "heading": "No-Advice Boundaries Stay in Scope",
+      "body": "Updates to modern bioethics pages should preserve the site's no-advice boundary. The project can discuss consent, privacy, disability rights, genetic discrimination, and governance without giving medical, reproductive, genetic counseling, fertility, or legal advice."
+    }
+  ],
+  "sourceCoverage": [
+    {
+      "label": "Google Search Central: Spam Policies",
+      "url": "https://developers.google.com/search/docs/essentials/spam-policies",
+      "role": "Search-quality policy source used only for editorial and SEO boundaries against expired-domain abuse, scaled low-value pages, and misleading content.",
+      "supportedClaims": [
+        "SEO should not substitute for usefulness or accuracy",
+        "Trust surfaces need visible editorial standards"
+      ],
+      "limits": "This is not a historical or bioethics source; it applies only to publication quality controls.",
+      "sensitiveLanguageNotes": "Use only for site-governance pages, not as evidence about eugenics history.",
+      "affectedCommunities": [
+        "readers",
+        "educators",
+        "research users"
+      ]
+    },
+    {
+      "label": "NHGRI: Eugenics and Scientific Racism",
+      "url": "https://www.genome.gov/about-genomics/fact-sheets/Eugenics-and-Scientific-Racism",
+      "role": "Official genomics source explaining eugenics as a scientifically inaccurate theory and showing how scientific racism used measurement language to support hierarchy.",
+      "supportedClaims": [
+        "Eugenics misused heredity and statistics",
+        "Scientific racism converted prejudice into claims of biological hierarchy"
+      ],
+      "limits": "The source is a high-level fact sheet and should be paired with legal, archive, country, and affected-community sources for policy detail.",
+      "sensitiveLanguageNotes": "Use the source to critique racist and ableist claims, not to repeat classification terms as neutral categories.",
+      "affectedCommunities": [
+        "racialized communities",
+        "disabled people",
+        "institutionalized people"
+      ]
+    },
+    {
+      "label": "UNESCO: Universal Declaration on the Human Genome and Human Rights",
+      "url": "https://www.unesco.org/en/legal-affairs/universal-declaration-human-genome-and-human-rights",
+      "role": "International human-rights instrument placing genetic science inside dignity, equality, freedom, consent, and non-discrimination principles.",
+      "supportedClaims": [
+        "Human dignity is not reducible to genetic traits",
+        "Genetic knowledge must be governed by rights"
+      ],
+      "limits": "The declaration gives normative principles, not a detailed history of specific eugenic policies.",
+      "sensitiveLanguageNotes": "Use to set rights boundaries rather than to offer medical, reproductive, or legal advice.",
+      "affectedCommunities": [
+        "patients",
+        "families",
+        "disabled people",
+        "racialized communities"
+      ]
+    },
+    {
+      "label": "UCL: Teaching UCL's Eugenics Legacies Now and in the Future",
+      "url": "https://www.ucl.ac.uk/teaching-learning/publications/2025/may/elep-toolkit-3-teaching-ucls-eugenics-legacies-now-and-future",
+      "role": "Institutional teaching resource for discussing eugenics legacies with explicit pedagogy, warnings, and critical classroom framing.",
+      "supportedClaims": [
+        "Teaching difficult eugenics history requires planning",
+        "Source use should not platform harmful claims"
+      ],
+      "limits": "The toolkit is institution-specific and should be adapted to local classroom needs.",
+      "sensitiveLanguageNotes": "Do not ask students to reenact classification, ranking, or reproductive policy decisions.",
+      "affectedCommunities": [
+        "students",
+        "educators",
+        "affected communities"
+      ]
+    },
+    {
+      "label": "Eugenics Archives",
+      "url": "https://www.eugenicsarchive.ca/",
+      "role": "Archive and public-history source that includes contextual material, primary-source interpretation, and survivor or affected-community perspectives on eugenics history.",
+      "supportedClaims": [
+        "Survivor and affected-community context changes how sources should be read",
+        "Archives need warnings and interpretation"
+      ],
+      "limits": "Archive entries vary by item; use the site as contextual evidence rather than a substitute for item-level review.",
+      "sensitiveLanguageNotes": "Do not copy raw primary sources or testimony out of context; summarize respectfully and link to context.",
+      "affectedCommunities": [
+        "survivors",
+        "families",
+        "disabled people",
+        "Indigenous and racialized communities"
+      ]
+    },
+    {
+      "label": "Cloudflare Pages: Custom domains",
+      "url": "https://developers.cloudflare.com/pages/configuration/custom-domains/",
+      "role": "Cloudflare platform documentation for binding custom domains to a Pages project and configuring apex domains through a Cloudflare zone.",
+      "supportedClaims": [
+        "A custom apex domain requires Cloudflare zone and custom-domain setup",
+        "A deployed static site still needs domain binding before the apex URL can be production smoke tested"
+      ],
+      "limits": "This is deployment documentation, not a historical or bioethics source.",
+      "sensitiveLanguageNotes": "Use only for production-state and deployment evidence.",
+      "affectedCommunities": [
+        "readers",
+        "educators",
+        "research users"
+      ]
+    }
+  ],
+  "teachingUse": {
+    "objectives": [
+      "Ask students to compare a page claim, source role, caveat, and correction history.",
+      "Show how a correction log helps distinguish authority from accountability.",
+      "Use production-state notes to explain why a URL can exist without being the final reviewed resource."
+    ],
+    "discussionPrompts": [
+      "Why is a visible correction record important on a site about dehumanizing historical claims?",
+      "What kinds of changes should be public rather than silent?",
+      "How should readers treat a page that is internally reviewed but still awaiting external review?"
+    ],
+    "classroomWarnings": [
+      "Do not use correction records to relitigate whether targeted communities deserved rights.",
+      "Do not treat a source link as sufficient support without checking source role and limits.",
+      "Do not present pending review as completed review."
+    ]
+  },
+  "doesNotDo": [
+    "Updates and Corrections Log does not endorse eugenics, racial hierarchy, antisemitism, ableism, forced sterilization, genetic discrimination, or reproductive coercion.",
+    "It does not provide medical, reproductive, genetic counseling, fertility, or legal advice.",
+    "It does not treat SEO value as a reason to hide production blockers or review gaps.",
+    "It does not publish raw propaganda, extremist material, or primary-source downloads without context and review.",
+    "It does not convert internal editorial review into a claim of final external authority."
+  ],
+  "relatedTopicPath": [
+    {
+      "label": "Corrections",
+      "href": "corrections.html"
+    },
+    {
+      "label": "Editorial policy",
+      "href": "editorial-policy.html"
+    },
+    {
+      "label": "Content warning",
+      "href": "content-warning.html"
+    },
+    {
+      "label": "About",
+      "href": "about.html"
+    }
+  ]
+}

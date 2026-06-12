@@ -3,7 +3,7 @@ export const SITE = {
   title: "Eugenics: A Critical History & Bioethics Archive",
   url: "https://eugenics.net",
   owner: "Eugenics History & Bioethics Project",
-  lastUpdated: "2026-05-31",
+  lastUpdated: "2026-06-03",
   correctionsEmail: "corrections@eugenics.net",
   defaultImage: "/assets/archive-reading-room.webp",
   defaultDescription:
@@ -32,6 +32,7 @@ export const staticPages = [
   "/glossary.html",
   "/editorial-policy.html",
   "/corrections.html",
+  "/updates.html",
   "/content-warning.html",
   "/about.html"
 ];

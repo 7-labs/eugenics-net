@@ -1,0 +1,87 @@
+const baseUrl = process.env.PRODUCTION_BASE_URL || "https://eugenics.net";
+const requiredHeaders = [
+  "content-security-policy",
+  "strict-transport-security",
+  "x-content-type-options",
+  "x-frame-options",
+  "referrer-policy"
+];
+const checks = [
+  {
+    path: "/",
+    type: "html",
+    includes: ["Eugenics: A Critical History", "does not endorse", "Research Routes"]
+  },
+  {
+    path: "/what-is-eugenics.html",
+    type: "html",
+    includes: ["What Is Eugenics?", "Answer First", "Claim Map"]
+  },
+  {
+    path: "/corrections.html",
+    type: "html",
+    includes: ["Corrections and Contact", "Review Timing", "Updates and Corrections Log"]
+  },
+  {
+    path: "/updates.html",
+    type: "html",
+    includes: ["Updates and Corrections Log", "Production readiness"]
+  },
+  {
+    path: "/robots.txt",
+    type: "text",
+    includes: ["Sitemap: https://eugenics.net/sitemap.xml"]
+  },
+  {
+    path: "/sitemap.xml",
+    type: "xml",
+    includes: ["https://eugenics.net/updates.html", "https://eugenics.net/what-is-eugenics.html"]
+  },
+  {
+    path: "/style.css",
+    type: "css",
+    includes: [":root", ".site-header"]
+  }
+];
+
+function urlFor(path) {
+  return new URL(path, baseUrl).toString();
+}
+
+function fail(message) {
+  console.error(`[production-smoke] error: ${message}`);
+  process.exitCode = 1;
+}
+
+for (const check of checks) {
+  const url = urlFor(check.path);
+  const response = await fetch(url, { redirect: "manual" });
+  const location = response.headers.get("location") || "";
+  if (location.includes("forsale.dynadot.com")) {
+    fail(`${check.path} redirects to Dynadot parked page: ${location}`);
+    continue;
+  }
+  if (response.status >= 300 && response.status < 400) {
+    fail(`${check.path} unexpected redirect ${response.status} to ${location}`);
+    continue;
+  }
+  if (!response.ok) {
+    fail(`${check.path} HTTP ${response.status}`);
+    continue;
+  }
+
+  if (check.type === "html") {
+    for (const header of requiredHeaders) {
+      if (!response.headers.get(header)) fail(`${check.path} missing response header: ${header}`);
+    }
+  }
+
+  const body = await response.text();
+  for (const marker of check.includes) {
+    if (!body.includes(marker)) fail(`${check.path} missing marker: ${marker}`);
+  }
+}
+
+if (!process.exitCode) {
+  console.log(`[production-smoke] passed base=${baseUrl} checks=${checks.length}`);
+}

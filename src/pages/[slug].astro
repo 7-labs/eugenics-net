@@ -22,6 +22,21 @@ const related = entry.data.related
   .filter(Boolean);
 const sourcePacketEntry = await getEntry("sourcePackets", entry.data.sourcePacket || entry.id);
 const sourcePacket = sourcePacketEntry?.data;
+const bioethicsSlugs = new Set([
+  "modern-eugenics-debate",
+  "genetic-testing-embryo-selection-ethical-boundaries",
+  "crispr-enhancement-new-eugenics",
+  "eugenics-vs-genetics"
+]);
+const teachingSlugs = new Set(["teaching-eugenics-responsibly"]);
+const archiveSlugs = new Set(["eugenics-record-office"]);
+const breadcrumbParent = teachingSlugs.has(entry.id)
+  ? { label: "Teaching", href: "teaching.html", path: "/teaching.html" }
+  : bioethicsSlugs.has(entry.id)
+    ? { label: "Bioethics", href: "bioethics.html", path: "/bioethics.html" }
+    : archiveSlugs.has(entry.id)
+      ? { label: "Archive", href: "archive.html", path: "/archive.html" }
+      : { label: "History", href: "history.html", path: "/history.html" };
 ---
 
 <ArticleLayout
@@ -48,6 +63,7 @@ const sourcePacket = sourcePacketEntry?.data;
   claimReviewStatus={entry.data.claimReviewStatus}
   learningObjectives={entry.data.learningObjectives}
   lastReviewedBy={entry.data.lastReviewedBy}
+  breadcrumbParent={breadcrumbParent}
   path={`/${entry.id}.html`}
 >
   <Content />

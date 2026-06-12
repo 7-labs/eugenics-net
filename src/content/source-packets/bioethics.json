@@ -63,7 +63,10 @@
     {
       "claim": "Teaching should analyze power, not replay classification.",
       "evidence": "UNESCO: Universal Declaration on the Human Genome and Human Rights supports a classroom model built around source criticism, careful warnings, and anti-endorsement. Students should study how eugenic claims worked, not practice the ranking logic that made them harmful.",
-      "sourceLabels": []
+      "sourceLabels": [
+        "NHGRI: Eugenics and Scientific Racism",
+        "UNESCO: Universal Declaration on the Human Genome and Human Rights"
+      ]
     }
   ],
   "deepDiveSections": [

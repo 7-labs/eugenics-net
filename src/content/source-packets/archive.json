@@ -56,7 +56,10 @@
     {
       "claim": "Bioethics safeguards are part of the historical lesson.",
       "evidence": "Eugenics Archives connects genetic science to dignity, consent, privacy, and non-discrimination. The page uses those principles as boundaries and does not offer medical, reproductive, genetic, or legal advice.",
-      "sourceLabels": []
+      "sourceLabels": [
+        "NHGRI: Eugenics and Scientific Racism",
+        "Eugenics Archives"
+      ]
     },
     {
       "claim": "Teaching should analyze power, not replay classification.",

@@ -119,6 +119,16 @@ async function checkLocalRuntimeArtifacts() {
   }
 }
 
+async function checkCloudflarePagesConfig() {
+  for (const file of ["public/_headers", "public/_redirects"]) {
+    if (!(await exists(file))) fail(`Missing Cloudflare Pages config: ${file}`);
+  }
+  const headers = await readText("public/_headers");
+  for (const marker of ["Content-Security-Policy", "Strict-Transport-Security", "X-Content-Type-Options", "X-Frame-Options"]) {
+    if (!headers.includes(marker)) fail(`public/_headers missing ${marker}`);
+  }
+}
+
 async function checkGeneratedRoutes(routes) {
   for (const route of routes) {
     const file = routeToFile(route);
@@ -289,6 +299,7 @@ async function checkExternalUrls(urls) {
 
 const routes = await expectedRoutes();
 await checkLocalRuntimeArtifacts();
+await checkCloudflarePagesConfig();
 await checkGeneratedRoutes(routes);
 await checkHtmlMetadata(routes);
 await checkArticleContentQuality();

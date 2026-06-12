@@ -10,12 +10,21 @@
     "export:root": "node scripts/export-root.mjs",
     "check:content": "node scripts/content-quality-audit.mjs",
     "check:site": "node scripts/content-quality-audit.mjs && node scripts/site-integrity.mjs",
+    "check:security": "npm audit --omit=dev --audit-level=moderate",
+    "check:security:all": "npm audit --audit-level=moderate",
+    "check:all": "npm run build && npm run export:root && npm run check:security && npm run check:site",
+    "check:cloudflare-readiness": "node scripts/cloudflare-readiness.mjs",
+    "check:production": "node scripts/production-smoke.mjs",
+    "cf:whoami": "wrangler whoami",
+    "cf:deployments": "wrangler pages deployment list --project-name ${CF_PAGES_PROJECT:-eugenics-net}",
+    "deploy:cloudflare": "npm run build && wrangler pages deploy dist --project-name ${CF_PAGES_PROJECT:-eugenics-net}",
     "qa:openclaw": "node scripts/openclaw-browser-qa.mjs"
   },
   "dependencies": {
-    "astro": "^5.13.0"
+    "astro": "^6.4.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.54.0"
+    "@playwright/test": "^1.54.0",
+    "wrangler": "^4.97.0"
   }
 }

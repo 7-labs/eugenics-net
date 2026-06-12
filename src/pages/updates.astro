@@ -1,0 +1,79 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import { getEntry } from "astro:content";
+import { SITE } from "@data/site";
+import { webPageJsonLd } from "@utils/seo";
+
+const title = "Updates and Corrections Log";
+const description = "Publication-state notes, corrections policy, and substantive update records for the Eugenics History and Bioethics Archive.";
+const path = "/updates.html";
+const sourcePacket = (await getEntry("sourcePackets", "updates"))?.data;
+const updateRows = [
+  {
+    date: "2026-06-03",
+    page: "Site-wide",
+    type: "Production readiness",
+    status: "Open",
+    note: "Public domain smoke shows eugenics.net is not yet serving this Astro site; deploy and DNS/Cloudflare binding remain production blockers."
+  },
+  {
+    date: "2026-06-03",
+    page: "Deployment",
+    type: "Cloudflare status",
+    status: "Blocked",
+    note: "OpenClaw build, security checks, content checks, and browser QA passed. Cloudflare deploy and log review are blocked until Wrangler is authenticated with a non-interactive Cloudflare API token."
+  },
+  {
+    date: "2026-06-03",
+    page: "Site-wide",
+    type: "Review state",
+    status: "Open",
+    note: "Internal V3 editorial review is represented in source packets. External subject-matter and affected-community review remains pending unless a page states otherwise."
+  },
+  {
+    date: "2026-06-03",
+    page: "Corrections and Contact",
+    type: "Trust surface",
+    status: "Added",
+    note: "Added triage expectations and this public log route for substantive corrections and publication-state changes."
+  }
+];
+---
+
+<BaseLayout title={title} description={description} path={path} jsonLd={webPageJsonLd({ title, description, path })} alert="Publication-state notes and corrections records help keep sensitive historical material accountable.">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Public trust record</p>
+      <h1>{title}</h1>
+      <p class="lead">This log records substantive corrections, publication-state changes, and open production-readiness blockers.</p>
+    </header>
+
+    <section>
+      <h2>How Updates Are Recorded</h2>
+      <p>Substantive changes should name the page, issue type, review state, and date. Minor copy edits may be batched, but source corrections, safety wording, accessibility fixes, publication-state changes, and review-status changes should be visible here.</p>
+    </section>
+
+    <section>
+      <h2>Current Records</h2>
+      <div class="update-log" role="list">
+        {updateRows.map((row) => (
+          <article role="listitem">
+            <p class="eyebrow">{row.date} / {row.type}</p>
+            <h3>{row.page}</h3>
+            <p><strong>Status:</strong> {row.status}</p>
+            <p>{row.note}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="notice-panel">
+      <h2>Correction Boundary</h2>
+      <p>The corrections route is for accuracy, source quality, accessibility, historical context, and anti-endorsement framing. It is not a medical, reproductive, genetic counseling, legal, crisis-support, or advocacy channel.</p>
+      <p>Send corrections to <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a>.</p>
+    </section>
+
+    {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
+  </main>
+</BaseLayout>

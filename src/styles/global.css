@@ -7,7 +7,7 @@
   --navy: #17324d;
   --blue: #235c7f;
   --red: #8f2f2f;
-  --gold: #b28b32;
+  --gold: #755b17;
   --shadow: 0 18px 40px rgba(23, 50, 77, 0.10);
 }
 
@@ -17,6 +17,20 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
@@ -34,6 +48,36 @@ a {
 
 a:hover {
   color: var(--red);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #b7791f;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  background: var(--navy);
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 800;
+  left: 1rem;
+  padding: 0.65rem 0.85rem;
+  position: fixed;
+  text-decoration: none;
+  top: 1rem;
+  transform: translateY(-150%);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.main-anchor:focus {
+  outline: none;
 }
 
 .site-alert {
@@ -325,6 +369,15 @@ section {
   font-size: 1.04rem;
 }
 
+.article-body > p,
+.article-body > ul,
+.article-body > ol,
+.article-support > p,
+.article-support > ul,
+.article-support > ol {
+  max-width: 72ch;
+}
+
 .breadcrumbs {
   color: var(--muted);
   font-size: 0.92rem;
@@ -446,6 +499,19 @@ section {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 1rem;
+}
+
+.packet-details summary {
+  color: var(--navy);
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.packet-detail-body {
+  margin-top: 1rem;
 }
 
 .packet-deep-dive article + article,
@@ -574,11 +640,17 @@ li + li {
   gap: 1rem;
 }
 
-.annotated-samples > article {
+.annotated-samples > article,
+.update-log > article {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 1rem;
+}
+
+.update-log {
+  display: grid;
+  gap: 1rem;
 }
 
 .annotated-samples h3 {

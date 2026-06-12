@@ -22,6 +22,7 @@ const expectedStaticPacketIds = new Map([
   ["/glossary.html", "glossary"],
   ["/editorial-policy.html", "editorial-policy"],
   ["/corrections.html", "corrections"],
+  ["/updates.html", "updates"],
   ["/content-warning.html", "content-warning"],
   ["/about.html", "about"]
 ]);
@@ -97,6 +98,11 @@ function hasField(frontmatter, field) {
   return new RegExp(`^${field}:`, "m").test(frontmatter);
 }
 
+function scalarField(frontmatter, field) {
+  const match = frontmatter.match(new RegExp(`^${field}:\\s*"?([^"\\n]+)"?\\s*$`, "m"));
+  return match?.[1]?.trim() || "";
+}
+
 function yamlListCount(frontmatter, field) {
   const lines = frontmatter.split("\n");
   const start = lines.findIndex((line) => line === `${field}:`);
@@ -131,6 +137,10 @@ function checkPacket(id, packet, tier) {
 
   if (!packet) return;
   if (!packet.route || !packet.title || !packet.answerSummary) fail(`${id} packet missing route, title, or answerSummary`);
+  const expectedRoute = expectedStaticPacketIds.has(packet.route)
+    ? packet.route
+    : `/${id}.html`;
+  if (packet.route !== expectedRoute) fail(`${id} packet route ${packet.route} does not match expected ${expectedRoute}`);
   if (wordCount(packet.answerSummary) > 50) fail(`${id} answerSummary exceeds 50 words`);
   if ((packet.sourceCoverage || []).length < minSources) fail(`${id} packet has ${(packet.sourceCoverage || []).length} sources; expected at least ${minSources}`);
   if ((packet.claimMap || []).length < minClaims) fail(`${id} packet has ${(packet.claimMap || []).length} claim-map entries; expected at least ${minClaims}`);
@@ -138,6 +148,15 @@ function checkPacket(id, packet, tier) {
   if (!(packet.teachingUse?.objectives || []).length) fail(`${id} packet missing teaching objectives`);
   if (!(packet.teachingUse?.discussionPrompts || []).length) fail(`${id} packet missing teaching discussion prompts`);
   if (!(packet.doesNotDo || []).length) fail(`${id} packet missing doesNotDo boundaries`);
+
+  const coverageLabels = new Set((packet.sourceCoverage || []).map((source) => source.label));
+  for (const [index, item] of (packet.claimMap || []).entries()) {
+    const prefix = `${id} claimMap[${index}]`;
+    if (!Array.isArray(item.sourceLabels) || item.sourceLabels.length === 0) fail(`${prefix} has no sourceLabels`);
+    for (const label of item.sourceLabels || []) {
+      if (!coverageLabels.has(label)) fail(`${prefix} references missing sourceCoverage label: ${label}`);
+    }
+  }
 
   for (const [index, source] of (packet.sourceCoverage || []).entries()) {
     const prefix = `${id} sourceCoverage[${index}]`;
@@ -162,7 +181,11 @@ async function checkLocalRuntimeArtifacts() {
 }
 
 async function checkRoutes(routes) {
-  if (routes.length !== 35) fail(`Expected 35 public routes, found ${routes.length}`);
+  const siteTs = await readText("src/data/site.ts");
+  const staticCount = extractStaticPages(siteTs).length;
+  const articleCount = (await fs.readdir(path.join(root, "src/content/articles"))).filter((file) => file.endsWith(".md")).length;
+  const expectedCount = staticCount + articleCount;
+  if (routes.length !== expectedCount) fail(`Expected ${expectedCount} public routes, found ${routes.length}`);
   const expectedFiles = new Set(routes.map(routeToFile));
   for (const route of routes) {
     const file = routeToFile(route);
@@ -202,9 +225,14 @@ async function checkRenderedPage(route) {
   if (isArticle) {
     const markdown = await readText(`src/content/articles/${id}.md`);
     const frontmatter = extractFrontmatter(markdown);
+    const bodyWords = wordCount(markdown.replace(/^---\n[\s\S]*?\n---\n/, ""));
+    const bodyFloor = flagshipSlugs.has(id) ? 900 : 450;
+    if (bodyWords < bodyFloor) fail(`${id}.md article body word count ${bodyWords} below ${bodyFloor}`);
     for (const field of ["sourcePacket", "contentTier", "audience", "reviewStatus", "claimReviewStatus", "learningObjectives", "lastReviewedBy"]) {
       if (!hasField(frontmatter, field)) fail(`${id}.md missing V3 frontmatter field: ${field}`);
     }
+    const sourcePacketField = scalarField(frontmatter, "sourcePacket");
+    if (sourcePacketField && sourcePacketField !== id) fail(`${id}.md sourcePacket ${sourcePacketField} does not match article id`);
     if (!html.includes("Answer First")) fail(`${file} missing Answer First section`);
     if (!html.includes("Related Topic Path")) fail(`${file} missing related topic path`);
     if (flagshipSlugs.has(id)) {
@@ -238,8 +266,8 @@ async function checkSitemap(routes) {
   const sitemap = await readText("sitemap.xml");
   const locCount = (sitemap.match(/<loc>https:\/\/eugenics\.net\/[^<]*<\/loc>/g) || []).length;
   const lastmodCount = (sitemap.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g) || []).length;
-  if (locCount !== 35) fail(`sitemap.xml has ${locCount} loc entries; expected 35`);
-  if (lastmodCount !== 35) fail(`sitemap.xml has ${lastmodCount} lastmod entries; expected 35`);
+  if (locCount !== routes.length) fail(`sitemap.xml has ${locCount} loc entries; expected ${routes.length}`);
+  if (lastmodCount !== routes.length) fail(`sitemap.xml has ${lastmodCount} lastmod entries; expected ${routes.length}`);
   for (const route of routes) {
     const loc = new URL(route, siteUrl).toString();
     if (!sitemap.includes(`<loc>${loc}</loc>`)) fail(`sitemap.xml missing ${loc}`);

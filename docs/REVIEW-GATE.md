@@ -27,6 +27,7 @@ Gate:
 Gate:
 
 - Visible rendered word count: at least 1500.
+- Article body word count before source packets: at least 450.
 - Source packet sources: at least 5.
 - Source packet exists and is linked from article frontmatter.
 - Discussion questions, related reading, source quality note, and explicit anti-endorsement position.
@@ -36,10 +37,12 @@ Gate:
 Gate:
 
 - Source packet exists and is rendered.
+- Claim map entries must list at least one source label that exists in the same packet's source coverage.
 - Title, meta description, canonical, JSON-LD, H1, and trust surface are present.
 - Teaching and Archive pages: at least 2000 visible words.
 - Glossary: at least 25 terms and DefinedTermSet JSON-LD.
 - Archive: publication gate plus three fully annotated non-download sample entries.
+- Updates page: publication-state notes, correction record structure, and current production blocker.
 
 ## Source Review
 
@@ -90,6 +93,7 @@ git status --short --ignored
 find . -maxdepth 1 \( -name node_modules -o -name dist -o -name .astro -o -name _astro -o -name .codex-results \) -print
 node scripts/content-quality-audit.mjs
 node scripts/site-integrity.mjs
+node scripts/production-smoke.mjs
 xmllint --noout sitemap.xml
 rg "<unfinished-marker-pattern>" .
 ```
@@ -104,3 +108,5 @@ OPENCLAW_QA_BASE_URL=http://localhost:3350 npm run qa:openclaw
 ```
 
 If managed preview is unstable, use the documented OpenClaw SSH preview fallback only. Do not fall back to local Mac preview.
+
+Production smoke is expected to fail while `https://eugenics.net` redirects to Dynadot's parked-domain flow. That failure is a production routing blocker, not a content-gate failure.

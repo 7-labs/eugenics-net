@@ -11,6 +11,11 @@ type Faq = {
   answer: string;
 };
 
+type BreadcrumbItem = {
+  name: string;
+  path: string;
+};
+
 export function canonicalUrl(path = "/") {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return new URL(normalized, SITE.url).toString();
@@ -23,13 +28,22 @@ export function articleJsonLd(input: {
   author: string;
   lastUpdated: Date | string;
   sources: Source[];
+  image?: string;
+  topics?: string[];
 }) {
+  const image = input.image || SITE.defaultImage;
+  const imageUrl = image.startsWith("http") ? image : new URL(image, SITE.url).toString();
   return {
     "@context": "https://schema.org",
     "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl(input.path)
+    },
     headline: input.title,
     description: input.description,
     url: canonicalUrl(input.path),
+    image: [imageUrl],
     dateModified: new Date(input.lastUpdated).toISOString(),
     datePublished: new Date(input.lastUpdated).toISOString(),
     author: {
@@ -41,8 +55,28 @@ export function articleJsonLd(input: {
       name: SITE.owner,
       url: SITE.url
     },
+    about: (input.topics || []).map((topic) => ({
+      "@type": "Thing",
+      name: topic
+    })),
     citation: input.sources.map((source) => source.url),
     isAccessibleForFree: true
+  };
+}
+
+export function webSiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.title,
+    alternateName: SITE.name,
+    url: SITE.url,
+    description: SITE.defaultDescription,
+    publisher: {
+      "@type": "Organization",
+      name: SITE.owner,
+      url: SITE.url
+    }
   };
 }
 
@@ -58,6 +92,19 @@ export function webPageJsonLd(input: { title: string; description: string; path:
       name: SITE.title,
       url: SITE.url
     }
+  };
+}
+
+export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: canonicalUrl(item.path)
+    }))
   };
 }
 

@@ -1,0 +1,43 @@
+{
+  "updatedAt": "2026-06-03T08:10:00Z",
+  "project": "eugenics-net",
+  "siteUrl": "https://eugenics.net",
+  "sourceRuntime": "Astro static",
+  "intendedHost": "Cloudflare Pages",
+  "publicDomainStatus": {
+    "status": "blocked",
+    "observedResponse": "302 redirect to Dynadot parked-domain page",
+    "dnsObservation": {
+      "localA": "198.18.12.163",
+      "openclawA": "54.215.31.113",
+      "interpretation": "resolver views differ, but both public probes redirect to Dynadot parked-domain flow"
+    },
+    "blockingIssue": "Apex domain is not bound to the Astro/Cloudflare Pages deployment"
+  },
+  "cloudflareStatus": {
+    "status": "blocked",
+    "wranglerVersion": "4.97.0",
+    "observedIssue": "OpenClaw readiness gate fails before Wrangler because non-interactive deploy/status requires CLOUDFLARE_API_TOKEN",
+    "secretPresenceCheck": {
+      "CLOUDFLARE_API_TOKEN": "missing",
+      "CLOUDFLARE_ACCOUNT_ID": "missing"
+    }
+  },
+  "latestValidation": {
+    "openclawNpmCi": "passed, 0 vulnerabilities",
+    "openclawSecurityAll": "passed, 0 vulnerabilities",
+    "openclawCheckAll": "passed, 36 pages, content-quality warnings=0, site-integrity warnings=5 upstream only",
+    "browserQa": "passed, 36 routes x 2 viewports, 72 screenshots",
+    "browserQaArtifacts": "/Users/openclaw/artifacts/eugenics-net/browser-qa/20260603-081116",
+    "localStatic": "passed content-quality, site-integrity, bash -n deploy.sh, git diff --check"
+  },
+  "localBoundary": "Local SSD work is limited to source edits, git, docs, and short non-runtime checks",
+  "remoteRuntime": "OpenClaw handles npm install, build, preview, browser QA, and Cloudflare deploy",
+  "requiredCloseout": [
+    "Cloudflare Pages deploy receipt",
+    "Cloudflare custom domain active",
+    "production-smoke pass on https://eugenics.net",
+    "Cloudflare deployment status/log evidence reviewed",
+    "bash ./deploy.sh deploy-closeout pass from both local and OpenClaw network views"
+  ]
+}

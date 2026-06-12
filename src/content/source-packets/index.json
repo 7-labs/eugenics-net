@@ -9,14 +9,14 @@
     "students",
     "editors"
   ],
-  "answerSummary": "Eugenics: A Critical History & Bioethics Archive explains research portal and source-backed route map through source-backed critique. It rejects eugenic endorsement, inherited-worth claims, coercive policy, and medical or reproductive advice while naming affected communities and limits.",
+  "answerSummary": "This site is a critical education route map for eugenics history, scientific racism, forced sterilization, disability rights, and modern bioethics. It documents harm without endorsement.",
   "reviewStatus": "V3 pre-launch source-packet review complete; external subject-matter and affected-community review pending.",
   "claimReviewStatus": "Claims are mapped to the source packet below; URL-only citation is not treated as sufficient support.",
   "lastReviewedBy": "Eugenics History & Bioethics Project editorial desk",
   "learningObjectives": [
-    "Define the main claim in Eugenics: A Critical History & Bioethics Archive without adopting eugenic categories as neutral vocabulary.",
-    "Identify how research portal and source-backed route map moved through institutions, source records, policy, or public authority.",
-    "Distinguish evidence about heredity from claims about human worth, rights, or social value."
+    "Use the homepage to choose a definition, history, teaching, archive, or bioethics route.",
+    "Identify why this project documents eugenics without endorsing eugenic categories.",
+    "Distinguish source-backed education from traffic capture, affiliate bait, or unframed historical display."
   ],
   "affectedCommunities": [
     "disabled people",
@@ -27,7 +27,7 @@
   "claimMap": [
     {
       "claim": "Eugenics is a rights-violating ideology, not a neutral branch of genetics.",
-      "evidence": "NHGRI: Eugenics and Scientific Racism supports the core distinction: evidence about heredity cannot be turned into a ranking of human worth. For Eugenics: A Critical History & Bioethics Archive, that means claims about research portal and source-backed route map must be examined for the policy action they invite, not only for the scientific words they use.",
+      "evidence": "NHGRI: Eugenics and Scientific Racism supports the core distinction: evidence about heredity cannot be turned into a ranking of human worth. The homepage therefore routes readers into critical definitions, history, teaching, archive, and bioethics pages rather than presenting eugenics as a neutral scientific category.",
       "sourceLabels": [
         "NHGRI: Eugenics and Scientific Racism",
         "NHGRI: Eugenics Timeline",
@@ -45,7 +45,7 @@
     },
     {
       "claim": "Affected communities must be named in the analysis.",
-      "evidence": "The source packet identifies who was classified, excluded, sterilized, institutionalized, surveilled, or otherwise harmed. That is essential for research portal and source-backed route map because a policy history centered only on officials or researchers can make coercion look abstract.",
+      "evidence": "The source packet identifies who was classified, excluded, sterilized, institutionalized, surveilled, or otherwise harmed. That is essential for a homepage route map because a policy history centered only on officials or researchers can make coercion look abstract.",
       "sourceLabels": [
         "NHGRI: Eugenics and Scientific Racism",
         "UNESCO: Universal Declaration on the Human Genome and Human Rights"
@@ -70,7 +70,7 @@
   "deepDiveSections": [
     {
       "heading": "Start With the Claim Being Reviewed",
-      "body": "This page treats research portal and source-backed route map as a set of claims that must be checked against evidence, institutions, and harm. The first question is not whether eugenic language sounds modern or efficient. The first question is what the claim does: whether it reduces complex human lives to heredity, ranks people or groups, and then invites law, medicine, education, or administration to act on that ranking. Sources such as NHGRI: Eugenics and Scientific Racism and NHGRI: Eugenics Timeline are used to hold that distinction steady. They help readers see that evidence about heredity is not evidence of human worth, and that a historical claim can be important to document while still being false, coercive, or dehumanizing."
+      "body": "This homepage makes a publication choice: the first route into eugenics history must be critical, source-backed, and explicit about anti-endorsement. The first question is not whether eugenic language sounds modern or efficient. The first question is what the claim does: whether it reduces complex human lives to heredity, ranks people or groups, and then invites law, medicine, education, or administration to act on that ranking. Sources such as NHGRI: Eugenics and Scientific Racism and NHGRI: Eugenics Timeline are used to hold that distinction steady."
     },
     {
       "heading": "Institutions Made the Idea Powerful",
@@ -78,7 +78,7 @@
     },
     {
       "heading": "Affected Communities Are Not an Afterthought",
-      "body": "A V3 page must identify affected communities as part of the argument, not as a closing moral note. People targeted by eugenic systems included disabled people, institutionalized people, racialized and Indigenous communities, immigrants, poor families, women and girls under institutional control, Jewish communities under Nazi racial policy, and people whose family histories were turned into evidence against them. For research portal and source-backed route map, naming affected communities changes the reading. It stops the page from centering only reformers, courts, researchers, or administrators. It asks how the policy was experienced by people subject to classification, surveillance, segregation, sterilization, exclusion, or public devaluation."
+      "body": "A V3 page must identify affected communities as part of the argument, not as a closing moral note. People targeted by eugenic systems included disabled people, institutionalized people, racialized and Indigenous communities, immigrants, poor families, women and girls under institutional control, Jewish communities under Nazi racial policy, and people whose family histories were turned into evidence against them. For a homepage route map, naming affected communities changes the reading. It stops the page from centering only reformers, courts, researchers, or administrators."
     },
     {
       "heading": "Science and Values Must Be Separated",

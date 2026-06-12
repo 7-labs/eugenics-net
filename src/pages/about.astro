@@ -49,6 +49,16 @@ const sourcePacket = (await getEntry("sourcePackets", "about"))?.data;
       <p>This is a first foundation release in pre-launch hardening. The public corrections route is <a href={`mailto:${SITE.correctionsEmail}`}>{SITE.correctionsEmail}</a>, and the project still needs source review, old-URL audit decisions, and expert or community review before publishing sensitive archive materials.</p>
     </section>
 
+    <section class="notice-panel">
+      <h2>Review Governance</h2>
+      <p>Internal editorial review checks anti-endorsement framing, source roles, citation limits, affected-community context, and no-advice boundaries. External subject-matter and affected-community review are still listed as pending where they have not been completed, and those labels should not be removed until the review actually happens.</p>
+      <ul>
+        <li>Historical and bioethics claims must map to visible source packets, not URL-only citations.</li>
+        <li>Archive expansion is blocked until item-level provenance, rights, content-warning, and affected-community notes are complete.</li>
+        <li>Substantive corrections and publication-state changes are recorded on the <a href="updates.html">Updates and Corrections Log</a>.</li>
+      </ul>
+    </section>
+
     {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}
   </main>
 </BaseLayout>

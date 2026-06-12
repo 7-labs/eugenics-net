@@ -23,6 +23,8 @@ Each packet must record:
 
 URL-only citation is not sufficient. A link can support a page only when the packet says what role the source plays and what it cannot prove.
 
+Every `claimMap` item must list at least one `sourceLabels` value, and each label must match a source in the same packet's `sourceCoverage`. Search-quality sources can support publication-quality boundaries, but they must not be used as evidence for historical, genetic, bioethics, or affected-community claims.
+
 ## Approved Source Boundary
 
 Use academic, official, institutional, and clearly labeled survivor or affected-community material. Broad media can be considered only in a later review lane and must not replace primary evidence, institutional sources, or affected-community context.
@@ -55,3 +57,7 @@ Teaching materials should help students analyze power, institutions, language, s
 ## Runtime Boundary
 
 Editing happens in the SSD source tree. Dependency install, Astro build, export, preview, and browser QA run only on OpenClaw.
+
+## Updates and Production State
+
+Substantive corrections, publication-state changes, review-state changes, and production blockers should be recorded on `updates.html`. A canonical URL in source code is not evidence that production is live. The production URL must pass smoke checks and must not redirect to a parked-domain page before launch can be marked complete.

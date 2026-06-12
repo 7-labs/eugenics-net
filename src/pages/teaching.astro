@@ -69,6 +69,13 @@ const printablePrompts = [
   "How would the meaning change if the page centered a survivor, family, disability-rights, or civil-rights perspective first?",
   "What modern safeguard would directly answer the harm visible in the source?"
 ];
+const worksheetSteps = [
+  "Name the source creator, institution, date, audience, and publication purpose.",
+  "Identify the harmful claim without repeating it as neutral vocabulary.",
+  "List the affected communities and the people least able to refuse the institution's decision.",
+  "Separate what the source can prove from what it cannot prove.",
+  "Write one rights-based safeguard that responds to the harm: consent, bodily autonomy, privacy, disability rights, anti-discrimination, or accountability."
+];
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd} alert="Teaching this history requires critical education, context, care, and explicit rejection of dehumanizing claims.">
@@ -137,9 +144,17 @@ const printablePrompts = [
       </ul>
     </section>
 
+    <section class="notice-panel" aria-labelledby="worksheet-heading">
+      <h2 id="worksheet-heading">Classroom Source-Analysis Worksheet</h2>
+      <p>This worksheet can be copied into a lesson plan without adding downloads or exposing raw primary-source scans. It keeps students focused on source creation, institutional power, affected communities, and rights safeguards.</p>
+      <ol>
+        {worksheetSteps.map((step) => <li>{step}</li>)}
+      </ol>
+    </section>
+
     <section>
       <h2>Downloadable Pack Roadmap</h2>
-      <p>The next release should package slides, discussion prompts, a timeline handout, source-analysis worksheets, and a short guide to teaching difficult histories.</p>
+      <p>A later release can package slides, prompts, a timeline handout, and worksheet PDFs after external review. The current page provides the worksheet text directly so educators can use it without waiting for a download bundle.</p>
     </section>
 
     {sourcePacket && <SourcePacketPanel packet={sourcePacket} mode="hub" />}

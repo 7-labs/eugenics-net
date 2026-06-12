@@ -82,15 +82,17 @@ const tierLabel = packet.contentTier.replace(/^\w/, (letter) => letter.toUpperCa
   </div>
 
   {packet.deepDiveSections.length > 0 && (
-    <div class="packet-section packet-deep-dive" aria-labelledby="deep-dive-heading">
-      <h3 id="deep-dive-heading">Research Brief</h3>
-      {packet.deepDiveSections.map((section) => (
-        <article>
-          <h4>{section.heading}</h4>
-          <p>{section.body}</p>
-        </article>
-      ))}
-    </div>
+    <details class="packet-section packet-details packet-deep-dive">
+      <summary id="deep-dive-heading">Research Brief</summary>
+      <div class="packet-detail-body" aria-labelledby="deep-dive-heading">
+        {packet.deepDiveSections.map((section) => (
+          <article>
+            <h4>{section.heading}</h4>
+            <p>{section.body}</p>
+          </article>
+        ))}
+      </div>
+    </details>
   )}
 
   {packet.claimMap.length > 0 && (
@@ -101,7 +103,7 @@ const tierLabel = packet.contentTier.replace(/^\w/, (letter) => letter.toUpperCa
           <article>
             <h4>{item.claim}</h4>
             <p>{item.evidence}</p>
-            <p class="claim-sources"><strong>Supported by:</strong> {item.sourceLabels.join("; ")}</p>
+            <p class="claim-sources"><strong>Supported by:</strong> {item.sourceLabels.length ? item.sourceLabels.join("; ") : "Source mapping required before launch."}</p>
           </article>
         ))}
       </div>
@@ -109,9 +111,9 @@ const tierLabel = packet.contentTier.replace(/^\w/, (letter) => letter.toUpperCa
   )}
 
   {packet.sourceCoverage.length > 0 && (
-    <div class="packet-section" aria-labelledby="coverage-heading">
-      <h3 id="coverage-heading">Source Coverage</h3>
-      <div class="source-coverage">
+    <details class="packet-section packet-details">
+      <summary id="coverage-heading">Source Coverage</summary>
+      <div class="packet-detail-body source-coverage" aria-labelledby="coverage-heading">
         {packet.sourceCoverage.map((source) => (
           <article>
             <h4><a href={source.url}>{source.label}</a></h4>
@@ -123,7 +125,7 @@ const tierLabel = packet.contentTier.replace(/^\w/, (letter) => letter.toUpperCa
           </article>
         ))}
       </div>
-    </div>
+    </details>
   )}
 
   <div class="packet-grid">
