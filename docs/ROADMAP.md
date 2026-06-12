@@ -3,7 +3,7 @@
 Last updated: 2026-06-12
 Status: pre-launch. Production domain still parked at Dynadot (verified 2026-06-12: `https://eugenics.net/` → 302 → `forsale.dynadot.com`).
 
-This document is the **single execution spec** for finishing development and launching eugenics.net. It is written to be handed to an autonomous coding agent (Codex). Follow it top-to-bottom. Every task has an ID, an owner, file paths, steps, and acceptance criteria. Do not invent scope beyond this document.
+This document is the roadmap half of the combined execution spec. It must be read with `docs/DEV-LAUNCH-PLAN.md`; where the two documents conflict, the stricter static-site, dependency-budget, editorial-gate, and runtime-boundary rule wins. Every task has an ID, an owner, file paths, steps, and acceptance criteria. Do not invent scope beyond these documents.
 
 ---
 
@@ -19,6 +19,7 @@ These rules override anything else you think is a good idea.
 6. **Validation before "done".** A task is complete only when its listed acceptance commands pass and the output is recorded. `curl 200` is never acceptance evidence for UI work; browser QA on OpenClaw is.
 7. **Generated root output.** Top-level `*.html`, `sitemap.xml`, `style.css` at repo root are BUILD ARTIFACTS exported by `scripts/export-root.mjs` from the OpenClaw build. Never hand-edit them; edit `src/` and re-export via `bash ./deploy.sh validate`.
 8. **Record keeping.** After every deploy attempt (success or failure) append to `ops/deploy-ledger.jsonl`. After every phase, update `PROJECT_STATE.md` (summary + evidence) and the `updates.html` source page (`src/pages/updates.astro` data).
+9. **Dependency budget.** Approved additions remain only `pagefind` and `@astrojs/rss` unless the human owner explicitly approves another package. Prefer dependency-free implementations when practical.
 
 ### Anti-scope (do NOT build any of these)
 
@@ -57,7 +58,7 @@ These rules override anything else you think is a good idea.
 | No RSS feed | No subscription/distribution channel | P2-T5 |
 | No analytics, no uptime monitoring | Flying blind post-launch | P2-T6/T7 |
 | No site search | Findability across 36+ pages | P3-T2 |
-| No dark mode / print styles | Reader & teacher UX | P3-T3/T4 |
+| No print styles | Teacher UX | P3-T4 |
 | No automated a11y audit | WCAG risk on an education site | P3-T5 |
 | Glossary 32 terms; 25 articles | Topical authority ceiling | Phase 4 |
 
@@ -181,7 +182,7 @@ All tasks here are **[pre-launch OK]** to *develop*, but only count as done afte
 
 ### P2-T1: Extend production smoke for new assets
 
-As T2–T5 land, extend `scripts/production-smoke.mjs` to also check: `/favicon.ico` (200), `/404.html` content marker, `/rss.xml` (200 + `<rss`), one per-article OG image URL (200, `image/*`). Keep failures precise (one line per failed check).
+As T2–T5 land, extend `scripts/production-smoke.mjs` to also check: `/favicon.ico` (200), `/404.html` content marker, `/rss.xml` (200 + `<rss`), and one selected static OG image URL after the per-tier OG task lands. Keep failures precise (one line per failed check).
 
 ### P2-T2: Favicon & app icons
 
@@ -201,19 +202,19 @@ Important: ensure `scripts/site-integrity.mjs` and the sitemap generator EXCLUDE
 
 Acceptance: build emits `404.html`; sitemap does not contain it; production (post-launch) returns the page body with HTTP 404 for a garbage URL.
 
-### P2-T4: Per-article OG images (build-time generated)
+### P2-T4: Per-tier OG images (static, dependency-free)
 
-Goal: each article and hub page gets a unique 1200×630 OG image with the page title, site name, and the archival visual style — no photos of people, no historical propaganda imagery, text-on-texture only.
+Goal: each article and hub page gets an appropriate 1200×630 OG image selected from a small static set: default, history, bioethics, and teaching/archive. No photos of people, no historical propaganda imagery, and no generated-per-article dependency path.
 
-Implementation (build-time only, zero runtime JS):
-1. Add dev-dependency `astro-og-canvas` (preferred; renders via canvaskit at build) — or, if it conflicts with Astro 6, fall back to a custom `src/pages/og/[slug].png.ts` endpoint using `satori` + `@resvg/resvg-js` with a system-font-free bundled font file.
-2. Generate for: every entry in `foundationalArticles` (`src/data/site.ts`), every hub/static page in `staticPages`.
-3. `BaseLayout.astro`: accept an optional `ogImagePath`; layouts pass the per-page generated path; fall back to `SITE.defaultImage` only if generation is impossible for a route.
-4. Update `articleJsonLd`/meta plumbing in `src/utils/seo.ts` if needed (it already accepts `image`).
+Implementation (static only, zero runtime JS, zero new dependencies):
+1. Create four static PNG assets under `public/assets/`: `og-default.png`, `og-history.png`, `og-bioethics.png`, and `og-teaching.png`.
+2. Map page/section to image in `src/data/site.ts`; layouts pass the selected path to `BaseLayout.astro`.
+3. `BaseLayout.astro`: add `og:image:width`, `og:image:height`, and `og:image:alt`.
+4. Update `articleJsonLd`/meta plumbing in `src/utils/seo.ts` if needed.
 
-Constraints: install/build runs on OpenClaw only. Verify `npm run check:security` stays clean after adding the dependency; if the new dependency introduces vulnerabilities ≥ moderate, choose the other implementation path.
+Constraints: do not add `astro-og-canvas`, `satori`, `resvg`, `sharp`, or generated-per-article OG dependencies without explicit human approval.
 
-Acceptance: `dist/og/*.png` (or equivalent) exists for all 36 routes; OG meta on every page points to its own image; one image visually spot-checked via OpenClaw browser QA artifact; Twitter/FB card validators pass post-launch (record in PROJECT_STATE.md).
+Acceptance: the four static images exist, each is under 120 KB if practical, OG meta on every page points to a resolvable section image, one image is visually spot-checked via OpenClaw artifact or local metadata, and card validators pass post-launch (record in PROJECT_STATE.md).
 
 ### P2-T5: RSS feed
 
@@ -271,11 +272,9 @@ Acceptance: browser QA screenshots (desktop+mobile) for home, one flagship artic
 
 Acceptance: OpenClaw browser QA — type a query ("sterilization") on the preview, results render; zero console errors; `check:security` clean; CSP intact otherwise.
 
-### P3-T3: Dark mode (CSS-only)
+### P3-T3: Reserved
 
-`prefers-color-scheme: dark` block in `global.css` re-mapping the existing custom properties (background, ink, accent, banner colors). Maintain WCAG AA contrast (≥4.5:1 body text) in both schemes. Add `<meta name="color-scheme" content="light dark">`. NO theme-toggle JS.
-
-Acceptance: browser QA run with dark emulation (`scripts/openclaw-browser-qa.mjs` — add an optional dark-mode pass: emulate `prefers-color-scheme: dark` for one desktop run); contrast spot-checks recorded.
+Dark mode is deliberately out of scope under the combined plan. Use this slot only if the human owner explicitly reopens the decision. Print styles remain the higher-ROI reader/teacher task.
 
 ### P3-T4: Print styles
 
@@ -285,7 +284,7 @@ Acceptance: print-to-PDF of one flagship article on OpenClaw (Playwright `page.p
 
 ### P3-T5: Accessibility audit & fixes (WCAG 2.2 AA)
 
-1. Add `@axe-core/playwright` as devDependency; new script `scripts/a11y-audit.mjs` that walks every sitemap route on the OpenClaw preview and fails on WCAG A/AA violations; wire into `deploy.sh validate` chain and as `npm run check:a11y`.
+1. Do not add `@axe-core/playwright` by default. First try an OpenClaw-only `npx --yes @axe-core/cli` run against the preview for sitemap routes, or request explicit approval for a repo devDependency if the CLI route fails.
 2. Fix everything it finds. Expected fixes: skip-to-content link, landmark roles, heading order, contrast in banner/alert components, table headers in timeline/glossary, `aria-expanded` only where state actually changes.
 3. Document the gate in `docs/REVIEW-GATE.md` (new "Accessibility Gate" section: zero serious/critical axe violations on every route).
 
