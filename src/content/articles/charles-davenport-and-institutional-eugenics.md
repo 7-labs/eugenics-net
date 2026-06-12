@@ -3,6 +3,7 @@ title: "Charles Davenport and Institutional Eugenics"
 description: "A critical profile of Charles Davenport, the Eugenics Record Office, and institutional data power in U.S. eugenics."
 summary: "Charles Davenport helped institutionalize U.S. eugenics through research offices, heredity claims, data collection, and policy advocacy."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses heredity determinism, scientific racism, disability discrimination, family surveillance, and forced sterilization advocacy."
 position: "This article is a critical institutional profile. It does not treat Davenport or the Eugenics Record Office as neutral scientific authorities."

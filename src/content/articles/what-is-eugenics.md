@@ -3,6 +3,7 @@ title: "What Is Eugenics?"
 description: "A clear definition of eugenics, why it was harmful, and how to study the term without endorsing its claims."
 summary: "Eugenics was a movement that claimed human populations could be improved by controlling reproduction. This page defines the term as pseudoscience, policy history, and a warning about the misuse of science."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses coercive reproduction policy, racism, ableism, antisemitism, dehumanizing historical claims, and forced sterilization."
 position: "This article defines eugenics to critique it. It does not present eugenic claims as legitimate science, reproductive advice, medical advice, or a neutral political option."

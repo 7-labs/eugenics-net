@@ -3,6 +3,7 @@ title: "Is Eugenics Pseudoscience?"
 description: "Why eugenics borrowed scientific language while failing scientific, ethical, and human-rights standards."
 summary: "Eugenics was pseudoscience because it converted biased social categories into claims about heredity and used those claims to justify coercive policy."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses scientific racism, ableism, forced sterilization, heredity determinism, and dehumanizing policy."
 position: "This article rejects eugenics as pseudoscience and does not treat the ranking of human worth as a scientific controversy."

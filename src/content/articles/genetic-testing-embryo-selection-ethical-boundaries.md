@@ -3,6 +3,7 @@ title: "Genetic Testing, Embryo Selection, and Ethical Boundaries"
 description: "How to discuss genetic testing and embryo selection without collapsing voluntary care into eugenics or ignoring eugenic risks."
 summary: "Genetic testing and embryo selection raise ethical questions about consent, privacy, disability rights, social pressure, access, and discrimination."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses reproductive technology, disability devaluation, genetic discrimination, embryo selection, and eugenics comparisons."
 position: "This article is educational. It does not provide medical, reproductive, fertility, genetic counseling, or legal advice."

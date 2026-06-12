@@ -73,6 +73,7 @@ interface Props {
   description: string;
   summary: string;
   author: string;
+  firstPublished?: Date;
   lastUpdated: Date;
   contentWarning?: string;
   position: string;
@@ -101,6 +102,7 @@ const {
   description,
   summary,
   author,
+  firstPublished,
   lastUpdated,
   contentWarning,
   position,
@@ -134,7 +136,7 @@ for (const source of [...sources, ...packetSources]) {
 }
 const mergedSources = Array.from(sourceMap.values());
 const jsonLd = [
-  articleJsonLd({ title, description, path, author, lastUpdated, sources: mergedSources, topics }),
+  articleJsonLd({ title, description, path, author, firstPublished, lastUpdated, sources: mergedSources, topics }),
   breadcrumbJsonLd([
     { name: "Home", path: "/" },
     { name: breadcrumbParent.label, path: breadcrumbParent.path },
@@ -152,7 +154,7 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
   path={path}
   jsonLd={jsonLd}
   ogType="article"
-  publishedTime={lastUpdated}
+  publishedTime={firstPublished || lastUpdated}
   modifiedTime={lastUpdated}
   activePath={breadcrumbParent.path}
 >

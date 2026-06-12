@@ -37,6 +37,20 @@ export const staticPages = [
   "/about.html"
 ];
 
+export const staticPageLastmod: Record<string, string> = {
+  "/": SITE.lastUpdated,
+  "/history.html": SITE.lastUpdated,
+  "/bioethics.html": SITE.lastUpdated,
+  "/teaching.html": SITE.lastUpdated,
+  "/archive.html": SITE.lastUpdated,
+  "/glossary.html": SITE.lastUpdated,
+  "/editorial-policy.html": SITE.lastUpdated,
+  "/corrections.html": SITE.lastUpdated,
+  "/updates.html": SITE.lastUpdated,
+  "/content-warning.html": SITE.lastUpdated,
+  "/about.html": SITE.lastUpdated
+};
+
 export const foundationalArticles = [
   { slug: "what-is-eugenics", title: "What Is Eugenics?" },
   { slug: "why-eugenics-is-scientifically-wrong", title: "Why Eugenics Is Scientifically Wrong" },

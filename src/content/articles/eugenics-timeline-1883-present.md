@@ -3,6 +3,7 @@ title: "A Timeline of Eugenics, 1883-Present"
 description: "A critical timeline of eugenics from the coining of the term to modern debates about genetics and bioethics."
 summary: "The history of eugenics spans more than a century: terminology, institutions, sterilization laws, Nazi racial hygiene, postwar discrediting, survivor activism, and modern bioethics debates."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Includes references to forced sterilization, Nazi racial hygiene, and state violence."
 position: "This timeline is a critical teaching tool. It does not present eugenics as a story of scientific progress."

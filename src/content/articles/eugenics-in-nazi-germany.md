@@ -3,6 +3,7 @@ title: "Eugenics in Nazi Germany"
 description: "How Nazi racial hygiene used eugenic ideology to justify compulsory sterilization, persecution, and the murder of disabled people."
 summary: "Nazi racial hygiene shows how eugenic classification can become state violence when medical, legal, and political institutions treat some lives as less worthy."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses Nazi racial hygiene, compulsory sterilization, antisemitism, disability murder, and state violence."
 position: "This article documents Nazi eugenic policy as a warning about pseudoscience, dehumanization, and state power."

@@ -3,6 +3,7 @@ title: "What Was the Eugenics Record Office?"
 description: "A critical overview of the Eugenics Record Office as an institution that collected family data and promoted eugenic policy."
 summary: "The Eugenics Record Office shows how archives, pedigrees, fieldwork, and institutional authority could transform prejudice into policy advice."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses family surveillance, heredity claims, disability discrimination, racism, and institutional classification."
 position: "This article documents the Eugenics Record Office as part of a harmful institutional history, not as a model for research."

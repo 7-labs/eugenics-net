@@ -26,6 +26,7 @@ const expectedStaticPacketIds = new Map([
   ["/content-warning.html", "content-warning"],
   ["/about.html", "about"]
 ]);
+const allowedExtraHtmlFiles = new Set(["404.html"]);
 
 function fail(message) {
   failures.push(message);
@@ -195,7 +196,7 @@ async function checkRoutes(routes) {
     }
   }
   for (const entry of await fs.readdir(root)) {
-    if (entry.endsWith(".html") && !expectedFiles.has(entry)) {
+    if (entry.endsWith(".html") && !expectedFiles.has(entry) && !allowedExtraHtmlFiles.has(entry)) {
       fail(`Unexpected stale root HTML file: ${entry}`);
     }
   }

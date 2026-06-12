@@ -3,6 +3,7 @@ title: "Eugenics and Race"
 description: "How eugenic movements used race as a false biological ranking and how modern genetics rejects racial hierarchy."
 summary: "Eugenics treated race as if it were a fixed biological hierarchy. A critical history shows how those categories were made, used, and enforced through policy."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, scientific racism, racial hierarchy, immigration exclusion, forced sterilization, and Nazi racial hygiene."
 position: "This article rejects racial hierarchy and treats race as a historical and political classification, not as a biological measure of human worth."

@@ -3,6 +3,7 @@ title: "Eugenics, IQ, and the Misuse of Heredity"
 description: "How eugenicists misused intelligence testing, heredity, and statistics to rank people and justify harmful policy."
 summary: "Eugenicists treated test scores and heredity claims as proof of social worth. A critical approach separates measurement from hierarchy and asks how bias shaped both data and policy."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses intelligence testing, racism, ableism, class prejudice, and human ranking."
 position: "This article rejects the use of IQ, heredity, or statistics to rank human worth or justify coercive policy."

@@ -25,6 +25,7 @@ const v2NewSlugs = new Set([
   "eugenics-in-canada",
   "eugenics-in-sweden"
 ]);
+const allowedExtraHtmlFiles = new Set(["404.html"]);
 
 function fail(message) {
   failures.push(message);
@@ -63,6 +64,31 @@ function extractStaticPages(siteTs) {
     return [];
   }
   return Array.from(match[1].matchAll(/"([^"]+)"/g), (item) => item[1]);
+}
+
+function extractSiteLastUpdated(siteTs) {
+  return siteTs.match(/lastUpdated:\s*"([^"]+)"/)?.[1] || "";
+}
+
+function extractStaticPageLastmod(siteTs) {
+  const match = siteTs.match(/export const staticPageLastmod:[^{]+{([\s\S]*?)};/);
+  const siteLastUpdated = extractSiteLastUpdated(siteTs);
+  const entries = new Map();
+  if (!match) {
+    fail("Could not find staticPageLastmod in src/data/site.ts");
+    return entries;
+  }
+  for (const item of match[1].matchAll(/"([^"]+)":\s*([^,\n]+)/g)) {
+    const rawValue = item[2].trim();
+    const quotedValue = rawValue.match(/^"([^"]+)"$/)?.[1];
+    const value = rawValue === "SITE.lastUpdated" ? siteLastUpdated : quotedValue;
+    if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+      fail(`staticPageLastmod has invalid date for ${item[1]}: ${rawValue}`);
+      continue;
+    }
+    entries.set(item[1], value);
+  }
+  return entries;
 }
 
 async function expectedRoutes() {
@@ -137,7 +163,7 @@ async function checkGeneratedRoutes(routes) {
 
   const expectedFiles = new Set(routes.map(routeToFile));
   for (const entry of await fs.readdir(root)) {
-    if (entry.endsWith(".html") && !expectedFiles.has(entry)) {
+    if (entry.endsWith(".html") && !expectedFiles.has(entry) && !allowedExtraHtmlFiles.has(entry)) {
       fail(`Stale or unexpected generated HTML file: ${entry}`);
     }
   }
@@ -201,6 +227,7 @@ async function checkArticleContentQuality() {
     const hasFaqJsonLd = html.includes('"@type":"FAQPage"');
 
     if (words < 150) fail(`${file} word count too low: ${words}`);
+    if (!hasFrontmatterField(frontmatter, "firstPublished")) fail(`${file} missing firstPublished frontmatter date`);
     if (sourceCount < 2) fail(`${file} has fewer than 2 sources`);
     if (!html.includes("Source Quality Note")) fail(`${htmlFile} missing visible source quality note`);
     if (faqCount > 0 && !hasFaqJsonLd) fail(`${htmlFile} has visible FAQ frontmatter but no FAQPage JSON-LD`);
@@ -266,6 +293,25 @@ async function checkInternalLinks(routes) {
 
 async function checkSitemap(routes) {
   const sitemap = await readText("sitemap.xml");
+  const siteTs = await readText("src/data/site.ts");
+  const staticPages = extractStaticPages(siteTs);
+  const staticLastmod = extractStaticPageLastmod(siteTs);
+  const expectedLastmod = new Map();
+
+  for (const route of staticPages) {
+    if (!staticLastmod.has(route)) fail(`staticPageLastmod missing ${route}`);
+    expectedLastmod.set(canonicalForRoute(route), staticLastmod.get(route));
+  }
+
+  const articlesDir = path.join(root, "src/content/articles");
+  for (const file of (await fs.readdir(articlesDir)).filter((item) => item.endsWith(".md"))) {
+    const source = await fs.readFile(path.join(articlesDir, file), "utf8");
+    const { frontmatter } = parseMarkdownArticle(source);
+    const lastUpdated = frontmatter.match(/^lastUpdated:\s*(\d{4}-\d{2}-\d{2})/m)?.[1];
+    if (!lastUpdated) fail(`${file} missing lastUpdated frontmatter date`);
+    expectedLastmod.set(canonicalForRoute(`/${file.replace(/\.md$/, ".html")}`), lastUpdated);
+  }
+
   for (const route of routes) {
     const loc = canonicalForRoute(route);
     if (!sitemap.includes(`<loc>${loc}</loc>`)) fail(`sitemap.xml missing ${loc}`);
@@ -277,6 +323,16 @@ async function checkSitemap(routes) {
     fail(`sitemap.xml has ${lastmodCount} lastmod entries for ${routes.length} routes`);
   }
   if (locCount !== routes.length) fail(`sitemap.xml has ${locCount} loc entries for ${routes.length} routes`);
+
+  for (const match of sitemap.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>\s*<\/url>/g)) {
+    const [, loc, lastmod] = match;
+    const expected = expectedLastmod.get(loc);
+    if (!expected) {
+      fail(`sitemap.xml contains unexpected URL ${loc}`);
+      continue;
+    }
+    if (lastmod !== expected) fail(`sitemap.xml lastmod mismatch for ${loc}: expected ${expected}, got ${lastmod}`);
+  }
 }
 
 async function checkExternalUrls(urls) {

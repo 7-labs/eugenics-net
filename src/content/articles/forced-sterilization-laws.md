@@ -3,6 +3,7 @@ title: "Forced Sterilization Laws"
 description: "How forced sterilization laws worked, whom they targeted, and why they remain central to the history of eugenics."
 summary: "Forced sterilization turned eugenic ideology into bodily coercion. It used law, medicine, courts, and institutions to deny reproductive autonomy to targeted people."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses coercive sterilization, reproductive violence, disability discrimination, racism, institutional control, and state policy."
 position: "This article treats forced sterilization as a human-rights violation, not as a public-health tool, medical recommendation, reproductive recommendation, or neutral historical policy."

@@ -3,6 +3,7 @@ title: "Is There Such a Thing as Modern Eugenics?"
 description: "A careful guide to the modern eugenics debate around genetic testing, embryo screening, enhancement, disability rights, and social pressure."
 summary: "The phrase modern eugenics is contested. It is most useful when it asks who has power, who defines desirable traits, and whether technology creates pressure to devalue some lives."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses reproductive technology, disability, genetic risk, and social pressure around trait selection."
 position: "This article does not provide reproductive or medical advice. It frames the debate through rights, consent, equity, and disability justice."

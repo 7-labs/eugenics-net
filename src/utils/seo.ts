@@ -26,6 +26,7 @@ export function articleJsonLd(input: {
   description: string;
   path: string;
   author: string;
+  firstPublished?: Date | string;
   lastUpdated: Date | string;
   sources: Source[];
   image?: string;
@@ -45,7 +46,7 @@ export function articleJsonLd(input: {
     url: canonicalUrl(input.path),
     image: [imageUrl],
     dateModified: new Date(input.lastUpdated).toISOString(),
-    datePublished: new Date(input.lastUpdated).toISOString(),
+    datePublished: new Date(input.firstPublished || input.lastUpdated).toISOString(),
     author: {
       "@type": "Organization",
       name: input.author

@@ -3,6 +3,7 @@ title: "How Eugenics Entered Schools and Public Health"
 description: "How eugenic ideas circulated through classrooms, public-health campaigns, fairs, textbooks, and social reform language."
 summary: "Eugenics became powerful because it entered everyday institutions: schools, public-health departments, exhibitions, classrooms, hospitals, and reform campaigns."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses classroom racism, ableism, public-health coercion, and historical propaganda."
 position: "This article documents educational and public-health circulation of eugenic ideas so those channels can be recognized and challenged."

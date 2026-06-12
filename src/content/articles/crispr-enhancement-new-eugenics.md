@@ -3,6 +3,7 @@ title: "CRISPR, Enhancement, and New Eugenics Claims"
 description: "How genome editing debates can distinguish therapy, enhancement, governance, rights, and eugenics risks."
 summary: "CRISPR and human genome editing raise questions about therapy, enhancement, disability rights, inequality, and governance. Eugenics history helps define the danger signs."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses human genome editing, enhancement claims, disability devaluation, reproductive pressure, and eugenics comparisons."
 position: "This article is educational and does not provide medical, reproductive, fertility, genetic, or legal advice."

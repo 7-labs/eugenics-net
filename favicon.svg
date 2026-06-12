@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Eugenics: A Critical History archive mark">
+  <style>
+    .paper { fill: #fbfaf7; }
+    .ink { fill: #17324d; }
+    .line { stroke: #17324d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .gold { stroke: #8a6b1f; stroke-width: 3; stroke-linecap: round; }
+    @media (prefers-color-scheme: dark) {
+      .paper { fill: #17324d; }
+      .ink { fill: #fbfaf7; }
+      .line { stroke: #fbfaf7; }
+      .gold { stroke: #d3b35d; }
+    }
+  </style>
+  <rect class="paper" x="4" y="4" width="56" height="56" rx="10" />
+  <path class="ink" d="M16 14h32a4 4 0 0 1 4 4v30a2 2 0 0 1-2.7 1.9L32 44l-17.3 5.9A2 2 0 0 1 12 48V18a4 4 0 0 1 4-4Z" opacity=".1" />
+  <path class="line" d="M16 15h13c2 0 3 1 3 3v29c0-2-2-4-5-4H16a4 4 0 0 1-4-4V19a4 4 0 0 1 4-4Z" />
+  <path class="line" d="M48 15H35c-2 0-3 1-3 3v29c0-2 2-4 5-4h11a4 4 0 0 0 4-4V19a4 4 0 0 0-4-4Z" />
+  <path class="gold" d="M20 25h6M20 32h6M38 25h6M38 32h6" />
+</svg>

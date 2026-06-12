@@ -3,6 +3,7 @@ title: "Francis Galton and the Origin of Eugenics"
 description: "A critical profile of Francis Galton, the coining of eugenics, and the imperial and statistical context around the term."
 summary: "Francis Galton coined the term eugenics in the nineteenth century. His work tied heredity, statistics, empire, class, and hierarchy into a program later used by institutions."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses race science, class hierarchy, heredity determinism, and the origin of eugenic ideology."
 position: "This article is a critical profile, not a celebration. It documents Galton's role in the origin of eugenics while rejecting the hierarchy behind the term."

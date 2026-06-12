@@ -3,6 +3,7 @@ title: "Why Eugenics Is Scientifically Wrong"
 description: "Why eugenics misread heredity, oversimplified complex traits, and turned prejudice into policy."
 summary: "Eugenics failed scientifically because it treated complex human traits as simple hereditary defects and ignored environment, inequality, measurement bias, and human rights."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses historical claims about heredity, disability, intelligence, poverty, and social worth."
 position: "This article explains why eugenics was scientifically flawed and ethically harmful. It does not stage eugenics as a legitimate side in a debate."

@@ -3,6 +3,7 @@ title: "Teaching Eugenics Responsibly"
 description: "A guide for educators teaching eugenics history without normalizing pseudoscience, reproducing harm, or centering propaganda."
 summary: "Responsible teaching starts with a clear anti-endorsement frame, source context, content warnings, affected-community perspectives, and discussion of modern safeguards."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-06-03
 lastUpdated: 2026-06-03
 contentWarning: "Discusses racism, ableism, forced sterilization, Nazi racial hygiene, and historical propaganda."
 position: "This article is a teaching guide, not a debate prompt about whether eugenics should be revived."

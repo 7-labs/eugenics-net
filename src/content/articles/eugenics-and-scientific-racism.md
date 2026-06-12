@@ -3,6 +3,7 @@ title: "Eugenics and Scientific Racism"
 description: "How eugenics and scientific racism reinforced one another through measurement, hierarchy, public policy, and institutional authority."
 summary: "Scientific racism gave hierarchy a scientific vocabulary. Eugenics turned that vocabulary into programs of exclusion, segregation, immigration restriction, forced sterilization, and state violence."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, antisemitism, racial hierarchy, discriminatory policy, forced sterilization, and Nazi racial hygiene."
 position: "This article treats racial hierarchy as a harmful historical claim, not as a legitimate scientific proposition or a neutral debate topic."

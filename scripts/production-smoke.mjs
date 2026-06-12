@@ -28,6 +28,12 @@ const checks = [
     includes: ["Updates and Corrections Log", "Production readiness"]
   },
   {
+    path: "/no-such-page",
+    type: "html",
+    expectedStatus: 404,
+    includes: ["Page Not Found", "Current Routes"]
+  },
+  {
     path: "/robots.txt",
     type: "text",
     includes: ["Sitemap: https://eugenics.net/sitemap.xml"]
@@ -41,6 +47,16 @@ const checks = [
     path: "/style.css",
     type: "css",
     includes: [":root", ".site-header"]
+  },
+  {
+    path: "/favicon.svg",
+    type: "image",
+    contentType: "image/svg+xml"
+  },
+  {
+    path: "/favicon.ico",
+    type: "image",
+    contentType: "image/"
   }
 ];
 
@@ -65,8 +81,9 @@ for (const check of checks) {
     fail(`${check.path} unexpected redirect ${response.status} to ${location}`);
     continue;
   }
-  if (!response.ok) {
-    fail(`${check.path} HTTP ${response.status}`);
+  const expectedStatus = check.expectedStatus || 200;
+  if (response.status !== expectedStatus) {
+    fail(`${check.path} HTTP ${response.status}, expected ${expectedStatus}`);
     continue;
   }
 
@@ -75,6 +92,11 @@ for (const check of checks) {
       if (!response.headers.get(header)) fail(`${check.path} missing response header: ${header}`);
     }
   }
+  if (check.contentType) {
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.includes(check.contentType)) fail(`${check.path} content-type ${contentType} missing ${check.contentType}`);
+  }
+  if (check.type === "image" && !check.includes) continue;
 
   const body = await response.text();
   for (const marker of check.includes) {

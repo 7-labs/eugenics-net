@@ -51,6 +51,7 @@ const articles = defineCollection({
     description: z.string(),
     summary: z.string(),
     author: z.string(),
+    firstPublished: z.coerce.date().optional(),
     lastUpdated: z.coerce.date(),
     contentWarning: z.string().optional(),
     position: z.string(),

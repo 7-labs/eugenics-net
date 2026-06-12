@@ -3,6 +3,7 @@ title: "Buck v. Bell and Forced Sterilization"
 description: "Why Buck v. Bell remains central to the legal and ethical history of eugenic sterilization."
 summary: "Buck v. Bell shows how U.S. law, medical authority, and eugenic assumptions converged to legitimize forced sterilization."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses forced sterilization, disability discrimination, reproductive coercion, class prejudice, and legal harm."
 position: "This article treats Buck v. Bell as a warning about rights violations, not as a defensible precedent or policy model."

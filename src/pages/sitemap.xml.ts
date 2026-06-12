@@ -1,10 +1,10 @@
 import { getCollection } from "astro:content";
-import { SITE, staticPages } from "@data/site";
+import { SITE, staticPageLastmod, staticPages } from "@data/site";
 
 export async function GET() {
   const articles = await getCollection("articles");
   const entries = [
-    ...staticPages.map((path) => ({ path, lastmod: SITE.lastUpdated })),
+    ...staticPages.map((path) => ({ path, lastmod: staticPageLastmod[path] || SITE.lastUpdated })),
     ...articles.map((article) => ({
       path: `/${article.id}.html`,
       lastmod: article.data.lastUpdated.toISOString().slice(0, 10)

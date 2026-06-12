@@ -3,6 +3,7 @@ title: "Eugenics in Britain"
 description: "A critical overview of British eugenics, Francis Galton, UCL legacies, class, empire, and institutional reckoning."
 summary: "British eugenics linked heredity, class, empire, statistics, public reform, and university authority. Its legacy requires critical institutional context."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses race science, class hierarchy, disability discrimination, heredity determinism, and institutional eugenics."
 position: "This article documents British eugenics to critique it and does not treat heredity-based social ranking as legitimate science."

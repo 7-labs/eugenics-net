@@ -3,6 +3,7 @@ title: "Eugenics in the United States"
 description: "A critical overview of U.S. eugenics, including sterilization laws, immigration policy, public health, education, and institutional authority."
 summary: "U.S. eugenics was not only rhetoric. It shaped sterilization laws, immigration restriction, public-health programs, education, research offices, courts, and institutional decisions that harmed targeted communities."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses involuntary sterilization, racism, ableism, institutionalization, immigration exclusion, and state policy."
 position: "This article documents U.S. eugenics as a harmful policy history and rejects the categories used to rank people as fit or unfit."

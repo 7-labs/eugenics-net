@@ -3,6 +3,7 @@ title: "Eugenics in Sweden"
 description: "A critical overview of Swedish sterilization history and what it shows about welfare states, medical authority, and coercive policy."
 summary: "Sweden's sterilization history shows how eugenic and social-policy arguments could operate inside welfare institutions and medical administration."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses forced and coercive sterilization, disability discrimination, gendered control, welfare policy, and reproductive rights."
 position: "This article documents Swedish sterilization history as a warning about coercion inside administrative and welfare systems."

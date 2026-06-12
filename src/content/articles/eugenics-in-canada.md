@@ -3,6 +3,7 @@ title: "Eugenics in Canada"
 description: "A critical overview of Canadian eugenics, with attention to Alberta, British Columbia, institutional power, and archive accountability."
 summary: "Canadian eugenics included sterilization laws, institutional classification, disability discrimination, and racialized policy contexts, especially in western Canada."
 author: "Eugenics History & Bioethics Project"
+firstPublished: 2026-05-31
 lastUpdated: 2026-05-31
 contentWarning: "Discusses forced sterilization, disability discrimination, racism, institutionalization, and reproductive coercion in Canada."
 position: "This article documents Canadian eugenics as a rights-violating policy history and does not treat sterilization as a public-health tool."
