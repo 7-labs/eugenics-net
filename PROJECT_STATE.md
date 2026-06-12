@@ -13,9 +13,18 @@ Last updated: 2026-06-12
 - Status: production domain is not connected to this Astro site
 - Production smoke: expected to fail until Cloudflare Pages custom-domain/DNS binding is completed
 - Cloudflare deploy/status: blocked on OpenClaw because Wrangler is not authenticated and `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` are not present in the remote environment
-- DNS observation varies by resolver (`198.18.12.163` locally, `54.215.31.113` from OpenClaw), but both paths resolve to the same Dynadot parked-domain redirect.
+- DNS observation varies by resolver (`198.18.1.200` locally, `54.215.31.113` from OpenClaw), but both paths resolve to the same Dynadot parked-domain redirect.
 
 ## Latest Validation Evidence
+
+- 2026-06-12 OpenClaw `bash ./deploy.sh validate`: passed after favicon/404/CSP/JSON-LD/sitemap/RSS/llms hardening.
+- OpenClaw `npm install`: passed with 0 vulnerabilities.
+- OpenClaw `npm run check:all`: passed; Astro emitted `404.html` and `rss.xml`, `export:root` completed, production dependency audit reported 0 vulnerabilities, content quality passed with 0 warnings, site integrity passed with 5 upstream external-link warnings only, and `scripts/jsonld-validate.mjs` passed.
+- Browser QA: passed against OpenClaw preview for 36 sitemap routes across desktop and mobile viewports, producing 72 screenshots at `/Users/openclaw/artifacts/eugenics-net/browser-qa/20260612-131918`.
+- Local static checks after collecting generated output: `node scripts/content-quality-audit.mjs` passed; `node scripts/site-integrity.mjs` passed with 0 warnings on the final run; `node scripts/jsonld-validate.mjs`, `git diff --check`, `xmllint --noout sitemap.xml`, and `xmllint --noout rss.xml` passed.
+- Launch readiness checks on 2026-06-12: `dig NS eugenics.net +short` still showed `ns1.dyna-ns.net` / `ns2.dyna-ns.net`; `curl -sI https://eugenics.net/` returned HTTP 302 to Dynadot; `bash ./deploy.sh cf-status` failed because Cloudflare API token/account ID are missing.
+
+Earlier 2026-06-12 baseline:
 
 - 2026-06-12 OpenClaw `bash ./deploy.sh validate`: passed.
 - OpenClaw `npm install`: passed with 0 vulnerabilities.
