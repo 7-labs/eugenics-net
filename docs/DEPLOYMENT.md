@@ -50,6 +50,17 @@ The CSP permits inline scripts only because the site emits inline JSON-LD. There
 
 For the apex custom domain, Cloudflare's current Pages documentation requires the domain to be added as a Pages custom domain and, for apex usage, the domain must be a Cloudflare zone with nameservers configured for Cloudflare.
 
+## Legacy URL Policy
+
+The canonical URL-level audit is `docs/LEGACY-URLS.md`. It uses Wayback Machine CDX data only and does not import, mirror, quote, or summarize prior-owner page content.
+
+Redirects should stay narrow:
+
+- Keep old-owner topical pages, PDFs, image galleries, scripts, ad/tracking files, cPanel defaults, and malformed crawler URLs as 404 unless a future human editorial review approves a specific contextual target.
+- Redirect only safe index aliases that clearly map to the current homepage: `/index.shtml` and `/index2.html`.
+- Do not add feed redirects until `/rss.xml` exists.
+- Do not add `/llms.txt` handling until that optional file exists.
+
 ## Credential Gate
 
 OpenClaw must have non-interactive Cloudflare credentials before deploy, status, or log evidence can run:
