@@ -17,6 +17,9 @@ Last updated: 2026-06-12
 
 ## Latest Validation Evidence
 
+- 2026-06-12 OpenClaw `bash ./deploy.sh validate`: passed after typography and print stylesheet hardening. OpenClaw `npm ci`, Astro build/export, production dependency audit, content quality, site integrity, JSON-LD validation, and browser QA all completed; browser QA produced 72 screenshots at `eugenics-net/browser-qa/20260612-134955`.
+- Local static checks after collecting generated `style.css`: `node scripts/content-quality-audit.mjs` passed; `node scripts/site-integrity.mjs` passed with 1 upstream external-link timeout warning; `node scripts/jsonld-validate.mjs` and `git diff --check` passed. `rg` confirmed `Inter`, `font-size: clamp`, and `font-size:*vw` are absent from source/generated CSS and `@media print` is present.
+- Print-to-PDF artifact was not generated in this pass: `openclaw-ops serve --project eugenics-net --replace --port 3351 --json` remained in `starting`; `serve-stop` reported a stale lock/process-stop failure, while remote `ps` showed the recorded PIDs were no longer running. No OpenClaw state files were manually edited.
 - 2026-06-12 OpenClaw `bash ./deploy.sh validate`: passed after static per-tier OG image hardening (`og-default.png`, `og-history.png`, `og-bioethics.png`, `og-teaching.png`), route-based OG mapping, Article JSON-LD image alignment, and OG metadata/dimension gates.
 - OpenClaw `npm ci`: passed with 0 vulnerabilities.
 - OpenClaw `npm run check:all`: passed; Astro emitted `404.html` and `rss.xml`, `export:root` completed, production dependency audit reported 0 vulnerabilities, content quality passed with 0 warnings, site integrity passed with 5 upstream external-link warnings only, and `scripts/jsonld-validate.mjs` passed.

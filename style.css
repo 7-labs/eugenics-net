@@ -9,6 +9,16 @@
   --red: #8f2f2f;
   --gold: #755b17;
   --shadow: 0 18px 40px rgba(23, 50, 77, 0.10);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --measure: 68ch;
+  --step--1: 0.9rem;
+  --step-0: 1rem;
+  --step-1: 1.14rem;
+  --step-2: 1.38rem;
+  --step-3: 1.82rem;
+  --step-4: 2.55rem;
+  --step-5: 3.45rem;
 }
 
 * {
@@ -37,8 +47,10 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
   line-height: 1.65;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -83,7 +95,7 @@ summary:focus-visible,
 .site-alert {
   background: var(--red);
   color: #fff;
-  font-size: 0.93rem;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: 0;
   padding: 0.65rem 1rem;
@@ -105,8 +117,8 @@ summary:focus-visible,
 
 .brand {
   color: var(--navy);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
@@ -127,7 +139,7 @@ nav a {
   border-radius: 6px;
   color: var(--ink);
   display: inline-block;
-  font-size: 0.94rem;
+  font-size: var(--step--1);
   font-weight: 700;
   padding: 0.35rem 0.45rem;
   text-decoration: none;
@@ -185,21 +197,38 @@ h2,
 h3,
 h4 {
   color: var(--navy);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   letter-spacing: 0;
   line-height: 1.12;
 }
 
+h1 {
+  font-size: var(--step-4);
+}
+
+h2 {
+  font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-2);
+}
+
+h4 {
+  font-size: var(--step-1);
+}
+
 .hero h1 {
   color: #fff;
-  font-size: clamp(2.35rem, 6vw, 5rem);
+  font-size: var(--step-5);
   margin: 0;
   max-width: 860px;
 }
 
 .lead {
   color: #3b4248;
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  font-size: var(--step-1);
+  line-height: 1.58;
   margin: 0.9rem 0 0;
   max-width: 780px;
 }
@@ -252,7 +281,7 @@ section {
 }
 
 .page-header h1 {
-  font-size: clamp(2.1rem, 5vw, 4rem);
+  font-size: var(--step-4);
   margin: 0;
 }
 
@@ -366,7 +395,8 @@ section {
 }
 
 .article-body {
-  font-size: 1.04rem;
+  font-size: var(--step-1);
+  line-height: 1.72;
 }
 
 .article-body > p,
@@ -375,7 +405,60 @@ section {
 .article-support > p,
 .article-support > ul,
 .article-support > ol {
-  max-width: 72ch;
+  max-width: var(--measure);
+}
+
+.article-body blockquote {
+  background: #f7f5ef;
+  border-left: 5px solid var(--gold);
+  color: #34383c;
+  margin: 1.5rem 0;
+  max-width: var(--measure);
+  padding: 1rem 1.2rem;
+}
+
+.article-body blockquote p {
+  margin: 0;
+}
+
+.article-body blockquote p + p {
+  margin-top: 0.75rem;
+}
+
+.article-body figure {
+  margin: 1.5rem 0;
+  max-width: var(--measure);
+}
+
+.article-body figcaption {
+  color: var(--muted);
+  font-size: var(--step--1);
+  margin-top: 0.5rem;
+}
+
+.article-body table,
+.page table {
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  margin: 1.25rem 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+.article-body th,
+.article-body td,
+.page th,
+.page td {
+  border: 1px solid var(--line);
+  padding: 0.65rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-body th,
+.page th {
+  background: #f1efe8;
+  color: var(--navy);
 }
 
 .breadcrumbs {
@@ -456,7 +539,7 @@ section {
 
 .packet-summary {
   color: var(--ink);
-  font-size: 1.08rem;
+  font-size: var(--step-1);
   margin: 0.5rem 0 1rem;
 }
 
@@ -504,8 +587,8 @@ section {
 .packet-details summary {
   color: var(--navy);
   cursor: pointer;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.35rem;
+  font-family: var(--font-serif);
+  font-size: var(--step-2);
   font-weight: 700;
   line-height: 1.12;
 }
@@ -542,7 +625,7 @@ section {
 
 .packet-grid h4 {
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.98rem;
   margin-bottom: 0.25rem;
 }
@@ -726,6 +809,12 @@ summary {
 }
 
 @media (max-width: 520px) {
+  :root {
+    --step-3: 1.62rem;
+    --step-4: 2.12rem;
+    --step-5: 2.5rem;
+  }
+
   main {
     padding: 1rem;
   }
@@ -745,5 +834,141 @@ summary {
 
   .content-warning {
     display: block;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.7in;
+  }
+
+  :root {
+    --ink: #000000;
+    --muted: #333333;
+    --paper: #ffffff;
+    --panel: #ffffff;
+    --line: #999999;
+    --navy: #000000;
+    --blue: #000000;
+    --red: #000000;
+    --gold: #000000;
+    --shadow: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-family: var(--font-serif);
+    font-size: 11pt;
+    line-height: 1.48;
+  }
+
+  .skip-link,
+  .site-alert,
+  .site-header,
+  .site-footer,
+  .breadcrumbs,
+  .hero-actions {
+    display: none !important;
+  }
+
+  main,
+  .home-main,
+  .page {
+    margin: 0;
+    max-width: none;
+    padding: 0;
+  }
+
+  .hero {
+    background: none !important;
+    border: 0;
+    box-shadow: none;
+    color: #000000;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .hero h1,
+  .hero .lead,
+  .hero .eyebrow {
+    color: #000000;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+    color: #000000;
+  }
+
+  .notice-panel,
+  .standards,
+  .sources,
+  .content-warning,
+  .article-support,
+  .article-orientation,
+  .answer-first,
+  .source-packet,
+  .article-index,
+  .article-body,
+  .link-grid article,
+  .collection-grid article,
+  .glossary-list article,
+  .course-paths article,
+  .packet-deep-dive article,
+  .claim-map article,
+  .source-coverage article,
+  .packet-grid > section,
+  .related-topic-path,
+  .definition-list,
+  .annotated-samples > article,
+  .update-log > article {
+    background: #ffffff;
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .article-body {
+    border: 0;
+    padding: 0;
+  }
+
+  .article-orientation,
+  .packet-grid,
+  .packet-meta,
+  .link-grid,
+  .collection-grid,
+  .course-paths,
+  .compact-grid {
+    display: block;
+  }
+
+  .article-toc {
+    position: static;
+  }
+
+  details,
+  .packet-section,
+  .source-list li,
+  .related-list li {
+    break-inside: avoid;
+  }
+
+  .source-list a[href^="http"]::after,
+  .source-coverage a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    overflow-wrap: anywhere;
   }
 }
