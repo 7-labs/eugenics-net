@@ -8,6 +8,8 @@ ssh "$OPENCLAW_SSH_HOST" "mkdir -p '$OPENCLAW_WORKSPACE'"
 rsync -az --delete \
   --exclude '.git/' \
   --exclude '.DS_Store' \
+  --exclude 'local.env*' \
+  --exclude '.env*' \
   --exclude '*.zip' \
   --exclude 'node_modules/' \
   --exclude 'dist/' \
