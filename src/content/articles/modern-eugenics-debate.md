@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses reproductive technology, disability, genetic risk, and social pressure around trait selection."
 position: "This article does not provide reproductive or medical advice. It frames the debate through rights, consent, equity, and disability justice."
 sourcePacket: "modern-eugenics-debate"
+section: "bioethics"
 contentTier: "standard"
 audience:
   - "students"

@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, scientific racism, racial hierarchy, immigration exclusion, forced sterilization, and Nazi racial hygiene."
 position: "This article rejects racial hierarchy and treats race as a historical and political classification, not as a biological measure of human worth."
 sourcePacket: "eugenics-and-race"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

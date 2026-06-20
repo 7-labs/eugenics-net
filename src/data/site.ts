@@ -43,6 +43,35 @@ export const navItems = [
   { label: "About", href: "about.html", path: "/about.html" }
 ];
 
+export const SECTIONS = {
+  history: {
+    label: "History",
+    href: "history.html",
+    path: "/history.html",
+    og: ogImages.history
+  },
+  bioethics: {
+    label: "Bioethics",
+    href: "bioethics.html",
+    path: "/bioethics.html",
+    og: ogImages.bioethics
+  },
+  teaching: {
+    label: "Teaching",
+    href: "teaching.html",
+    path: "/teaching.html",
+    og: ogImages.teaching
+  },
+  archive: {
+    label: "Archive",
+    href: "archive.html",
+    path: "/archive.html",
+    og: ogImages.default
+  }
+} as const;
+
+export type ArticleSection = keyof typeof SECTIONS;
+
 export const staticPages = [
   "/",
   "/history.html",
@@ -71,31 +100,21 @@ export const staticPageLastmod: Record<string, string> = {
   "/about.html": SITE.lastUpdated
 };
 
-const defaultOgRoutes = new Set([
-  "/",
-  "/search.html",
-  "/404.html",
-  "/about.html",
-  "/archive.html",
-  "/content-warning.html",
-  "/corrections.html",
-  "/editorial-policy.html",
-  "/glossary.html",
-  "/updates.html"
-]);
-
-const bioethicsOgRoutes = new Set([
-  "/bioethics.html",
-  "/crispr-enhancement-new-eugenics.html",
-  "/eugenics-vs-genetics.html",
-  "/genetic-testing-embryo-selection-ethical-boundaries.html",
-  "/modern-eugenics-debate.html"
-]);
-
-const teachingOgRoutes = new Set([
-  "/teaching.html",
-  "/teaching-eugenics-responsibly.html"
-]);
+const staticOgRoutes: Record<string, keyof typeof ogImages> = {
+  "/": "default",
+  "/404.html": "default",
+  "/about.html": "default",
+  "/archive.html": "default",
+  "/bioethics.html": "bioethics",
+  "/content-warning.html": "default",
+  "/corrections.html": "default",
+  "/editorial-policy.html": "default",
+  "/glossary.html": "default",
+  "/history.html": "history",
+  "/search.html": "default",
+  "/teaching.html": "teaching",
+  "/updates.html": "default"
+};
 
 function normalizeRoute(inputPath = "/") {
   if (inputPath.startsWith("http")) {
@@ -111,10 +130,11 @@ function normalizeRoute(inputPath = "/") {
 
 export function ogImageForPath(inputPath = "/") {
   const route = normalizeRoute(inputPath);
-  if (bioethicsOgRoutes.has(route)) return ogImages.bioethics;
-  if (teachingOgRoutes.has(route)) return ogImages.teaching;
-  if (defaultOgRoutes.has(route)) return ogImages.default;
-  return ogImages.history;
+  return ogImages[staticOgRoutes[route] || "default"];
+}
+
+export function ogImageForSection(section: ArticleSection) {
+  return SECTIONS[section].og;
 }
 
 export const foundationalArticles = [

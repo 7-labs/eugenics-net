@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses racism, xenophobia, antisemitism, national hierarchy, and exclusionary policy."
 position: "This article documents eugenic immigration arguments to critique them, not to treat exclusion as a neutral policy tool."
 sourcePacket: "eugenics-and-immigration-policy"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

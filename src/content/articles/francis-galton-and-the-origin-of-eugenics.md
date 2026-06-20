@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses race science, class hierarchy, heredity determinism, and the origin of eugenic ideology."
 position: "This article is a critical profile, not a celebration. It documents Galton's role in the origin of eugenics while rejecting the hierarchy behind the term."
 sourcePacket: "francis-galton-and-the-origin-of-eugenics"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

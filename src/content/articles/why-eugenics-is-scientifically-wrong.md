@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses historical claims about heredity, disability, intelligence, poverty, and social worth."
 position: "This article explains why eugenics was scientifically flawed and ethically harmful. It does not stage eugenics as a legitimate side in a debate."
 sourcePacket: "why-eugenics-is-scientifically-wrong"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

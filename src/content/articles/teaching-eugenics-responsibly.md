@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses racism, ableism, forced sterilization, Nazi racial hygiene, and historical propaganda."
 position: "This article is a teaching guide, not a debate prompt about whether eugenics should be revived."
 sourcePacket: "teaching-eugenics-responsibly"
+section: "teaching"
 contentTier: "standard"
 audience:
   - "students"

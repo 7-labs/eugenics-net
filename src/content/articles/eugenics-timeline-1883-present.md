@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Includes references to forced sterilization, Nazi racial hygiene, and state violence."
 position: "This timeline is a critical teaching tool. It does not present eugenics as a story of scientific progress."
 sourcePacket: "eugenics-timeline-1883-present"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

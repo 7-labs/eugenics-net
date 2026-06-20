@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses involuntary sterilization, racism, ableism, institutionalization, immigration exclusion, and state policy."
 position: "This article documents U.S. eugenics as a harmful policy history and rejects the categories used to rank people as fit or unfit."
 sourcePacket: "eugenics-in-the-united-states"
+section: "history"
 contentTier: "flagship"
 audience:
   - "students"

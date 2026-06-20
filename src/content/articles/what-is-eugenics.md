@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses coercive reproduction policy, racism, ableism, antisemitism, dehumanizing historical claims, and forced sterilization."
 position: "This article defines eugenics to critique it. It does not present eugenic claims as legitimate science, reproductive advice, medical advice, or a neutral political option."
 sourcePacket: "what-is-eugenics"
+section: "history"
 contentTier: "flagship"
 audience:
   - "students"

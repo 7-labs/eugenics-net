@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses human genome editing, enhancement claims, disability devaluation, reproductive pressure, and eugenics comparisons."
 position: "This article is educational and does not provide medical, reproductive, fertility, genetic, or legal advice."
 sourcePacket: "crispr-enhancement-new-eugenics"
+section: "bioethics"
 contentTier: "standard"
 audience:
   - "students"

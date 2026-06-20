@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses coercive sterilization, reproductive violence, disability discrimination, racism, institutional control, and state policy."
 position: "This article treats forced sterilization as a human-rights violation, not as a public-health tool, medical recommendation, reproductive recommendation, or neutral historical policy."
 sourcePacket: "forced-sterilization-laws"
+section: "history"
 contentTier: "flagship"
 audience:
   - "students"

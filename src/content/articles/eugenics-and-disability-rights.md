@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses ableism, institutionalization, forced sterilization, and Nazi disability murder."
 position: "This article rejects the eugenic idea that disability reduces human worth."
 sourcePacket: "eugenics-and-disability-rights"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

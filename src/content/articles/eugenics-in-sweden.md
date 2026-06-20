@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses forced and coercive sterilization, disability discrimination, gendered control, welfare policy, and reproductive rights."
 position: "This article documents Swedish sterilization history as a warning about coercion inside administrative and welfare systems."
 sourcePacket: "eugenics-in-sweden"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

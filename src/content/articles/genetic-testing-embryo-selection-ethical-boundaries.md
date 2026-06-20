@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses reproductive technology, disability devaluation, genetic discrimination, embryo selection, and eugenics comparisons."
 position: "This article is educational. It does not provide medical, reproductive, fertility, genetic counseling, or legal advice."
 sourcePacket: "genetic-testing-embryo-selection-ethical-boundaries"
+section: "bioethics"
 contentTier: "standard"
 audience:
   - "students"

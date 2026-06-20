@@ -94,6 +94,8 @@ interface Props {
   learningObjectives?: string[];
   lastReviewedBy?: string;
   breadcrumbParent?: BreadcrumbParent;
+  image?: string;
+  imageAlt?: string;
   path: string;
 }
 
@@ -123,6 +125,8 @@ const {
   learningObjectives = [],
   lastReviewedBy = "Eugenics History & Bioethics Project editorial desk",
   breadcrumbParent = { label: "History", href: "history.html", path: "/history.html" },
+  image,
+  imageAlt,
   path
 } = Astro.props;
 const packetSources = (sourcePacket?.sourceCoverage || []).map((source) => ({
@@ -136,7 +140,7 @@ for (const source of [...sources, ...packetSources]) {
 }
 const mergedSources = Array.from(sourceMap.values());
 const jsonLd = [
-  articleJsonLd({ title, description, path, author, firstPublished, lastUpdated, sources: mergedSources, topics }),
+  articleJsonLd({ title, description, path, author, firstPublished, lastUpdated, sources: mergedSources, image, topics }),
   breadcrumbJsonLd([
     { name: "Home", path: "/" },
     { name: breadcrumbParent.label, path: breadcrumbParent.path },
@@ -157,6 +161,8 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
   publishedTime={firstPublished || lastUpdated}
   modifiedTime={lastUpdated}
   activePath={breadcrumbParent.path}
+  image={image}
+  imageAlt={imageAlt}
 >
   <main class="page article-page">
     <nav class="breadcrumbs" aria-label="Breadcrumb">

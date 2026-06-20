@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses family surveillance, heredity claims, disability discrimination, racism, and institutional classification."
 position: "This article documents the Eugenics Record Office as part of a harmful institutional history, not as a model for research."
 sourcePacket: "eugenics-record-office"
+section: "archive"
 contentTier: "standard"
 audience:
   - "students"

@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses forced sterilization, disability discrimination, reproductive coercion, class prejudice, and legal harm."
 position: "This article treats Buck v. Bell as a warning about rights violations, not as a defensible precedent or policy model."
 sourcePacket: "buck-v-bell-forced-sterilization"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

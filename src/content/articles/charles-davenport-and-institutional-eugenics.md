@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses heredity determinism, scientific racism, disability discrimination, family surveillance, and forced sterilization advocacy."
 position: "This article is a critical institutional profile. It does not treat Davenport or the Eugenics Record Office as neutral scientific authorities."
 sourcePacket: "charles-davenport-and-institutional-eugenics"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

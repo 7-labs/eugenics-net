@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses scientific racism, ableism, forced sterilization, heredity determinism, and dehumanizing policy."
 position: "This article rejects eugenics as pseudoscience and does not treat the ranking of human worth as a scientific controversy."
 sourcePacket: "is-eugenics-pseudoscience"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

@@ -66,6 +66,7 @@ const articles = defineCollection({
     sourceNotes: z.string().optional(),
     tableOfContents: z.array(tocSchema).default([]),
     sourcePacket: z.string().optional(),
+    section: z.enum(["history", "bioethics", "teaching", "archive"]).default("history"),
     contentTier: z.enum(["flagship", "standard"]).default("standard"),
     audience: z.array(z.string()).default(["students", "educators", "general readers"]),
     claimReviewStatus: z.string().default("Claims checked against the linked source packet for pre-launch review."),

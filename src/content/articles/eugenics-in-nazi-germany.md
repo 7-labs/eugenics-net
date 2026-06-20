@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses Nazi racial hygiene, compulsory sterilization, antisemitism, disability murder, and state violence."
 position: "This article documents Nazi eugenic policy as a warning about pseudoscience, dehumanization, and state power."
 sourcePacket: "eugenics-in-nazi-germany"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

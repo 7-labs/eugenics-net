@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses intelligence testing, racism, ableism, class prejudice, and human ranking."
 position: "This article rejects the use of IQ, heredity, or statistics to rank human worth or justify coercive policy."
 sourcePacket: "eugenics-iq-and-heredity"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses genetic discrimination, reproductive control, disability devaluation, historical pseudoscience, and rights violations."
 position: "This article supports accurate genetics education while rejecting eugenic ideology, coercive policy, and the use of genetic information to rank human worth."
 sourcePacket: "eugenics-vs-genetics"
+section: "bioethics"
 contentTier: "flagship"
 audience:
   - "students"

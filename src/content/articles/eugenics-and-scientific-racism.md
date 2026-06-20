@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses racism, antisemitism, racial hierarchy, discriminatory policy, forced sterilization, and Nazi racial hygiene."
 position: "This article treats racial hierarchy as a harmful historical claim, not as a legitimate scientific proposition or a neutral debate topic."
 sourcePacket: "eugenics-and-scientific-racism"
+section: "history"
 contentTier: "flagship"
 audience:
   - "students"

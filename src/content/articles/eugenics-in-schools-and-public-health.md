@@ -8,6 +8,7 @@ lastUpdated: 2026-06-03
 contentWarning: "Discusses classroom racism, ableism, public-health coercion, and historical propaganda."
 position: "This article documents educational and public-health circulation of eugenic ideas so those channels can be recognized and challenged."
 sourcePacket: "eugenics-in-schools-and-public-health"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

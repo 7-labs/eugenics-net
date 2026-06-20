@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses forced sterilization, disability discrimination, racism, institutionalization, and reproductive coercion in Canada."
 position: "This article documents Canadian eugenics as a rights-violating policy history and does not treat sterilization as a public-health tool."
 sourcePacket: "eugenics-in-canada"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"

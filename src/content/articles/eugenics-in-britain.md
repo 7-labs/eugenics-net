@@ -8,6 +8,7 @@ lastUpdated: 2026-05-31
 contentWarning: "Discusses race science, class hierarchy, disability discrimination, heredity determinism, and institutional eugenics."
 position: "This article documents British eugenics to critique it and does not treat heredity-based social ranking as legitimate science."
 sourcePacket: "eugenics-in-britain"
+section: "history"
 contentTier: "standard"
 audience:
   - "students"
