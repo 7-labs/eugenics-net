@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-03T08:10:00Z",
+  "updatedAt": "2026-06-20T04:52:00Z",
   "project": "eugenics-net",
   "siteUrl": "https://eugenics.net",
   "sourceRuntime": "Astro static",
@@ -15,21 +15,24 @@
     "blockingIssue": "Apex domain is not bound to the Astro/Cloudflare Pages deployment"
   },
   "cloudflareStatus": {
-    "status": "blocked",
+    "status": "pages-dev-deployed-closeout-blocked",
     "wranglerVersion": "4.97.0",
-    "observedIssue": "OpenClaw readiness gate fails before Wrangler because non-interactive deploy/status requires CLOUDFLARE_API_TOKEN",
+    "observedIssue": "Cloudflare Pages project exists and deploy succeeded, but custom-domain closeout is blocked by Dynadot DNS and Cloudflare Pages .html-to-extensionless redirects.",
     "secretPresenceCheck": {
-      "CLOUDFLARE_API_TOKEN": "missing",
+      "CLOUDFLARE_API_TOKEN": "transient local.env.txt deploy only",
       "CLOUDFLARE_ACCOUNT_ID": "missing"
-    }
+    },
+    "pagesProject": "eugenics-net",
+    "pagesHost": "https://eugenics-net.pages.dev/",
+    "latestDeploymentId": "19246860-442d-4c9d-8d25-1ee4b5dbc404"
   },
   "latestValidation": {
-    "openclawNpmCi": "passed, 0 vulnerabilities",
-    "openclawSecurityAll": "passed, 0 vulnerabilities",
-    "openclawCheckAll": "passed, 36 pages, content-quality warnings=0, site-integrity warnings=5 upstream only",
-    "browserQa": "passed, 36 routes x 2 viewports, 72 screenshots",
-    "browserQaArtifacts": "/Users/openclaw/artifacts/eugenics-net/browser-qa/20260603-081116",
-    "localStatic": "passed content-quality, site-integrity, bash -n deploy.sh, git diff --check"
+    "openclawNpmCi": "passed",
+    "openclawSecurity": "passed at moderate threshold; low-severity esbuild dev-server advisory remains",
+    "openclawCheckAll": "passed, 36 sitemap routes, content-quality warnings=0, site-integrity upstream-only warnings",
+    "browserQa": "passed, 36 routes x 2 viewports, 72 screenshots plus search QA",
+    "browserQaArtifacts": "/Users/openclaw/artifacts/eugenics-net/browser-qa/20260620-044403",
+    "localStatic": "passed content-quality, site-integrity, jsonld, xmllint sitemap/rss, git diff --check"
   },
   "localBoundary": "Local SSD work is limited to source edits, git, docs, and short non-runtime checks",
   "remoteRuntime": "OpenClaw handles npm install, build, preview, browser QA, and Cloudflare deploy",

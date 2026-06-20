@@ -1,22 +1,30 @@
 # Project State
 
-Last updated: 2026-06-12
+Last updated: 2026-06-20
 
 ## Summary
 
-`eugenics.net` is an Astro static education and archive site. The source tree is production-prepared for Cloudflare Pages, but the public apex domain is not currently serving this project.
+`eugenics.net` is an Astro static education and archive site. The source tree has been deployed to Cloudflare Pages, but the public apex domain is not currently serving this project.
 
 ## Current Production Truth
 
 - Public URL checked: `https://eugenics.net/`
 - Current response: redirects to `https://forsale.dynadot.com/eugenics.net?drefid=2071`
 - Status: production domain is not connected to this Astro site
-- Production smoke: expected to fail until Cloudflare Pages custom-domain/DNS binding is completed
-- Cloudflare deploy/status: blocked on OpenClaw because Wrangler is not authenticated and `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` are not present in the remote environment
+- Cloudflare Pages: project `eugenics-net` exists and has a successful production deployment at `https://eugenics-net.pages.dev/`
+- Latest deployment ID: `19246860-442d-4c9d-8d25-1ee4b5dbc404`
+- Production closeout: blocked until custom-domain/DNS binding is completed and the URL policy issue below is resolved
+- URL policy issue: Cloudflare Pages redirects `.html` requests to extensionless routes, for example `/what-is-eugenics.html` returns 308 to `/what-is-eugenics`. This conflicts with the project invariant that `.html` URLs are frozen.
+- Cloudflare deploy/status: Cloudflare token was loaded transiently from `local.env.txt` for this deploy; no token file was copied to OpenClaw and no secret value was printed.
 - DNS observation varies by resolver (`198.18.1.200` locally, `54.215.31.113` from OpenClaw), but both paths resolve to the same Dynadot parked-domain redirect.
 
 ## Latest Validation Evidence
 
+- 2026-06-20 Cloudflare Pages deploy: created Pages project `eugenics-net` and deployed 113 files successfully. Wrangler reported deployment complete at `https://19246860.eugenics-net.pages.dev`; canonical project host `https://eugenics-net.pages.dev/` returned HTTP 200 with Cloudflare headers, HSTS, CSP, and rendered homepage content.
+- 2026-06-20 production smoke against `https://eugenics-net.pages.dev` did not fully pass because Cloudflare Pages redirects `.html` pages to extensionless routes (`/what-is-eugenics.html` -> `/what-is-eugenics`) and serves `rss.xml` as `application/xml` instead of `application/rss+xml`.
+- 2026-06-20 OpenClaw `bash ./deploy.sh validate`: passed after lockfile-only Astro update from 6.4.3 to 6.4.8. Astro built 38 pages, Pagefind v1.5.2 indexed 37 pages, production dependency audit at `moderate` threshold passed with only low-severity esbuild dev-server advisory remaining, content quality passed, site integrity passed with upstream-only external URL warnings, JSON-LD validation passed, and browser QA produced 72 screenshots plus search QA at `eugenics-net/browser-qa/20260620-044403`.
+- 2026-06-20 local static checks after collecting generated output: `node scripts/content-quality-audit.mjs` passed; `node scripts/site-integrity.mjs` passed with 0 warnings; `node scripts/jsonld-validate.mjs`, `xmllint --noout sitemap.xml`, `xmllint --noout rss.xml`, and `git diff --check` passed.
+- 2026-06-20 sync safety: `scripts/sync-openclaw.sh` now excludes `local.env*` and `.env*`; OpenClaw workspace confirmed `local.env.txt` absent before and after deploy.
 - 2026-06-12 OpenClaw `bash ./deploy.sh validate`: passed after Pagefind static search integration. Clean install used `npm ci --no-audit --no-fund`; the separate production dependency audit still passed with 0 vulnerabilities. Astro built 38 pages, Pagefind v1.5.2 indexed 37 pages, `export:root` mirrored `pagefind/`, `content-quality`, `site-integrity`, and JSON-LD validation passed.
 - Browser QA: passed with console/pageerror guards against OpenClaw preview for 36 sitemap routes across desktop and mobile viewports, producing 72 screenshots at `eugenics-net/browser-qa/20260612-160150`; added search QA passed for query `Buck v. Bell` linking to `/buck-v-bell-forced-sterilization.html`.
 - Local static checks after collecting generated output: `node scripts/content-quality-audit.mjs` passed; `node scripts/site-integrity.mjs` passed with 0 warnings; `node scripts/jsonld-validate.mjs`, `git diff --check`, `xmllint --noout sitemap.xml`, and `xmllint --noout rss.xml` passed. `test -f search.html search.js pagefind/pagefind-ui.js pagefind/pagefind-ui.css` confirmed generated search assets are present.
@@ -62,10 +70,9 @@ Historical validation:
 
 ## Launch Blockers
 
-- Bind `eugenics.net` to the Cloudflare Pages project.
-- Confirm Cloudflare zone/DNS state for the apex domain.
-- Provision OpenClaw Cloudflare auth without printing secrets: `CLOUDFLARE_API_TOKEN` and, if required, `CLOUDFLARE_ACCOUNT_ID`.
-- Run Cloudflare deploy and record deployment evidence after auth is present.
+- Decide whether to accept Cloudflare Pages' extensionless URL redirects or move hosting/edge handling to a path that preserves frozen `.html` URLs.
+- Bind `eugenics.net` and `www.eugenics.net` to the Cloudflare Pages project after the URL policy decision.
+- Confirm Cloudflare zone/DNS state for the apex domain and update nameservers away from Dynadot only when the URL policy is acceptable.
 - Run `bash ./deploy.sh deploy-closeout` and confirm Cloudflare status plus local/OpenClaw production smoke, non-Dynadot response, and security headers.
 - Confirm `corrections@eugenics.net` is provisioned and monitored.
 - Keep external subject-matter and affected-community review marked pending until actually completed.
