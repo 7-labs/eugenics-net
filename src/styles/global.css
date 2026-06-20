@@ -26,12 +26,18 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
   }
 
   *,
@@ -39,6 +45,7 @@ html {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }
@@ -738,6 +745,13 @@ li + li {
   --pagefind-ui-tag: #eef4f7;
   --pagefind-ui-border-radius: 6px;
   --pagefind-ui-font: var(--font-sans);
+}
+
+.search-label {
+  color: var(--navy);
+  display: block;
+  font-weight: 800;
+  margin-bottom: 0.45rem;
 }
 
 .search-widget .pagefind-ui__form {

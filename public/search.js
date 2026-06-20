@@ -9,4 +9,18 @@ window.addEventListener("DOMContentLoaded", () => {
     excerptLength: 30,
     resetStyles: false
   });
+
+  const bindSearchLabel = () => {
+    const input = root.querySelector(".pagefind-ui__search-input");
+    if (!input) return false;
+    input.id = "site-search-input";
+    return true;
+  };
+
+  if (!bindSearchLabel()) {
+    const observer = new MutationObserver(() => {
+      if (bindSearchLabel()) observer.disconnect();
+    });
+    observer.observe(root, { childList: true, subtree: true });
+  }
 });
