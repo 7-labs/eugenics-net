@@ -5,3 +5,13 @@ dist/
 .astro/
 _astro/
 .codex-results/
+
+# Secrets / local-only (defense-in-depth for public repo) — never commit
+local.env.txt
+*.env.txt
+.env
+.env.*
+*.local
+
+# Agent/editor scratch — keep out of the public repo
+CLAUDE.md
