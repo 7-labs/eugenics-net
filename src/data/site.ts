@@ -32,39 +32,39 @@ export const SITE = {
 };
 
 export const navItems = [
-  { label: "Home", href: "index.html", path: "/" },
-  { label: "History", href: "history.html", path: "/history.html" },
-  { label: "Bioethics", href: "bioethics.html", path: "/bioethics.html" },
-  { label: "Teaching", href: "teaching.html", path: "/teaching.html" },
-  { label: "Archive", href: "archive.html", path: "/archive.html" },
-  { label: "Glossary", href: "glossary.html", path: "/glossary.html" },
-  { label: "Search", href: "search.html", path: "/search.html" },
-  { label: "Policy", href: "editorial-policy.html", path: "/editorial-policy.html" },
-  { label: "About", href: "about.html", path: "/about.html" }
+  { label: "Home", href: "/", path: "/" },
+  { label: "History", href: "/history", path: "/history.html" },
+  { label: "Bioethics", href: "/bioethics", path: "/bioethics.html" },
+  { label: "Teaching", href: "/teaching", path: "/teaching.html" },
+  { label: "Archive", href: "/archive", path: "/archive.html" },
+  { label: "Glossary", href: "/glossary", path: "/glossary.html" },
+  { label: "Search", href: "/search", path: "/search.html" },
+  { label: "Policy", href: "/editorial-policy", path: "/editorial-policy.html" },
+  { label: "About", href: "/about", path: "/about.html" }
 ];
 
 export const SECTIONS = {
   history: {
     label: "History",
-    href: "history.html",
+    href: "/history",
     path: "/history.html",
     og: ogImages.history
   },
   bioethics: {
     label: "Bioethics",
-    href: "bioethics.html",
+    href: "/bioethics",
     path: "/bioethics.html",
     og: ogImages.bioethics
   },
   teaching: {
     label: "Teaching",
-    href: "teaching.html",
+    href: "/teaching",
     path: "/teaching.html",
     og: ogImages.teaching
   },
   archive: {
     label: "Archive",
-    href: "archive.html",
+    href: "/archive",
     path: "/archive.html",
     og: ogImages.default
   }

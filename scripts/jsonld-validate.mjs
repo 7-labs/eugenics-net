@@ -20,7 +20,11 @@ async function exists(target) {
 }
 
 function routeToFile(route) {
-  return route === "/" ? "index.html" : route.replace(/^\//, "");
+  if (route === "/") return "index.html";
+  const clean = route.replace(/^\//, "");
+  // Sitemap locs are extensionless (Cloudflare Pages serves x.html at /x); the
+  // generated file on disk is still x.html.
+  return /\.[a-z0-9]+$/i.test(clean) ? clean : `${clean}.html`;
 }
 
 async function readText(base, file) {

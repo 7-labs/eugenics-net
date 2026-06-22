@@ -15,7 +15,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const allArticles = foundationalArticles.map((article) => ({
   ...article,
-  href: `${article.slug}.html`
+  href: `/${article.slug}`
 }));
 const related = entry.data.related
   .map((slug) => allArticles.find((article) => article.slug === slug))

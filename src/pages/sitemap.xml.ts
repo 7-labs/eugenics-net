@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import { SITE, staticPageLastmod, staticPages } from "@data/site";
+import { canonicalUrl } from "@utils/seo";
 
 export async function GET() {
   const articles = await getCollection("articles");
@@ -16,7 +17,7 @@ export async function GET() {
   const urls = uniqueEntries
     .map((entry) => {
       const { path, lastmod } = entry;
-      const loc = new URL(path, SITE.url).toString();
+      const loc = canonicalUrl(path);
       return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`;
     })
     .join("\n");

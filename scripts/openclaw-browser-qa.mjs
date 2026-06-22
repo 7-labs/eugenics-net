@@ -12,8 +12,8 @@ const viewports = [
   { label: "desktop", width: 1440, height: 1000 },
   { label: "mobile", width: 390, height: 844 }
 ];
-const a11yRoutes = new Set(["/", "/what-is-eugenics.html", "/glossary.html", "/archive.html"]);
-const lighthouseRoutes = ["/", "/what-is-eugenics.html", "/glossary.html", "/search.html", "/archive.html"];
+const a11yRoutes = new Set(["/", "/what-is-eugenics", "/glossary", "/archive"]);
+const lighthouseRoutes = ["/", "/what-is-eugenics", "/glossary", "/search", "/archive"];
 
 function pageName(route) {
   if (route === "/") return "home";
@@ -201,7 +201,7 @@ async function checkSearch(browser, axeSource) {
   const page = await context.newPage();
   const consoleProblems = attachConsoleGuards(page, "search desktop");
   try {
-    const response = await page.goto(new URL("/search.html", baseUrl).toString(), { waitUntil: "networkidle" });
+    const response = await page.goto(new URL("/search", baseUrl).toString(), { waitUntil: "networkidle" });
     if (!response || !response.ok()) throw new Error(`search page failed: HTTP ${response?.status()}`);
     const input = page.locator("#search .pagefind-ui__search-input");
     await input.waitFor({ timeout: 15000 });
@@ -210,7 +210,7 @@ async function checkSearch(browser, axeSource) {
     const result = page.getByRole("link", { name: /Buck v\. Bell/i }).first();
     await result.waitFor({ timeout: 15000 });
     const href = await result.getAttribute("href");
-    if (!href || !href.includes("buck-v-bell-forced-sterilization.html")) {
+    if (!href || !href.includes("buck-v-bell-forced-sterilization")) {
       throw new Error(`search result linked to unexpected href: ${href}`);
     }
     const horizontalOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);

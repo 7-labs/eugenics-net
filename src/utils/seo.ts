@@ -17,7 +17,11 @@ type BreadcrumbItem = {
 };
 
 export function canonicalUrl(path = "/") {
-  const normalized = path.startsWith("/") ? path : `/${path}`;
+  let normalized = path.startsWith("/") ? path : `/${path}`;
+  // Cloudflare Pages serves extensionless URLs (x.html -> /x). Canonicalize to
+  // the extensionless form so canonical/og/JSON-LD match what is actually served.
+  normalized = normalized.replace(/\.html$/, "");
+  if (normalized === "" || normalized === "/index") normalized = "/";
   return new URL(normalized, SITE.url).toString();
 }
 

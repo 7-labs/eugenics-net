@@ -211,19 +211,19 @@
   "relatedTopicPath": [
     {
       "label": "Corrections",
-      "href": "corrections.html"
+      "href": "/corrections"
     },
     {
       "label": "Editorial policy",
-      "href": "editorial-policy.html"
+      "href": "/editorial-policy"
     },
     {
       "label": "Content warning",
-      "href": "content-warning.html"
+      "href": "/content-warning"
     },
     {
       "label": "About",
-      "href": "about.html"
+      "href": "/about"
     }
   ]
 }

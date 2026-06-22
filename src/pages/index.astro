@@ -19,46 +19,46 @@ const routeGroups = [
   {
     title: "Core Explanations",
     items: [
-      ["what-is-eugenics.html", "What Is Eugenics?", "Definition, scope, harms, and responsible study."],
-      ["why-eugenics-is-scientifically-wrong.html", "Why Eugenics Is Scientifically Wrong", "Why complex traits cannot justify ranking people or coercive policy."],
-      ["is-eugenics-pseudoscience.html", "Is Eugenics Pseudoscience?", "How eugenics borrowed scientific language while failing scientific and ethical tests."],
-      ["eugenics-vs-genetics.html", "Eugenics vs. Genetics", "A practical boundary between heredity science and eugenic ideology."]
+      ["/what-is-eugenics", "What Is Eugenics?", "Definition, scope, harms, and responsible study."],
+      ["/why-eugenics-is-scientifically-wrong", "Why Eugenics Is Scientifically Wrong", "Why complex traits cannot justify ranking people or coercive policy."],
+      ["/is-eugenics-pseudoscience", "Is Eugenics Pseudoscience?", "How eugenics borrowed scientific language while failing scientific and ethical tests."],
+      ["/eugenics-vs-genetics", "Eugenics vs. Genetics", "A practical boundary between heredity science and eugenic ideology."]
     ]
   },
   {
     title: "Laws & Institutions",
     items: [
-      ["forced-sterilization-laws.html", "Forced Sterilization Laws", "How law, medicine, and institutions denied reproductive autonomy."],
-      ["buck-v-bell-forced-sterilization.html", "Buck v. Bell", "A court case that shows how constitutional language was used to legitimize coercion."],
-      ["eugenics-record-office.html", "Eugenics Record Office", "An institutional route into data collection, pedigree studies, and policy advocacy."],
-      ["charles-davenport-and-institutional-eugenics.html", "Charles Davenport", "A profile of institutional eugenics without a hero narrative."]
+      ["/forced-sterilization-laws", "Forced Sterilization Laws", "How law, medicine, and institutions denied reproductive autonomy."],
+      ["/buck-v-bell-forced-sterilization", "Buck v. Bell", "A court case that shows how constitutional language was used to legitimize coercion."],
+      ["/eugenics-record-office", "Eugenics Record Office", "An institutional route into data collection, pedigree studies, and policy advocacy."],
+      ["/charles-davenport-and-institutional-eugenics", "Charles Davenport", "A profile of institutional eugenics without a hero narrative."]
     ]
   },
   {
     title: "People & Countries",
     items: [
-      ["francis-galton-and-the-origin-of-eugenics.html", "Francis Galton", "The origin of the term and the imperial context around heredity claims."],
-      ["eugenics-in-the-united-states.html", "United States", "State laws, public institutions, immigration restriction, and survivor legacy."],
-      ["eugenics-in-britain.html", "Britain", "Galton, UCL legacies, public debate, and institutional reckoning."],
-      ["eugenics-in-canada.html", "Canada", "Western Canadian sterilization laws and archive-centered accountability."],
-      ["eugenics-in-sweden.html", "Sweden", "A welfare-state case showing how coercion can be framed as social policy."]
+      ["/francis-galton-and-the-origin-of-eugenics", "Francis Galton", "The origin of the term and the imperial context around heredity claims."],
+      ["/eugenics-in-the-united-states", "United States", "State laws, public institutions, immigration restriction, and survivor legacy."],
+      ["/eugenics-in-britain", "Britain", "Galton, UCL legacies, public debate, and institutional reckoning."],
+      ["/eugenics-in-canada", "Canada", "Western Canadian sterilization laws and archive-centered accountability."],
+      ["/eugenics-in-sweden", "Sweden", "A welfare-state case showing how coercion can be framed as social policy."]
     ]
   },
   {
     title: "Modern Bioethics",
     items: [
-      ["modern-eugenics-debate.html", "Modern Eugenics Debate", "How the term appears in debates about reproductive technology and social pressure."],
-      ["genetic-testing-embryo-selection-ethical-boundaries.html", "Genetic Testing and Embryo Selection", "Consent, disability rights, genetic discrimination, and access."],
-      ["crispr-enhancement-new-eugenics.html", "CRISPR and Enhancement", "Why governance must distinguish therapy, enhancement, pressure, and rights."],
-      ["eugenics-and-race.html", "Eugenics and Race", "Why race is a social and political category, not a biological ranking."]
+      ["/modern-eugenics-debate", "Modern Eugenics Debate", "How the term appears in debates about reproductive technology and social pressure."],
+      ["/genetic-testing-embryo-selection-ethical-boundaries", "Genetic Testing and Embryo Selection", "Consent, disability rights, genetic discrimination, and access."],
+      ["/crispr-enhancement-new-eugenics", "CRISPR and Enhancement", "Why governance must distinguish therapy, enhancement, pressure, and rights."],
+      ["/eugenics-and-race", "Eugenics and Race", "Why race is a social and political category, not a biological ranking."]
     ]
   },
   {
     title: "Teaching",
     items: [
-      ["teaching.html", "Teaching Resources", "Course paths, classroom boundaries, and source-analysis guidance."],
-      ["teaching-eugenics-responsibly.html", "Teaching Eugenics Responsibly", "A foundation guide for warnings, framing, and classroom ethics."],
-      ["archive.html", "Critical Archive Model", "Archive publication gates and annotated-entry fields."]
+      ["/teaching", "Teaching Resources", "Course paths, classroom boundaries, and source-analysis guidance."],
+      ["/teaching-eugenics-responsibly", "Teaching Eugenics Responsibly", "A foundation guide for warnings, framing, and classroom ethics."],
+      ["/archive", "Critical Archive Model", "Archive publication gates and annotated-entry fields."]
     ]
   }
 ];
@@ -81,10 +81,10 @@ const sourcePacket = (await getEntry("sourcePackets", "index"))?.data;
           Documenting the history, harms, and modern legacy of eugenics, scientific racism, forced sterilization, and genetic discrimination.
         </p>
         <div class="hero-actions" aria-label="Primary routes">
-          <a class="button" href="what-is-eugenics.html">Read the definition</a>
-          <a class="button secondary" href="teaching.html">Use teaching resources</a>
-          <a class="button secondary" href="bioethics.html">Review bioethics boundaries</a>
-          <a class="button secondary" href="archive.html">Review the archive model</a>
+          <a class="button" href="/what-is-eugenics">Read the definition</a>
+          <a class="button secondary" href="/teaching">Use teaching resources</a>
+          <a class="button secondary" href="/bioethics">Review bioethics boundaries</a>
+          <a class="button secondary" href="/archive">Review the archive model</a>
         </div>
       </div>
     </section>

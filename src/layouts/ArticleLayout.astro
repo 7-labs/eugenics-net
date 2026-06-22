@@ -124,7 +124,7 @@ const {
   claimReviewStatus = "Claims checked against the linked source packet for pre-launch review.",
   learningObjectives = [],
   lastReviewedBy = "Eugenics History & Bioethics Project editorial desk",
-  breadcrumbParent = { label: "History", href: "history.html", path: "/history.html" },
+  breadcrumbParent = { label: "History", href: "/history", path: "/history.html" },
   image,
   imageAlt,
   path
@@ -167,7 +167,7 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
   <main class="page article-page">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href={breadcrumbParent.href}>{breadcrumbParent.label}</a></li>
         <li aria-current="page">{title}</li>
       </ol>

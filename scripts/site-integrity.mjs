@@ -89,8 +89,15 @@ function routeToFile(route) {
   return route.replace(/^\//, "");
 }
 
+function routeToCanonicalPath(route) {
+  if (route === "/" || route === "/index.html") return "/";
+  return route.replace(/\.html$/, "");
+}
+
 function canonicalForRoute(route) {
-  return new URL(route, siteUrl).toString();
+  // The site is served extensionless on Cloudflare Pages (x.html -> /x); canonical
+  // URLs, sitemap locs, and JSON-LD use the extensionless form.
+  return new URL(routeToCanonicalPath(route), siteUrl).toString();
 }
 
 function extractStaticPages(siteTs) {
@@ -353,8 +360,20 @@ async function checkInternalLinks(routes) {
       }
       const clean = ref.split("#")[0].split("?")[0];
       if (!clean) continue;
-      const target = clean.startsWith("/") ? clean.slice(1) || "index.html" : clean;
-      if (!files.has(target) && !(await exists(target))) {
+      let target = clean.startsWith("/") ? clean.slice(1) : clean;
+      if (target === "") target = "index.html";
+      // Extensionless internal links (e.g. /history) map to the generated history.html file.
+      const candidates = /\.[a-z0-9]+$/i.test(target) ? [target] : [target, `${target}.html`];
+      let found = candidates.some((candidate) => files.has(candidate));
+      if (!found) {
+        for (const candidate of candidates) {
+          if (await exists(candidate)) {
+            found = true;
+            break;
+          }
+        }
+      }
+      if (!found) {
         fail(`${file} links to missing local target: ${ref}`);
       }
     }

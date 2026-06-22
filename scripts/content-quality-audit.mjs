@@ -270,7 +270,9 @@ async function checkSitemap(routes) {
   if (locCount !== routes.length) fail(`sitemap.xml has ${locCount} loc entries; expected ${routes.length}`);
   if (lastmodCount !== routes.length) fail(`sitemap.xml has ${lastmodCount} lastmod entries; expected ${routes.length}`);
   for (const route of routes) {
-    const loc = new URL(route, siteUrl).toString();
+    // Sitemap locs are extensionless (Cloudflare Pages serves x.html at /x).
+    const canonicalPath = route === "/" ? "/" : route.replace(/\.html$/, "");
+    const loc = new URL(canonicalPath, siteUrl).toString();
     if (!sitemap.includes(`<loc>${loc}</loc>`)) fail(`sitemap.xml missing ${loc}`);
   }
 }

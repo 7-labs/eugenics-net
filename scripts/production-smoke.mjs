@@ -13,17 +13,17 @@ const checks = [
     includes: ["Eugenics: A Critical History", "does not endorse", "Research Routes"]
   },
   {
-    path: "/what-is-eugenics.html",
+    path: "/what-is-eugenics",
     type: "html",
     includes: ["What Is Eugenics?", "Answer First", "Claim Map"]
   },
   {
-    path: "/corrections.html",
+    path: "/corrections",
     type: "html",
     includes: ["Corrections and Contact", "Review Timing", "Updates and Corrections Log"]
   },
   {
-    path: "/updates.html",
+    path: "/updates",
     type: "html",
     includes: ["Updates and Corrections Log", "Production readiness"]
   },
@@ -41,7 +41,7 @@ const checks = [
   {
     path: "/sitemap.xml",
     type: "xml",
-    includes: ["https://eugenics.net/updates.html", "https://eugenics.net/what-is-eugenics.html"]
+    includes: ["https://eugenics.net/updates", "https://eugenics.net/what-is-eugenics"]
   },
   {
     path: "/rss.xml",
@@ -55,7 +55,7 @@ const checks = [
     includes: ["Editorial stance:", "does not endorse eugenics", "Flagship articles:"]
   },
   {
-    path: "/search.html",
+    path: "/search",
     type: "html",
     includes: ["Search the Archive", 'id="search"', "/pagefind/pagefind-ui.js", "/search.js"]
   },

@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import { SITE } from "@data/site";
+import { canonicalUrl } from "@utils/seo";
 
 function escapeXml(value: string) {
   return value
@@ -20,7 +21,7 @@ export async function GET() {
   const items = articles
     .sort((a, b) => b.data.lastUpdated.getTime() - a.data.lastUpdated.getTime())
     .map((article) => {
-      const url = new URL(`/${article.id}.html`, SITE.url).toString();
+      const url = canonicalUrl(`/${article.id}.html`);
       return [
         "    <item>",
         `      <title>${escapeXml(article.data.title)}</title>`,

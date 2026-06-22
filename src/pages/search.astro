@@ -36,13 +36,13 @@ const description = "Search the Eugenics: A Critical History archive across arti
             The site remains fully static, but the search index needs JavaScript in the browser. Use the main archive links below if scripting is unavailable.
           </p>
           <ul class="fallback-list">
-            <li><a href="archive.html">Archive index</a></li>
-            <li><a href="glossary.html">Glossary</a></li>
-            <li><a href="history.html">History hub</a></li>
-            <li><a href="bioethics.html">Bioethics hub</a></li>
-            <li><a href="teaching.html">Teaching resources</a></li>
+            <li><a href="/archive">Archive index</a></li>
+            <li><a href="/glossary">Glossary</a></li>
+            <li><a href="/history">History hub</a></li>
+            <li><a href="/bioethics">Bioethics hub</a></li>
+            <li><a href="/teaching">Teaching resources</a></li>
             {foundationalArticles.map((article) => (
-              <li><a href={`${article.slug}.html`}>{article.title}</a></li>
+              <li><a href={`/${article.slug}`}>{article.title}</a></li>
             ))}
           </ul>
         </div>
