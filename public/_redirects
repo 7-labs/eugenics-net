@@ -1,5 +1,3 @@
 https://www.eugenics.net/* https://eugenics.net/:splat 301
 /index.shtml https://eugenics.net/ 301
 /index2.html https://eugenics.net/ 301
-# TEST: does a 200-rewrite defeat the built-in .html -> extensionless 308?
-/what-is-eugenics.html /what-is-eugenics.html 200
