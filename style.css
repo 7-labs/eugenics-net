@@ -1078,3 +1078,86 @@ summary {
     box-shadow: none;
   }
 }
+
+/* Task panel intro (Home "Choose your task" router) */
+.task-panel-intro {
+  color: var(--muted);
+  margin: 0 0 1rem;
+  max-width: 70ch;
+}
+
+/* Article quick-action strip + zero-JS citation box */
+.quick-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.quick-actions .quick-action,
+.cite-box > summary {
+  align-items: center;
+  background: #eef4f7;
+  border: 1px solid #c7dbe7;
+  border-radius: 999px;
+  color: var(--navy);
+  display: inline-flex;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  text-decoration: none;
+}
+
+.quick-actions .quick-action:hover,
+.cite-box > summary:hover {
+  background: #dcebf2;
+}
+
+.cite-box {
+  flex-basis: 100%;
+  margin-top: 0.4rem;
+}
+
+.cite-box > summary {
+  cursor: pointer;
+  list-style: none;
+  width: max-content;
+}
+
+.cite-box > summary::-webkit-details-marker {
+  display: none;
+}
+
+.cite-box[open] > summary {
+  margin-bottom: 0.6rem;
+}
+
+.cite-help {
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.cite-citation {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 0.5rem;
+  overflow-wrap: anywhere;
+  padding: 0.9rem 1rem;
+  white-space: pre-wrap;
+}
+
+.cite-url {
+  color: var(--muted);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media print {
+  .quick-actions {
+    display: none;
+  }
+}

@@ -3,8 +3,10 @@ import ArticleMeta from "@components/ArticleMeta.astro";
 import ContentWarning from "@components/ContentWarning.astro";
 import SourcePacketPanel from "@components/SourcePacketPanel.astro";
 import SourceList from "@components/SourceList.astro";
+import QuickActionStrip from "@components/QuickActionStrip.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd } from "@utils/seo";
+import { SITE } from "@data/site";
+import { articleJsonLd, breadcrumbJsonLd, canonicalUrl, faqJsonLd } from "@utils/seo";
 
 interface Source {
   label: string;
@@ -150,6 +152,11 @@ const jsonLd = [
 ].filter(Boolean);
 const defaultSourceNote = "This page is source-backed by academic, official, or institutional references listed below. It avoids uncontextualized propaganda and does not provide medical, reproductive, genetic, or legal advice.";
 const effectiveSourceNote = sourceNotes || defaultSourceNote;
+const canonical = canonicalUrl(path);
+const citedDateStr = new Date(lastUpdated).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+const citationTitle = title.replace(/[.?!]+$/, "");
+const citation = `${author}. "${citationTitle}." ${SITE.name}. Updated ${citedDateStr}. ${canonical}`;
+const classAnchorId = discussionQuestions.length > 0 ? "discussion-heading" : undefined;
 ---
 
 <BaseLayout
@@ -183,6 +190,8 @@ const effectiveSourceNote = sourceNotes || defaultSourceNote;
       {audience.length > 0 && <p class="review-status"><strong>Audience:</strong> {audience.join(", ")}</p>}
       <p class="review-status"><strong>Last reviewed by:</strong> {lastReviewedBy}</p>
     </header>
+
+    <QuickActionStrip citation={citation} canonical={canonical} classId={classAnchorId} />
 
     {contentWarning && <ContentWarning text={contentWarning} />}
 

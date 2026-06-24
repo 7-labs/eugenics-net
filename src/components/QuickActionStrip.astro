@@ -1,0 +1,29 @@
+---
+interface Props {
+  answerId?: string;
+  classId?: string;
+  sourcesId?: string;
+  citation: string;
+  canonical: string;
+}
+
+const {
+  answerId = "answer-first-heading",
+  classId,
+  sourcesId = "source-quality-heading",
+  citation,
+  canonical
+} = Astro.props;
+---
+
+<nav class="quick-actions" aria-label="Page actions">
+  <a class="quick-action" href={`#${answerId}`}>Quick answer</a>
+  {classId && <a class="quick-action" href={`#${classId}`}>Teaching &amp; discussion</a>}
+  <a class="quick-action" href={`#${sourcesId}`}>Sources</a>
+  <details class="cite-box">
+    <summary>Cite this page</summary>
+    <p class="cite-help">Select the citation text below to copy it. Adjust the style to match your course or publication.</p>
+    <p class="cite-citation">{citation}</p>
+    <p class="cite-url">Canonical URL: <a href={canonical}>{canonical}</a></p>
+  </details>
+</nav>

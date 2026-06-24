@@ -1,25 +1,27 @@
 # Project State
 
-Last updated: 2026-06-20
+Last updated: 2026-06-24
 
 ## Summary
 
-`eugenics.net` is an Astro static education and archive site. The source tree has been deployed to Cloudflare Pages, but the public apex domain is not currently serving this project.
+`eugenics.net` is an Astro static education and archive site. CI/CD is live and the site is deployed and green at `https://eugenics-net.pages.dev/`. The public apex domain is **not yet** serving this project: the only remaining launch blocker is a registrar nameserver change at Dynadot. The URL-policy question is resolved (extensionless canonical form, accepted).
 
 ## Current Production Truth
 
 - Public URL checked: `https://eugenics.net/`
-- Current response: redirects to `https://forsale.dynadot.com/eugenics.net?drefid=2071`
-- Status: production domain is not connected to this Astro site
-- Cloudflare Pages: project `eugenics-net` exists and has a successful production deployment at `https://eugenics-net.pages.dev/`
-- Latest deployment ID: `19246860-442d-4c9d-8d25-1ee4b5dbc404`
-- Production closeout: blocked until custom-domain/DNS binding is completed and the URL policy issue below is resolved
-- URL policy issue: Cloudflare Pages redirects `.html` requests to extensionless routes, for example `/what-is-eugenics.html` returns 308 to `/what-is-eugenics`. This conflicts with the project invariant that `.html` URLs are frozen.
-- Cloudflare deploy/status: Cloudflare token was loaded transiently from `local.env.txt` for this deploy; no token file was copied to OpenClaw and no secret value was printed.
-- DNS observation varies by resolver (`198.18.1.200` locally, `54.215.31.113` from OpenClaw), but both paths resolve to the same Dynadot parked-domain redirect.
+- Current response: still redirects to `https://forsale.dynadot.com/eugenics.net?drefid=2071`
+- Status: apex domain is not yet connected to this Astro site (pending registrar NS change)
+- Cloudflare Pages: project `eugenics-net` is live via GitHub Actions CI/CD; production host `https://eugenics-net.pages.dev/` returns HTTP 200 with HSTS/CSP/CF headers
+- Cloudflare zone: `eugenics.net` zone created, status **pending**; CF-assigned nameservers are `kristin.ns.cloudflare.com` and `santino.ns.cloudflare.com` (zone/account IDs are in the `ops/deploy-ledger.jsonl` record, not repeated here)
+- Custom domains: `eugenics.net` and `www.eugenics.net` registered on the Pages project, status **pending** — they auto-provision once the zone goes Active
+- **Sole remaining launch blocker (HUMAN):** Dynadot currently delegates to `raegan/simon.ns.cloudflare.com`, which REFUSE this zone. The owner must set Dynadot nameservers to `kristin/santino.ns.cloudflare.com`; the zone then activates and the pending custom domains provision automatically.
+- URL policy: **RESOLVED.** Decision is to accept Cloudflare Pages' extensionless serving (`/x.html` 308-redirects to `/x`). `canonicalUrl()`, sitemap, rss, JSON-LD, and every internal link now emit the extensionless form, so declared URLs equal served URLs. On-disk filenames and slugs stay `*.html` (Astro `format:file` unchanged) — no slug renames, no directory migration.
+- Cloudflare deploy/status: CF and GitHub tokens were loaded transiently from `local.env.txt`, never printed or committed; CF credentials live only as GitHub Actions repository secrets.
 
 ## Latest Validation Evidence
 
+- 2026-06-21 extensionless URL switch (commits `4a58b01`, `23b4825`): `canonicalUrl()` strips `.html` and maps `/index` to `/`; sitemap/rss route through it; nav, sections, and all internal hrefs are root-absolute extensionless. QA scripts updated to expect extensionless canonical/sitemap/links while still reading `x.html` files. OpenClaw `npm run check:all` passed (content-quality routes=36 warnings=0; site-integrity routes=36, upstream-link-only warnings; jsonld-validate passed). On the live pages.dev deploy, `/what-is-eugenics` returns 200 with canonical `https://eugenics.net/what-is-eugenics`, the `.html` form 308-redirects to extensionless, and `rss.xml` is served as `application/rss+xml`. `PRODUCTION_BASE_URL=https://eugenics-net.pages.dev node scripts/production-smoke.mjs` passed all 20 checks.
+- 2026-06-21 GitHub Actions CI/CD + zone setup: created repo `7-labs/eugenics-net` (verified no secrets/forbidden files in tree), added `.github/workflows/deploy.yml` (Node 22, `npm ci` → `npm run build` → `wrangler pages deploy`). CI run `27906217972` succeeded end-to-end; production deployment `1f029f33`; `https://eugenics-net.pages.dev` returns 200 with HSTS/CSP/CF headers. Created the `eugenics.net` Cloudflare zone and registered apex+www Pages custom domains (both pending registrar NS).
 - 2026-06-20 Cloudflare Pages deploy: created Pages project `eugenics-net` and deployed 113 files successfully. Wrangler reported deployment complete at `https://19246860.eugenics-net.pages.dev`; canonical project host `https://eugenics-net.pages.dev/` returned HTTP 200 with Cloudflare headers, HSTS, CSP, and rendered homepage content.
 - 2026-06-20 production smoke against `https://eugenics-net.pages.dev` did not fully pass because Cloudflare Pages redirects `.html` pages to extensionless routes (`/what-is-eugenics.html` -> `/what-is-eugenics`) and serves `rss.xml` as `application/xml` instead of `application/rss+xml`.
 - 2026-06-20 OpenClaw `bash ./deploy.sh validate`: passed after lockfile-only Astro update from 6.4.3 to 6.4.8. Astro built 38 pages, Pagefind v1.5.2 indexed 37 pages, production dependency audit at `moderate` threshold passed with only low-severity esbuild dev-server advisory remaining, content quality passed, site integrity passed with upstream-only external URL warnings, JSON-LD validation passed, and browser QA produced 72 screenshots plus search QA at `eugenics-net/browser-qa/20260620-044403`.
@@ -70,9 +72,9 @@ Historical validation:
 
 ## Launch Blockers
 
-- Decide whether to accept Cloudflare Pages' extensionless URL redirects or move hosting/edge handling to a path that preserves frozen `.html` URLs.
-- Bind `eugenics.net` and `www.eugenics.net` to the Cloudflare Pages project after the URL policy decision.
-- Confirm Cloudflare zone/DNS state for the apex domain and update nameservers away from Dynadot only when the URL policy is acceptable.
-- Run `bash ./deploy.sh deploy-closeout` and confirm Cloudflare status plus local/OpenClaw production smoke, non-Dynadot response, and security headers.
-- Confirm `corrections@eugenics.net` is provisioned and monitored.
+- **[HUMAN, sole blocker]** Set Dynadot nameservers for `eugenics.net` to `kristin.ns.cloudflare.com` and `santino.ns.cloudflare.com`. The current `raegan/simon` delegation refuses this zone, so the zone stays pending and the apex keeps serving the Dynadot parked redirect. Once changed, the zone activates and the already-registered apex+www Pages custom domains auto-provision.
+- After the zone is Active, run `bash ./deploy.sh deploy-closeout` and confirm Cloudflare status plus local/OpenClaw production smoke against the apex, a non-Dynadot response, and security headers.
+- Confirm `corrections@eugenics.net` is provisioned and monitored (Cloudflare Email Routing on the new zone).
 - Keep external subject-matter and affected-community review marked pending until actually completed.
+
+Resolved (no longer blockers): URL-policy decision (extensionless accepted, landed 2026-06-21); Cloudflare Pages deploy + CI/CD (live); zone creation + custom-domain registration (done, pending NS only).

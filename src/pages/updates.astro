@@ -11,25 +11,32 @@ const path = "/updates.html";
 const sourcePacket = (await getEntry("sourcePackets", "updates"))?.data;
 const updateRows = [
   {
-    date: "2026-06-03",
+    date: "2026-06-21",
+    page: "Site-wide",
+    type: "URL policy",
+    status: "Resolved",
+    note: "Canonical page addresses are now the extensionless form (for example /what-is-eugenics) to match how the site is served; the underlying filenames and slugs are unchanged. Canonical tags, the sitemap, the article feed, structured data, and internal links all use this form, verified on the live preview."
+  },
+  {
+    date: "2026-06-21",
+    page: "Deployment",
+    type: "CI/CD",
+    status: "Preview live",
+    note: "Continuous deployment is in place: every change merged to the main branch is automatically built and published to a preview address that passes checks. The public eugenics.net domain is not yet serving this site (see below)."
+  },
+  {
+    date: "2026-06-21",
     page: "Site-wide",
     type: "Production readiness",
     status: "Open",
-    note: "Public domain smoke shows eugenics.net is not yet serving this Astro site; deploy and DNS/Cloudflare binding remain production blockers."
-  },
-  {
-    date: "2026-06-03",
-    page: "Deployment",
-    type: "Cloudflare status",
-    status: "Blocked",
-    note: "OpenClaw build, security checks, content checks, and browser QA passed. Cloudflare deploy and log review are blocked until Wrangler is authenticated with a non-interactive Cloudflare API token."
+    note: "The public eugenics.net address is not yet serving this site. The one remaining step is a registrar nameserver change so the hosting setup can activate and the registered apex and www addresses can finish provisioning."
   },
   {
     date: "2026-06-03",
     page: "Site-wide",
     type: "Review state",
     status: "Open",
-    note: "Internal V3 editorial review is represented in source packets. External subject-matter and affected-community review remains pending unless a page states otherwise."
+    note: "Internal editorial review is represented in source packets. External subject-matter and affected-community review remains pending unless a page states otherwise."
   },
   {
     date: "2026-06-03",

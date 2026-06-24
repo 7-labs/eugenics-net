@@ -1,0 +1,31 @@
+---
+interface Task {
+  label: string;
+  href: string;
+  desc: string;
+}
+
+interface Props {
+  heading: string;
+  eyebrow?: string;
+  intro?: string;
+  tasks: Task[];
+}
+
+const { heading, eyebrow = "Start here", intro, tasks } = Astro.props;
+const headingId = "task-panel-heading";
+---
+
+<section class="task-panel" aria-labelledby={headingId}>
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 id={headingId}>{heading}</h2>
+  {intro && <p class="task-panel-intro">{intro}</p>}
+  <div class="link-grid compact-grid">
+    {tasks.map((task) => (
+      <article>
+        <h3><a href={task.href}>{task.label}</a></h3>
+        <p>{task.desc}</p>
+      </article>
+    ))}
+  </div>
+</section>
