@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SourceList from "@components/SourceList.astro";
 import SourcePacketPanel from "@components/SourcePacketPanel.astro";
+import TaskPanel from "@components/TaskPanel.astro";
 import { getEntry } from "astro:content";
 import { commonSources } from "@data/site";
 import { learningResourceJsonLd } from "@utils/seo";
@@ -69,6 +70,12 @@ const printablePrompts = [
   "How would the meaning change if the page centered a survivor, family, disability-rights, or civil-rights perspective first?",
   "What modern safeguard would directly answer the harm visible in the source?"
 ];
+const teachingTasks = [
+  ["#course-paths", "Pick a course path", "Choose a 90-minute, two-week, workshop, or upper-level sequence."],
+  ["#worksheet-heading", "Use the source-analysis worksheet", "Copy the five-step worksheet straight into a lesson plan."],
+  ["#source-rules-heading", "Apply source-use rules", "Safeguards for showing sensitive historical material in class."],
+  ["#discussion-prompts-heading", "Open discussion prompts", "Questions that analyze power and evidence, not the rights of targeted groups."]
+].map(([href, label, desc]) => ({ href, label, desc }));
 const worksheetSteps = [
   "Name the source creator, institution, date, audience, and publication purpose.",
   "Identify the harmful claim without repeating it as neutral vocabulary.",
@@ -86,6 +93,13 @@ const worksheetSteps = [
       <p class="lead">A responsible critical education lesson helps students understand harm, power, pseudoscience, and resistance without giving eugenic claims a neutral platform.</p>
     </header>
 
+    <TaskPanel
+      heading="Plan your lesson"
+      eyebrow="Choose your task"
+      intro="Jump straight to the part of this page you need."
+      tasks={teachingTasks}
+    />
+
     <section class="link-grid" aria-labelledby="teaching-routes">
       <h2 id="teaching-routes">Teaching Modules</h2>
       <article>
@@ -102,8 +116,8 @@ const worksheetSteps = [
       </article>
     </section>
 
-    <section>
-      <h2>Course Paths</h2>
+    <section aria-labelledby="course-paths">
+      <h2 id="course-paths">Course Paths</h2>
       <div class="course-paths">
         {coursePaths.map((pathway) => (
           <article>

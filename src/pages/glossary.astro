@@ -10,6 +10,14 @@ const description = "Definitions for core terms used in critical eugenics histor
 const path = "/glossary.html";
 const jsonLd = definedTermSetJsonLd({ title, description, path, terms: glossaryTerms });
 const sourcePacket = (await getEntry("sourcePackets", "glossary"))?.data;
+const sortedTerms = [...glossaryTerms].sort((a, b) => a.term.localeCompare(b.term));
+const letterGroups = [];
+for (const entry of sortedTerms) {
+  const letter = entry.term[0].toUpperCase();
+  const group = letterGroups.find((g) => g.letter === letter);
+  if (group) group.terms.push(entry);
+  else letterGroups.push({ letter, terms: [entry] });
+}
 ---
 
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
@@ -22,11 +30,21 @@ const sourcePacket = (await getEntry("sourcePackets", "glossary"))?.data;
 
     <section class="glossary-list" aria-labelledby="terms-heading">
       <h2 id="terms-heading">Terms</h2>
-      {glossaryTerms.map((term) => (
-        <article id={term.slug}>
-          <h3>{term.term}</h3>
-          <p>{term.definition}</p>
-        </article>
+      <nav class="az-index" aria-label="Jump to a letter">
+        {letterGroups.map((group) => (
+          <a href={`#gloss-${group.letter}`}>{group.letter}</a>
+        ))}
+      </nav>
+      {letterGroups.map((group) => (
+        <div class="gloss-group">
+          <h3 class="gloss-letter" id={`gloss-${group.letter}`}>{group.letter}</h3>
+          {group.terms.map((term) => (
+            <article id={term.slug}>
+              <h4>{term.term}</h4>
+              <p>{term.definition}</p>
+            </article>
+          ))}
+        </div>
       ))}
     </section>
 

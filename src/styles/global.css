@@ -1161,3 +1161,65 @@ summary {
     display: none;
   }
 }
+
+/* Glossary A-Z jump index + letter groups */
+.az-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.5rem;
+}
+
+.az-index a {
+  align-items: center;
+  background: #eef4f7;
+  border: 1px solid #c7dbe7;
+  border-radius: 6px;
+  color: var(--navy);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  text-decoration: none;
+}
+
+.az-index a:hover {
+  background: #dcebf2;
+}
+
+.gloss-letter {
+  border-bottom: 2px solid var(--red);
+  color: var(--navy);
+  font-size: 1.6rem;
+  margin: 1.75rem 0 0.9rem;
+  padding-bottom: 0.25rem;
+  scroll-margin-top: 1rem;
+}
+
+.glossary-list h4 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+/* Archive item readiness checklist */
+.readiness-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.readiness-checklist li {
+  margin: 0 0 0.6rem;
+  padding-left: 1.9rem;
+  position: relative;
+}
+
+.readiness-checklist li::before {
+  content: "\2610";
+  font-size: 1.25rem;
+  left: 0;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+}
