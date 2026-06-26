@@ -31,7 +31,7 @@ const checks = [
     path: "/no-such-page",
     type: "html",
     expectedStatus: 404,
-    includes: ["Page Not Found", "Current Routes"]
+    includes: ["Page Not Found", "Find Your Way"]
   },
   {
     path: "/robots.txt",
