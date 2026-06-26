@@ -1,6 +1,6 @@
 # Project State
 
-Last updated: 2026-06-24
+Last updated: 2026-06-26
 
 ## Summary
 
@@ -20,6 +20,7 @@ Last updated: 2026-06-24
 
 ## Latest Validation Evidence
 
+- 2026-06-26 function-first UX design deployed (commits `45893b0`, `976ddd8`, `59d00de`, `e902f6f`): fast-forward merged the 3-batch function-first optimization to `main` and deployed via CI to pages.dev — first-screen `TaskPanel`/`QuickActionStrip` task routers (home, article template, 404), glossary A–Z index, teaching/archive navigability panels, and `tableOfContents` + `keyTakeaways` backfilled on the 10 standard articles that lacked them (all 25 articles now at parity). Frontmatter-only content; zero new client JS; CSP unchanged. OpenClaw `deploy.sh validate` green (check:all routes=36, content-quality warnings=0, site-integrity + jsonld passed, browser QA 72 screenshots, axe-core 9 checks, Lighthouse a11y 5 routes @ 100). batch-3 toc ids verified against H2 github-slugger slugs + editorial review CLEAN (faithfulness / no-advice / anti-endorsement). CI runs `28232837512` and `28241794685` succeeded; live pages.dev confirms "On This Page" TOC + Key Takeaways render with anchors resolving. `PRODUCTION_BASE_URL=https://eugenics-net.pages.dev node scripts/production-smoke.mjs` passed 20/20 after syncing the 404 marker (`Current Routes` → `Find Your Way`, renamed in batch 1). See `ops/deploy-ledger.jsonl`.
 - 2026-06-21 extensionless URL switch (commits `4a58b01`, `23b4825`): `canonicalUrl()` strips `.html` and maps `/index` to `/`; sitemap/rss route through it; nav, sections, and all internal hrefs are root-absolute extensionless. QA scripts updated to expect extensionless canonical/sitemap/links while still reading `x.html` files. OpenClaw `npm run check:all` passed (content-quality routes=36 warnings=0; site-integrity routes=36, upstream-link-only warnings; jsonld-validate passed). On the live pages.dev deploy, `/what-is-eugenics` returns 200 with canonical `https://eugenics.net/what-is-eugenics`, the `.html` form 308-redirects to extensionless, and `rss.xml` is served as `application/rss+xml`. `PRODUCTION_BASE_URL=https://eugenics-net.pages.dev node scripts/production-smoke.mjs` passed all 20 checks.
 - 2026-06-21 GitHub Actions CI/CD + zone setup: created repo `7-labs/eugenics-net` (verified no secrets/forbidden files in tree), added `.github/workflows/deploy.yml` (Node 22, `npm ci` → `npm run build` → `wrangler pages deploy`). CI run `27906217972` succeeded end-to-end; production deployment `1f029f33`; `https://eugenics-net.pages.dev` returns 200 with HSTS/CSP/CF headers. Created the `eugenics.net` Cloudflare zone and registered apex+www Pages custom domains (both pending registrar NS).
 - 2026-06-20 Cloudflare Pages deploy: created Pages project `eugenics-net` and deployed 113 files successfully. Wrangler reported deployment complete at `https://19246860.eugenics-net.pages.dev`; canonical project host `https://eugenics-net.pages.dev/` returned HTTP 200 with Cloudflare headers, HSTS, CSP, and rendered homepage content.
