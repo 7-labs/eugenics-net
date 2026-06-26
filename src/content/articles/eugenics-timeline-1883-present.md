@@ -35,6 +35,25 @@ discussionQuestions:
   - "Why should a timeline include survivor activism and repeal efforts?"
   - "How do modern bioethics debates connect to this longer history?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Galton's 1883 term gave older hierarchies of racism, class, and ableism a modern vocabulary rather than marking a neutral scientific discovery."
+  - "Eugenics gained power through institutions — sterilization laws, immigration restriction, school materials, and Nazi racial hygiene that escalated from classification to murder."
+  - "Postwar discrediting did not end the harm; survivors and bioethics keep this memory alive as a safeguard for modern genetics debates."
+tableOfContents:
+  - id: "1883-a-name-for-an-older-hierarchy"
+    label: "An Older Hierarchy"
+  - id: "early-1900s-institutional-growth"
+    label: "Institutional Growth"
+  - id: "1907-1970s-sterilization-laws-in-the-united-states"
+    label: "US Sterilization Laws"
+  - id: "1920s-1930s-immigration-restriction-and-public-education"
+    label: "Immigration and Schools"
+  - id: "1933-1945-nazi-racial-hygiene"
+    label: "Nazi Racial Hygiene"
+  - id: "after-1945-discrediting-and-renaming"
+    label: "Discrediting and Renaming"
+  - id: "1970s-present-survivor-testimony-and-bioethics"
+    label: "Survivors and Bioethics"
 ---
 
 ## 1883: A Name for an Older Hierarchy

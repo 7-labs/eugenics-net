@@ -36,6 +36,19 @@ faqs:
   - question: "Was eugenics wrong only because it was used badly?"
     answer: "No. Eugenics was ethically harmful and scientifically flawed because it misrepresented heredity, ignored social context, and treated people as means to population goals."
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Eugenics failed scientifically by treating complex traits like poverty and disability as simple inherited defects, ignoring environment, social conditions, and chance."
+  - "Its measurements were not neutral; categories of fit and unfit encoded racism, ableism, and class prejudice as if they were objective data."
+  - "Eugenics used heredity as a policy shortcut to blame targeted people; modern genetics instead demands humility, consent, and limits against discrimination."
+tableOfContents:
+  - id: "complex-traits-are-not-simple-defects"
+    label: "Not Simple Defects"
+  - id: "measurement-was-not-neutral"
+    label: "Measurement Bias"
+  - id: "heredity-was-used-as-a-policy-shortcut"
+    label: "Heredity as Shortcut"
+  - id: "modern-genetics-requires-humility"
+    label: "Genetics Needs Humility"
 ---
 
 ## Complex Traits Are Not Simple Defects

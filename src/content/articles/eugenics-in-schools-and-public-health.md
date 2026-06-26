@@ -33,6 +33,21 @@ discussionQuestions:
   - "How can educators teach harmful historical materials without repeating their harm?"
   - "What public-health safeguards prevent coercive uses of science?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Eugenics gained authority by circulating through everyday institutions: schools, public-health campaigns, fairs, exhibitions, textbooks, and reform language that made ranking seem ordinary."
+  - "Classrooms taught heredity categories before critique, and eugenic public-health language reframed sterilization, segregation, and surveillance as prevention."
+  - "The article treats these channels as patterns to recognize and challenge, insisting education and public health rest on consent, rights, and accountability."
+tableOfContents:
+  - id: "everyday-institutions"
+    label: "Everyday Institutions"
+  - id: "classrooms"
+    label: "Classrooms"
+  - id: "public-health"
+    label: "Public Health"
+  - id: "exhibitions-and-visual-culture"
+    label: "Visual Culture"
+  - id: "teaching-today"
+    label: "Teaching Today"
 ---
 
 ## Everyday Institutions

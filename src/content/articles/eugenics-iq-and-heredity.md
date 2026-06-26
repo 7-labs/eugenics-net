@@ -33,6 +33,19 @@ discussionQuestions:
   - "How can tests reflect the conditions under which people live?"
   - "Why should heritability not be used as a policy shortcut?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Eugenicists turned limited test scores into heredity claims and labels that drove school placement, institutionalization, immigration judgment, and sterilization policy."
+  - "Heritability is a population-level statistic, not inherited destiny, but eugenic arguments ignored that limit to make inequality look natural."
+  - "Because test results reflect unequal social conditions, eugenic misuse fell hardest on people already under institutional power."
+tableOfContents:
+  - id: "measurement-is-not-worth"
+    label: "Scores Versus Worth"
+  - id: "the-misuse-of-heritability"
+    label: "Misusing Heritability"
+  - id: "biased-conditions"
+    label: "Biased Conditions"
+  - id: "responsible-use-of-data"
+    label: "Responsible Data Use"
 ---
 
 ## Measurement Is Not Worth

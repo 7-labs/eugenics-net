@@ -35,6 +35,23 @@ discussionQuestions:
   - "How can teachers center affected communities and survivor perspectives?"
   - "Which classroom activities should be avoided because they reproduce eugenic logic?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Responsible teaching begins with a clear anti-endorsement frame: eugenics was scientifically flawed and ethically harmful, and documentation is not endorsement."
+  - "Define terms and contextualize harmful primary sources before any excerpt, framing labels like fit and unfit as eugenic classifications, not neutral categories."
+  - "Center affected communities and survivors, avoid activities that rank or classify people, and close with bioethics governance rather than medical advice."
+tableOfContents:
+  - id: "begin-with-position"
+    label: "Begin With Position"
+  - id: "define-terms-first"
+    label: "Define Terms First"
+  - id: "use-primary-sources-carefully"
+    label: "Using Primary Sources"
+  - id: "center-affected-people"
+    label: "Center Affected People"
+  - id: "avoid-harmful-activities"
+    label: "Avoid Harmful Activities"
+  - id: "connect-to-modern-bioethics"
+    label: "Modern Bioethics"
 ---
 
 ## Begin With Position

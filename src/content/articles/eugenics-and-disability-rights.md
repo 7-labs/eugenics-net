@@ -33,6 +33,21 @@ discussionQuestions:
   - "Why should disability-rights perspectives shape modern bioethics?"
   - "What is lost when teaching focuses only on policy makers and not affected people?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Eugenic movements treated disabled people as hereditary burdens, reducing them to diagnoses and records while ignoring autonomy, rights, and access."
+  - "Institutionalization made disabled people vulnerable to classification and sterilization, and Nazi racial hygiene escalated this ableist logic into the T4 murders."
+  - "A disability-rights reading rejects the premise that disability reduces human worth and asks whose voices archives and bioethics still exclude."
+tableOfContents:
+  - id: "disability-as-a-target"
+    label: "Disability as Target"
+  - id: "institutionalization-and-sterilization"
+    label: "Institutions and Sterilization"
+  - id: "nazi-disability-murder"
+    label: "Nazi Disability Murder"
+  - id: "modern-bioethics"
+    label: "Modern Bioethics"
+  - id: "archive-practice"
+    label: "Archive Practice"
 ---
 
 ## Disability as a Target

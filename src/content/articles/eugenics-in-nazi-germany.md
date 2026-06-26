@@ -33,6 +33,21 @@ discussionQuestions:
   - "Why should disability history be central to teaching Nazi eugenics?"
   - "What warning signs appear when science is used to define lives as unworthy?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "In Nazi Germany racial-hygiene ideology became law and administration, as doctors, courts, and officials converted prejudice into classification and state violence."
+  - "Compulsory sterilization and the T4 murders of disabled adults and children show eugenic theory escalating into routine, institutionally backed state killing."
+  - "The article presents this as a warning: classification becomes coercion when institutions accept hierarchy as science and remove human rights."
+tableOfContents:
+  - id: "racial-hygiene-as-state-policy"
+    label: "Racial Hygiene Policy"
+  - id: "compulsory-sterilization"
+    label: "Compulsory Sterilization"
+  - id: "the-t4-program"
+    label: "The T4 Program"
+  - id: "escalation"
+    label: "Escalation Sequence"
+  - id: "educational-responsibility"
+    label: "Educational Responsibility"
 ---
 
 ## Racial Hygiene as State Policy

@@ -33,6 +33,19 @@ discussionQuestions:
   - "Why should archives document institutions without reproducing their authority?"
   - "What metadata should accompany a harmful historical record?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "The Eugenics Record Office gave prejudice institutional infrastructure, collecting family pedigrees and field reports that made eugenic claims look like neutral records."
+  - "Pedigrees compressed poverty, disability, and racism into a single heredity story, making moral judgments look like biological evidence."
+  - "A critical archive documents these records with provenance, warnings, and affected-community notes, preventing evidence of harm from appearing to support the harm."
+tableOfContents:
+  - id: "institution-and-authority"
+    label: "Institutional Authority"
+  - id: "pedigrees-and-social-categories"
+    label: "Pedigrees and Categories"
+  - id: "policy-influence"
+    label: "Record to Policy"
+  - id: "how-to-archive-this-history"
+    label: "Archiving This History"
 ---
 
 ## Institution and Authority

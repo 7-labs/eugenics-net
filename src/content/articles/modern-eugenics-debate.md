@@ -36,6 +36,19 @@ faqs:
   - question: "Does this article give medical advice?"
     answer: "No. It offers historical and ethical framing only. Medical decisions require qualified clinical guidance and informed consent."
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "The phrase modern eugenics is contested, most useful when it asks who holds power, who defines desirable traits, and who is pressured."
+  - "Genetic risk and embryo screening become harmful when power, markets, or family pressure treat results as a measure of human worth."
+  - "Enhancement can amplify inequality, so the article frames rights-based boundaries like consent, privacy, non-discrimination, and disability justice without prescribing any decision."
+tableOfContents:
+  - id: "why-the-term-is-contested"
+    label: "A Contested Term"
+  - id: "genetic-testing-and-screening"
+    label: "Testing and Screening"
+  - id: "enhancement-and-inequality"
+    label: "Enhancement and Inequality"
+  - id: "rights-based-boundaries"
+    label: "Rights-Based Boundaries"
 ---
 
 ## Why the Term Is Contested

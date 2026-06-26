@@ -33,6 +33,21 @@ discussionQuestions:
   - "Why is national identity not a genetic category?"
   - "How can educators discuss historical immigration restrictions without repeating xenophobic claims?"
 reviewStatus: "V3 pre-launch editorial review complete; external subject-matter and affected-community review pending."
+keyTakeaways:
+  - "Eugenicists recast immigration as a biological threat to national stock, turning political and social questions into scientific racism about who belongs."
+  - "Their rankings by race, nationality, class, and supposed intelligence reflected political choices, not natural divisions, yet expert authority made exclusion look rational."
+  - "National belonging is not a genetic category, and the article warns when scientific vocabulary is used to naturalize xenophobic exclusion."
+tableOfContents:
+  - id: "immigration-as-a-biological-story"
+    label: "A Biological Story"
+  - id: "ranking-groups"
+    label: "Ranking Groups"
+  - id: "public-authority"
+    label: "Expert Authority"
+  - id: "modern-relevance"
+    label: "Modern Relevance"
+  - id: "teaching-boundary"
+    label: "Teaching Boundary"
 ---
 
 ## Immigration as a Biological Story
